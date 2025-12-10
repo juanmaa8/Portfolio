@@ -118,9 +118,12 @@ const content = {
         impactBadges: ["Automated Reporting", "Margin Analysis", "SQL Integration"], 
         tags: ["Power BI", "SQL Server", "Sage ERP", "DAX"],
         gallery: [
-           "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-           "https://images.unsplash.com/photo-1543286386-713df548e9cc?q=80&w=2070&auto=format&fit=crop"
+           "/images/dashboard-main.png",      // La foto del Executive Overview
+           "/images/regional-map.jpg",        // La del mapa
+           "/images/product-analysis.png",    // La de barras rosas/verdes
+           "/images/customer-trends.png",     // La de líneas de tendencia
+           "/images/alerts.png",              // La de alertas
+           "/images/data-model.png"           // La del esquema de datos (MUY IMPORTANTE)
         ],
         shortDesc: "Development of a central Power BI dashboard connecting directly to SQL to track domestic vs. international sales in real-time.",
         challenge: "The company relied on manual Excel reports, causing retrasos. There was no clear visibility into SKU-level profitability or consolidated international sales data.",
@@ -284,9 +287,12 @@ const content = {
         impactBadges: ["Reportes Automatizados", "Análisis de Margen", "Integración SQL"], 
         tags: ["Power BI", "SQL Server", "Sage ERP", "DAX"],
         gallery: [
-           "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-           "https://images.unsplash.com/photo-1543286386-713df548e9cc?q=80&w=2070&auto=format&fit=crop"
+           "/images/dashboard-main.png",      // La foto del Executive Overview
+           "/images/regional-map.jpg",        // La del mapa
+           "/images/product-analysis.png",    // La de barras rosas/verdes
+           "/images/customer-trends.png",     // La de líneas de tendencia
+           "/images/alerts.png",              // La de alertas
+           "/images/data-model.png"           // La del esquema de datos (MUY IMPORTANTE)
         ],
         shortDesc: "Desarrollo de un dashboard central en Power BI conectado directamente a SQL para rastrear ventas domésticas vs internacionales en tiempo real.",
         challenge: "La empresa dependía de reportes manuales en Excel, causando retrasos. No había visibilidad clara sobre la rentabilidad a nivel de SKU ni datos consolidados de ventas internacionales.",
