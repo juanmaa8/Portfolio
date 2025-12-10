@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    <!-- SEO & Meta Tags -->
+    <title>Juan Manuel Garcia | BI Analyst & Commercial Strategy</title>
+    <meta name="description" content="Business Intelligence Analyst specializing in commercial strategy, SQL-based automation, and Power BI systems that deliver measurable growth.">
+    <meta name="keywords" content="BI Analyst, Power BI, SQL, Data Strategy, Commercial Intelligence, Miami">
+    <meta name="author" content="Juan Manuel Garcia">
+
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://juanmgarcia.vercel.app/">
+    <meta property="og:title" content="Juan Manuel Garcia | BI Analyst">
+    <meta property="og:description" content="Transforming raw data into profitability. Explore my case studies in SQL, Power BI, and Commercial Strategy.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://juanmgarcia.vercel.app/">
+    <meta property="twitter:title" content="Juan Manuel Garcia | BI Analyst">
+    <meta property="twitter:description" content="Transforming raw data into profitability. Explore my case studies.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80">
+
+    <!-- Favicon (Gráfico de barras minimalista en SVG) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect x=%2210%22 y=%2260%22 width=%2220%22 height=%2230%22 fill=%22%231e3a8a%22 rx=%224%22></rect><rect x=%2240%22 y=%2230%22 width=%2220%22 height=%2260%22 fill=%22%231e3a8a%22 rx=%224%22></rect><rect x=%2270%22 y=%2210%22 width=%2220%22 height=%2280%22 fill=%22%231e3a8a%22 rx=%224%22></rect></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <!-- ESTA LÍNEA ES CRÍTICA: Conecta el código React -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
