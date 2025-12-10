@@ -145,7 +145,9 @@ const content = {
         impactBadges: ["Usage Analysis", "Report Optimization", "KQL"],
         tags: ["KQL", "Azure Logs", "Power BI Service"],
         gallery: [
-            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+             "/images/engagement-KQL.png",      // Engagement de los usuarios a PowerBI
+             "/images/adopcion-KQL.png",        // Adopcion y DAU a PowerBI
+             "/images/code-KQL.png"           // codigo limpio
         ],
         shortDesc: "Created a tracking system using KQL to measure how often reports were being used by the management team.",
         challenge: "We didn't know which reports were actually useful. It was hard to justify spending time on reports without knowing if they were being adopted.",
@@ -314,7 +316,9 @@ const content = {
         impactBadges: ["Análisis de Uso", "Optimización de Reportes", "KQL"],
         tags: ["KQL", "Azure Logs", "Power BI Service"],
         gallery: [
-            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+             "/images/engagement-KQL.png",      // Engagement de los usuarios a PowerBI
+             "/images/adopcion-KQL.png",        // Adopcion y DAU a PowerBI
+             "/images/code-KQL.png"           // codigo limpio
         ],
         shortDesc: "Creación de un sistema de seguimiento usando KQL para medir con qué frecuencia el equipo directivo utilizaba los reportes.",
         challenge: "No sabíamos qué reportes eran realmente útiles. Era difícil justificar el tiempo dedicado a reportes sin saber si estaban siendo adoptados.",
