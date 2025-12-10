@@ -191,6 +191,172 @@ const content = {
         desc: "Developed SQL-based reports for the Argos BI system. Improved data accuracy by 15% and optimized IT documentation, reducing troubleshooting time for users."
       }
     ]
+  },
+  es: {
+    nav: {
+      work: "Proyectos",
+      trajectory: "Experiencia",
+      contact: "Contacto",
+      role: "Analista de BI"
+    },
+    hero: {
+      available: "Disponible para contratar",
+      titleStart: "Transformando",
+      titleHighlight: "Datos",
+      titleEnd: "en Estrategias Rentables.",
+      desc: "Analista de Business Intelligence bilingüe (EN/ES). Construyo soluciones en Power BI y modelos SQL que ayudan a las empresas a medir su rendimiento y optimizar la rentabilidad.",
+      btnWork: "Ver Proyectos",
+      btnResume: "Currículum",
+      stack: "SQL y Power BI",
+      focus: "Estrategia de Datos",
+      location: "Miami, FL"
+    },
+    expertise: {
+      title: "Enfoque Técnico",
+      subtitle: "Mi habilidad principal: cerrar la brecha entre datos brutos y decisiones de negocio.",
+      cards: [
+        {
+          title: "Modelado de Datos y SQL",
+          desc: "Limpieza y estructuración de datos usando SQL (CTEs, Vistas). Conexión de sistemas ERP (Sage) a repositorios centrales para reportes precisos.",
+          tags: ["SQL Server", "Limpieza de Datos", "Modelado de Datos", "Azure"]
+        },
+        {
+          title: "Desarrollo en Power BI",
+          desc: "Diseño de dashboards intuitivos. Uso de DAX para cálculos complejos y aseguramiento de reportes automatizados y fáciles de leer.",
+          tags: ["Power BI", "DAX", "Diseño de Dashboards", "Automatización"]
+        },
+        {
+          title: "Análisis de Negocio",
+          desc: "Entender qué necesita medir el negocio. Definición de KPIs para rentabilidad, previsión de ventas y seguimiento de márgenes.",
+          tags: ["Definición de KPIs", "Análisis de Ventas", "Forecasting", "Reportes"]
+        }
+      ]
+    },
+    work: {
+      title: "Proyectos Relevantes",
+      subtitle: "Aplicaciones prácticas de herramientas de BI para resolver problemas reales de negocio.",
+      viewReport: "Ver Detalles",
+      readAnalysis: "Leer Caso"
+    },
+    experience: {
+      title: "Experiencia Laboral",
+      subtitle: "Mi trayectoria profesional en IT y Business Intelligence.",
+      download: "Descargar CV",
+      educationTitle: "Educación",
+      education: [
+        {
+          title: "Especialista en Inteligencia Artificial",
+          school: "Racks Academy, España (2025)",
+          desc: "Enfoque: IA para Aplicaciones de Negocio"
+        },
+        {
+          title: "Grado en Sistemas de Info. y Ciencias de la Comp.",
+          school: "Missouri Valley College (2024)",
+          desc: "Minor: Administración de Empresas | GPA: 3.3"
+        }
+      ],
+      certificationsTitle: "Certificaciones",
+      certs: [
+        { name: "SQL (Coursera)", status: "Completado" },
+        { name: "PL-300", status: "En Progreso" },
+        { name: "BIDA CFI", status: "En Progreso" }
+      ]
+    },
+    footer: {
+      tagline: "Haciendo los datos intuitivos y rentables.",
+      built: "Creado con React y TailwindCSS"
+    },
+    modal: {
+      placeholder: "Vista Previa del Proyecto",
+      upload: "Visuales próximamente",
+      problem: "El Desafío",
+      execution: "Lo que hice",
+      outcomes: "Resultados",
+      tech: "Herramientas"
+    },
+    projects: [
+      {
+        id: 1,
+        category: "DASHBOARDING Y AUTOMATIZACIÓN",
+        title: "Dashboard de Ventas y Rentabilidad",
+        client: "AMG Global Distribution",
+        metrics: "Forecasting en Tiempo Real",
+        impactBadges: ["Reportes Automatizados", "Análisis de Margen", "Integración SQL"], 
+        tags: ["Power BI", "SQL Server", "Sage ERP", "DAX"],
+        gallery: [
+           "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+           "https://images.unsplash.com/photo-1543286386-713df548e9cc?q=80&w=2070&auto=format&fit=crop"
+        ],
+        shortDesc: "Desarrollo de un dashboard central en Power BI conectado directamente a SQL para rastrear ventas domésticas vs internacionales en tiempo real.",
+        challenge: "La empresa dependía de reportes manuales en Excel, causando retrasos. No había visibilidad clara sobre la rentabilidad a nivel de SKU ni datos consolidados de ventas internacionales.",
+        solution: "Conecté el ERP Sage a una base de datos SQL para normalizar los datos, luego construí un dashboard en Power BI con actualización automática. Implementé medidas DAX para calcular márgenes reales por SKU.",
+        results: [
+          "Habilitó forecasting en tiempo real para segmentos domésticos e internacionales.",
+          "Mejoró la precisión de los datos en más del 25% al eliminar errores manuales.",
+          "Redujo el tiempo de generación de reportes en un 80% mediante automatización."
+        ],
+        stack: ["SQL Server", "Power BI", "DAX", "Excel"]
+      },
+      {
+        id: 2,
+        category: "GOBERNANZA DE DATOS",
+        title: "Sistema de Rastreo de Uso de BI",
+        client: "Iniciativa Interna",
+        metrics: "Métricas de Adopción",
+        impactBadges: ["Análisis de Uso", "Optimización de Reportes", "KQL"],
+        tags: ["KQL", "Azure Logs", "Power BI Service"],
+        gallery: [
+            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+        ],
+        shortDesc: "Creación de un sistema de seguimiento usando KQL para medir con qué frecuencia el equipo directivo utilizaba los reportes.",
+        challenge: "No sabíamos qué reportes eran realmente útiles. Era difícil justificar el tiempo dedicado a reportes sin saber si estaban siendo adoptados.",
+        solution: "Escribí scripts en KQL (Kusto Query Language) para analizar los Logs de Actividad de Power BI. Esto nos permitió ver quién veía qué reporte y con qué frecuencia.",
+        results: [
+          "Midió el compromiso con los reportes en diferentes departamentos.",
+          "Identificó reportes subutilizados para dejar de mantenerlos.",
+          "Proporcionó datos a la gerencia para apoyar estrategias de adopción de BI."
+        ],
+        stack: ["KQL", "Azure Log Analytics", "Power BI Service"]
+      },
+      {
+        id: 3,
+        category: "DOCUMENTACIÓN DE PROCESOS",
+        title: "Log de Operaciones y Solicitudes",
+        client: "Optimización de Flujo de Trabajo",
+        metrics: "Eficiencia de Flujo",
+        impactBadges: ["Seguimiento de Tareas", "SOPs", "Conceptos Agile"],
+        tags: ["Notion", "Procesos", "Documentación"],
+        gallery: [
+            "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2076&auto=format&fit=crop"
+        ],
+        shortDesc: "Implementación de un sistema estructurado para rastrear solicitudes de datos y documentar procedimientos operativos estándar (SOPs).",
+        challenge: "Las solicitudes ad-hoc estaban desorganizadas, dificultando priorizar el trabajo o mostrar el valor de la función de BI al liderazgo.",
+        solution: "Implementé un proceso de entrada simple tipo Kanban en Notion. Categoricé las tareas por 'Estratégicas' vs 'Mantenimiento' para visualizar mi carga de trabajo.",
+        results: [
+          "Creó un historial claro de solicitudes de datos completadas.",
+          "Ayudó a justificar la asignación de tiempo para proyectos estratégicos.",
+          "Construyó una base de conocimiento de SOPs para referencia futura."
+        ],
+        stack: ["Notion", "Escritura de SOPs", "Gestión de Tareas"]
+      }
+    ],
+    experienceList: [
+      {
+        role: "Analista de Negocio y BI",
+        company: "AMG Global Distribution",
+        location: "Miami, FL",
+        period: "Sep 2024 - Actualidad",
+        desc: "Liderando el desarrollo de Dashboards en Power BI y conectando SQL a sistemas ERP. Automaticé el seguimiento de rentabilidad a nivel de SKU (aumento de precisión del 25%). Integré datos de ventas internacionales y domésticas para reportes ejecutivos."
+      },
+      {
+        role: "Asistente de IT y Escritor de Reportes SQL (Pasante)",
+        company: "Missouri Valley College",
+        location: "Missouri, MO",
+        period: "Ene 2024 - May 2024",
+        desc: "Desarrollé reportes basados en SQL para el sistema Argos BI. Mejoré la precisión de los datos en un 15% y optimicé la documentación de IT, reduciendo el tiempo de resolución de problemas para los usuarios."
+      }
+    ]
   }
 };
 
