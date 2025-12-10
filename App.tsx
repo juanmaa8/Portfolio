@@ -20,7 +20,8 @@ import {
   Lightbulb,
   MapPin,
   Sparkles,
-  BadgeCheck
+  BadgeCheck,
+  Maximize2
 } from 'lucide-react';
 import { Project, Experience } from './types';
 
@@ -144,9 +145,7 @@ const content = {
         impactBadges: ["Usage Analysis", "Report Optimization", "KQL"],
         tags: ["KQL", "Azure Logs", "Power BI Service"],
         gallery: [
-            "/images/engagement-KQL.png",      //Query del engagement de los PowerBI
-            "/images/adopcion-KQL.png",        //Query de los usuarios dia a dia
-            "/images/code-KQL.png"             //Imagen del codigo por si quieren observarlo
+            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
         ],
         shortDesc: "Created a tracking system using KQL to measure how often reports were being used by the management team.",
         challenge: "We didn't know which reports were actually useful. It was hard to justify spending time on reports without knowing if they were being adopted.",
@@ -315,9 +314,7 @@ const content = {
         impactBadges: ["Análisis de Uso", "Optimización de Reportes", "KQL"],
         tags: ["KQL", "Azure Logs", "Power BI Service"],
         gallery: [
-            "/images/engagement-KQL.png",      //Query del engagement de los PowerBI
-            "/images/adopcion-KQL.png",        //Query de los usuarios dia a dia
-            "/images/code-KQL.png"             //Imagen del codigo por si quieren observarlo
+            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
         ],
         shortDesc: "Creación de un sistema de seguimiento usando KQL para medir con qué frecuencia el equipo directivo utilizaba los reportes.",
         challenge: "No sabíamos qué reportes eran realmente útiles. Era difícil justificar el tiempo dedicado a reportes sin saber si estaban siendo adoptados.",
@@ -430,6 +427,7 @@ const Portfolio: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isZoomOpen, setIsZoomOpen] = useState(false); // Nuevo estado para el Zoom
   const [scrolled, setScrolled] = useState(false);
   const [modalImgError, setModalImgError] = useState(false);
   const [lang, setLang] = useState<'en' | 'es'>('en');
@@ -458,19 +456,17 @@ const Portfolio: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // --- NUEVO: Bloquear el scroll del body cuando el modal está abierto ---
+  // --- Bloquear el scroll del body cuando el modal está abierto ---
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-    // Cleanup function para asegurar que el scroll vuelve si el componente se desmonta
     return () => {
       document.body.style.overflow = 'unset';
     };
   }, [selectedProject]);
-  // -----------------------------------------------------------------------
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -483,7 +479,13 @@ const Portfolio: React.FC = () => {
   const handleOpenProject = (project: Project) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
+    setIsZoomOpen(false); // Asegurarse de que el zoom esté cerrado al abrir un proyecto
     setModalImgError(false); 
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProject(null);
+    setIsZoomOpen(false); // Cerrar zoom si cerramos el modal
   };
 
   const nextImage = (e: React.MouseEvent) => {
@@ -777,13 +779,49 @@ const Portfolio: React.FC = () => {
         </div>
       </footer>
 
-      {/* MODAL */}
+      {/* FULL SCREEN ZOOM MODAL (NEW) */}
+      {selectedProject && isZoomOpen && (
+        <div className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md flex items-center justify-center animate-fade-in">
+          <button 
+            onClick={() => setIsZoomOpen(false)}
+            className="absolute top-4 right-4 p-2 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-colors z-50"
+          >
+            <X size={24} />
+          </button>
+
+          {/* Navigation in Zoom Mode */}
+          {selectedProject.gallery && selectedProject.gallery.length > 1 && (
+            <>
+              <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white transition-colors z-50">
+                <ChevronLeft size={32}/>
+              </button>
+              <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white transition-colors z-50">
+                <ChevronRight size={32}/>
+              </button>
+            </>
+          )}
+
+          <div className="w-full h-full p-4 flex items-center justify-center">
+             <img 
+               src={selectedProject.gallery[currentImageIndex]} 
+               className="max-w-full max-h-full object-contain shadow-2xl" 
+               alt="Full screen view"
+             />
+          </div>
+          
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm font-bold uppercase tracking-widest">
+             {currentImageIndex + 1} / {selectedProject.gallery.length}
+          </div>
+        </div>
+      )}
+
+      {/* PROJECT MODAL */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-slate-900/80 backdrop-blur-sm">
           <div className="bg-white w-full max-w-6xl h-full md:h-auto md:max-h-[95vh] overflow-y-auto shadow-2xl flex flex-col lg:flex-row relative animate-fade-in rounded-none md:rounded-sm">
             
             <button 
-              onClick={() => setSelectedProject(null)}
+              onClick={handleCloseModal}
               aria-label="Close modal"
               className="fixed top-4 right-4 md:absolute md:top-4 md:right-4 z-50 p-2 bg-white/90 md:bg-white/80 hover:bg-slate-100 rounded-full transition-colors text-slate-900 shadow-lg md:shadow-none border md:border-transparent border-slate-200"
             >
@@ -792,7 +830,17 @@ const Portfolio: React.FC = () => {
 
             {/* Gallery Column */}
             <div className="lg:w-3/5 bg-[#F0F2F5] relative h-[40vh] md:h-auto md:min-h-[400px] flex-shrink-0 flex items-center justify-center p-8">
-               <div className="w-full h-full flex items-center justify-center relative shadow-2xl bg-white rounded-sm overflow-hidden border border-slate-200">
+               <div 
+                 className="w-full h-full flex items-center justify-center relative shadow-2xl bg-white rounded-sm overflow-hidden border border-slate-200 group cursor-zoom-in"
+                 onClick={() => setIsZoomOpen(true)}
+               >
+                  {/* Overlay on hover to indicate zoom */}
+                  <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors z-10 flex items-center justify-center pointer-events-none">
+                     <div className="opacity-0 group-hover:opacity-100 transition-all transform scale-90 group-hover:scale-100 bg-white/90 p-3 rounded-full text-slate-900 shadow-lg">
+                        <Maximize2 size={24} />
+                     </div>
+                  </div>
+
                   {!modalImgError && selectedProject.gallery && selectedProject.gallery.length > 0 ? (
                     <img 
                       src={selectedProject.gallery[currentImageIndex]} 
@@ -810,10 +858,22 @@ const Portfolio: React.FC = () => {
 
                   {selectedProject.gallery && selectedProject.gallery.length > 1 && (
                     <>
-                      <button onClick={prevImage} aria-label="Previous image" className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 shadow-sm transition-all z-10"><ChevronLeft size={18}/></button>
-                      <button onClick={nextImage} aria-label="Next image" className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 shadow-sm transition-all z-10"><ChevronRight size={18}/></button>
+                      <button 
+                        onClick={prevImage} 
+                        aria-label="Previous image" 
+                        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 shadow-sm transition-all z-20"
+                      >
+                        <ChevronLeft size={18}/>
+                      </button>
+                      <button 
+                        onClick={nextImage} 
+                        aria-label="Next image" 
+                        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 shadow-sm transition-all z-20"
+                      >
+                        <ChevronRight size={18}/>
+                      </button>
                       
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-sm">
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-sm z-20">
                         {currentImageIndex + 1} / {selectedProject.gallery.length}
                       </div>
                     </>
