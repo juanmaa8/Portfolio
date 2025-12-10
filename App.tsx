@@ -119,7 +119,7 @@ const content = {
         tags: ["Power BI", "SQL Server", "Sage ERP", "DAX"],
         gallery: [
            "/images/dashboard-main.png",      // La foto del Executive Overview
-           "/images/regional-map.jpg",        // La del mapa
+           "/images/regional-map.png",        // La del mapa
            "/images/product-analysis.png",    // La de barras rosas/verdes
            "/images/customer-trends.png",     // La de líneas de tendencia
            "/images/alerts.png",              // La de alertas
@@ -288,7 +288,7 @@ const content = {
         tags: ["Power BI", "SQL Server", "Sage ERP", "DAX"],
         gallery: [
            "/images/dashboard-main.png",      // La foto del Executive Overview
-           "/images/regional-map.jpg",        // La del mapa
+           "/images/regional-map.png",        // La del mapa
            "/images/product-analysis.png",    // La de barras rosas/verdes
            "/images/customer-trends.png",     // La de líneas de tendencia
            "/images/alerts.png",              // La de alertas
