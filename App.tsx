@@ -438,20 +438,6 @@ const Portfolio: React.FC = () => {
   const t = content[lang];
 
   useEffect(() => {
-    document.title = "Juan Manuel Garcia | BI Analyst - Commercial Strategy & Automation";
-    const addMetaTag = (name: string, content: string) => {
-      let element = document.querySelector(`meta[name="${name}"]`);
-      if (!element) {
-        element = document.createElement('meta');
-        element.setAttribute('name', name);
-        document.head.appendChild(element);
-      }
-      element.setAttribute('content', content);
-    };
-    addMetaTag('description', "Business Intelligence Analyst specializing in commercial strategy, SQL-based automation, and Power BI systems.");
-  }, []);
-
-  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
