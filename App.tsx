@@ -168,7 +168,7 @@ const content = {
         impactBadges: ["Task Tracking", "SOPs", "Agile Basics"],
         tags: ["Notion", "Process", "Documentation"],
         gallery: [
-            "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2076&auto=format&fit=crop"
+            "/images/track-requests.png"           // Muestra del Kanban 
         ],
         shortDesc: "Set up a structured system to track data requests and document standard operating procedures (SOPs).",
         challenge: "Ad-hoc requests were disorganized, making it hard to prioritize work or show the value of the BI function to leadership.",
@@ -339,7 +339,7 @@ const content = {
         impactBadges: ["Seguimiento de Tareas", "SOPs", "Conceptos Agile"],
         tags: ["Notion", "Procesos", "Documentación"],
         gallery: [
-            "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2076&auto=format&fit=crop"
+             "/images/track-requests.png"           // Muestra del Kanban 
         ],
         shortDesc: "Implementación de un sistema estructurado para rastrear solicitudes de datos y documentar procedimientos operativos estándar (SOPs).",
         challenge: "Las solicitudes ad-hoc estaban desorganizadas, dificultando priorizar el trabajo o mostrar el valor de la función de BI al liderazgo.",
