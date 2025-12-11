@@ -22,7 +22,7 @@ import {
   BadgeCheck,
   Maximize2
 } from 'lucide-react';
-import { Project, Experience } from './types';
+import { Project } from './types';
 
 // --- DATA & TRANSLATIONS ---
 const content = {
@@ -89,7 +89,7 @@ const content = {
           desc: "Minor: Business Admin | GPA: 3.3"
         }
       ],
-      certificationsTitle: "Certificaciones",
+      certificationsTitle: "Certifications",
       certs: [
         { name: "SQL (Coursera)", status: "Completed" },
         { name: "PL-300", status: "In Progress" },
@@ -111,22 +111,22 @@ const content = {
     projects: [
       {
         id: 1,
-        category: "DASHBOARDING & AUTOMATIZACIÓN",
+        category: "DASHBOARDING & AUTOMATION",
         title: "Sales & Profitability Dashboard",
         client: "AMG Global Distribution",
         metrics: "Real-time Forecasting",
         impactBadges: ["Automated Reporting", "Margin Analysis", "SQL Integration"], 
         tags: ["Power BI", "SQL Server", "Sage ERP", "DAX"],
         gallery: [
-           "/images/dashboard-main.png",      // La foto del Executive Overview
-           "/images/regional-map.png",        // La del mapa
-           "/images/product-analysis.png",    // La de barras rosas/verdes
-           "/images/customer-trends.png",     // La de líneas de tendencia
-           "/images/alerts.png",              // La de alertas
-           "/images/data-model.png"           // La del esquema de datos (MUY IMPORTANTE)
+           "/images/dashboard-main.png",      
+           "/images/regional-map.png",        
+           "/images/product-analysis.png",    
+           "/images/customer-trends.png",     
+           "/images/alerts.png",              
+           "/images/data-model.png"           
         ],
         shortDesc: "Development of a central Power BI dashboard connecting directly to SQL to track domestic vs. international sales in real-time.",
-        challenge: "The company relied on manual Excel reports, causing retrasos. There was no clear visibility into SKU-level profitability or consolidated international sales data.",
+        challenge: "The company relied on manual Excel reports, causing delays. There was no clear visibility into SKU-level profitability or consolidated international sales data.",
         solution: "I connected the Sage ERP to a SQL database to normalize the data, then built a Power BI dashboard with automated refresh. I implemented DAX measures to calculate real margins per SKU.",
         results: [
           "Enabled real-time forecasting for domestic vs. international segments.",
@@ -144,9 +144,9 @@ const content = {
         impactBadges: ["Usage Analysis", "Report Optimization", "KQL"],
         tags: ["KQL", "Azure Logs", "Power BI Service"],
         gallery: [
-             "/images/engagement-KQL.png",      // Engagement de los usuarios a PowerBI
-             "/images/adopcion-KQL.png",        // Adopcion y DAU a PowerBI
-             "/images/code-KQL.png"           // codigo limpio
+             "/images/engagement-KQL.png",      
+             "/images/adopcion-KQL.png",        
+             "/images/code-KQL.png"           
         ],
         shortDesc: "Created a tracking system using KQL to measure how often reports were being used by the management team.",
         challenge: "We didn't know which reports were actually useful. It was hard to justify spending time on reports without knowing if they were being adopted.",
@@ -167,11 +167,11 @@ const content = {
         impactBadges: ["Task Tracking", "SOPs", "Agile Basics"],
         tags: ["Notion", "Process", "Documentation"],
         gallery: [
-             "/images/track-requests.png"           // Muestra del Kanban 
+             "/images/track-requests.png"           
         ],
-        shortDesc: "Implementación de un sistema estructurado para rastrear solicitudes de datos y documentar procedimientos operativos estándar (SOPs).",
-        challenge: "Las solicitudes ad-hoc estaban desorganizadas, dificultando priorizar el trabajo o mostrar el valor de la función de BI al liderazgo.",
-        solution: "Implementé un proceso de entrada simple tipo Kanban en Notion. Categoricé las tareas por 'Estratégicas' vs 'Mantenimiento' para visualizar mi carga de trabajo.",
+        shortDesc: "Set up a structured system to track data requests and document standard operating procedures (SOPs).",
+        challenge: "Ad-hoc requests were disorganized, making it hard to prioritize work or show the value of the BI function to leadership.",
+        solution: "Implemented a simple Kanban-style intake process in Notion. I categorized tasks by 'Strategic' vs 'Maintenance' to visualize my workload.",
         results: [
           "Created a clear history of completed data requests.",
           "Helped justify time allocation for strategic projects.",
@@ -182,18 +182,18 @@ const content = {
     ],
     experienceList: [
       {
-        role: "Analista de Negocio y BI",
+        role: "Business & BI Analyst",
         company: "AMG Global Distribution",
         location: "Miami, FL",
-        period: "Sep 2024 - Actualidad",
-        desc: "Liderando el desarrollo de Dashboards en Power BI y conectando SQL a sistemas ERP. Automaticé el seguimiento de rentabilidad a nivel de SKU (aumento de precisión del 25%). Integré datos de ventas internacionales y domésticas para reportes ejecutivos."
+        period: "Sep 2024 - Present",
+        desc: "Leading the development of Power BI Dashboards and connecting SQL to ERP systems. Automated SKU-level profitability tracking (25% accuracy increase). Integrated international and domestic sales data for executive reporting."
       },
       {
-        role: "Asistente de IT y Escritor de Reportes SQL (Pasante)",
+        role: "IT Assistant & SQL Report Writer (Intern)",
         company: "Missouri Valley College",
         location: "Missouri, MO",
-        period: "Ene 2024 - May 2024",
-        desc: "Desarrollé reportes basados en SQL para el sistema Argos BI. Mejoré la precisión de los datos en un 15% y optimicé la documentación de IT, reduciendo el tiempo de resolución de problemas para los usuarios."
+        period: "Jan 2024 - May 2024",
+        desc: "Developed SQL-based reports for the Argos BI system. Improved data accuracy by 15% and optimized IT documentation, reducing troubleshooting time for users."
       }
     ]
   },
@@ -289,12 +289,12 @@ const content = {
         impactBadges: ["Reportes Automatizados", "Análisis de Margen", "Integración SQL"], 
         tags: ["Power BI", "SQL Server", "Sage ERP", "DAX"],
         gallery: [
-           "/images/dashboard-main.png",      // La foto del Executive Overview
-           "/images/regional-map.png",        // La del mapa
-           "/images/product-analysis.png",    // La de barras rosas/verdes
-           "/images/customer-trends.png",     // La de líneas de tendencia
-           "/images/alerts.png",              // La de alertas
-           "/images/data-model.png"           // La del esquema de datos (MUY IMPORTANTE)
+           "/images/dashboard-main.png",      
+           "/images/regional-map.png",        
+           "/images/product-analysis.png",    
+           "/images/customer-trends.png",     
+           "/images/alerts.png",              
+           "/images/data-model.png"           
         ],
         shortDesc: "Desarrollo de un dashboard central en Power BI conectado directamente a SQL para rastrear ventas domésticas vs internacionales en tiempo real.",
         challenge: "La empresa dependía de reportes manuales en Excel, causando retrasos. No había visibilidad clara sobre la rentabilidad a nivel de SKU ni datos consolidados de ventas internacionales.",
@@ -315,9 +315,9 @@ const content = {
         impactBadges: ["Análisis de Uso", "Optimización de Reportes", "KQL"],
         tags: ["KQL", "Azure Logs", "Power BI Service"],
         gallery: [
-             "/images/engagement-KQL.png",      // Engagement de los usuarios a PowerBI
-             "/images/adopcion-KQL.png",        // Adopcion y DAU a PowerBI
-             "/images/code-KQL.png"           // codigo limpio
+             "/images/engagement-KQL.png",      
+             "/images/adopcion-KQL.png",        
+             "/images/code-KQL.png"           
         ],
         shortDesc: "Creación de un sistema de seguimiento usando KQL para medir con qué frecuencia el equipo directivo utilizaba los reportes.",
         challenge: "No sabíamos qué reportes eran realmente útiles. Era difícil justificar el tiempo dedicado a reportes sin saber si estaban siendo adoptados.",
@@ -338,7 +338,7 @@ const content = {
         impactBadges: ["Seguimiento de Tareas", "SOPs", "Conceptos Agile"],
         tags: ["Notion", "Procesos", "Documentación"],
         gallery: [
-             "/images/track-requests.png"           // Muestra del Kanban 
+             "/images/track-requests.png"           
         ],
         shortDesc: "Implementación de un sistema estructurado para rastrear solicitudes de datos y documentar procedimientos operativos estándar (SOPs).",
         challenge: "Las solicitudes ad-hoc estaban desorganizadas, dificultando priorizar el trabajo o mostrar el valor de la función de BI al liderazgo.",
