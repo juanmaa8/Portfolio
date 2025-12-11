@@ -14,7 +14,6 @@ import {
   Code2,
   Linkedin,
   Mail,
-  Globe,
   Database,
   TrendingUp,
   Lightbulb,
@@ -168,11 +167,11 @@ const content = {
         impactBadges: ["Task Tracking", "SOPs", "Agile Basics"],
         tags: ["Notion", "Process", "Documentation"],
         gallery: [
-            "/images/track-requests.png"           // Muestra del Kanban 
+             "/images/track-requests.png"           // Muestra del Kanban 
         ],
-        shortDesc: "Set up a structured system to track data requests and document standard operating procedures (SOPs).",
-        challenge: "Ad-hoc requests were disorganized, making it hard to prioritize work or show the value of the BI function to leadership.",
-        solution: "Implemented a simple Kanban-style intake process in Notion. I categorized tasks by 'Strategic' vs 'Maintenance' to visualize my workload.",
+        shortDesc: "Implementación de un sistema estructurado para rastrear solicitudes de datos y documentar procedimientos operativos estándar (SOPs).",
+        challenge: "Las solicitudes ad-hoc estaban desorganizadas, dificultando priorizar el trabajo o mostrar el valor de la función de BI al liderazgo.",
+        solution: "Implementé un proceso de entrada simple tipo Kanban en Notion. Categoricé las tareas por 'Estratégicas' vs 'Mantenimiento' para visualizar mi carga de trabajo.",
         results: [
           "Created a clear history of completed data requests.",
           "Helped justify time allocation for strategic projects.",
@@ -183,18 +182,18 @@ const content = {
     ],
     experienceList: [
       {
-        role: "Business & BI Analyst",
+        role: "Analista de Negocio y BI",
         company: "AMG Global Distribution",
         location: "Miami, FL",
-        period: "Sep 2024 - Present",
-        desc: "Leading the development of Power BI Dashboards and connecting SQL to ERP systems. Automated SKU-level profitability tracking (25% accuracy increase). Integrated international and domestic sales data for executive reporting."
+        period: "Sep 2024 - Actualidad",
+        desc: "Liderando el desarrollo de Dashboards en Power BI y conectando SQL a sistemas ERP. Automaticé el seguimiento de rentabilidad a nivel de SKU (aumento de precisión del 25%). Integré datos de ventas internacionales y domésticas para reportes ejecutivos."
       },
       {
-        role: "IT Assistant & SQL Report Writer (Intern)",
+        role: "Asistente de IT y Escritor de Reportes SQL (Pasante)",
         company: "Missouri Valley College",
         location: "Missouri, MO",
-        period: "Jan 2024 - May 2024",
-        desc: "Developed SQL-based reports for the Argos BI system. Improved data accuracy by 15% and optimized IT documentation, reducing troubleshooting time for users."
+        period: "Ene 2024 - May 2024",
+        desc: "Desarrollé reportes basados en SQL para el sistema Argos BI. Mejoré la precisión de los datos en un 15% y optimicé la documentación de IT, reduciendo el tiempo de resolución de problemas para los usuarios."
       }
     ]
   },
@@ -492,20 +491,47 @@ const Portfolio: React.FC = () => {
     setIsZoomOpen(false); // Cerrar zoom si cerramos el modal
   };
 
-  const nextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (selectedProject?.gallery) {
+  // Función unificada para navegar
+  const navigateGallery = (direction: 'next' | 'prev') => {
+    if (!selectedProject?.gallery) return;
+    setModalImgError(false);
+    if (direction === 'next') {
       setCurrentImageIndex((prev) => (prev + 1) % selectedProject.gallery.length);
-      setModalImgError(false);
+    } else {
+      setCurrentImageIndex((prev) => (prev - 1 + selectedProject.gallery.length) % selectedProject.gallery.length);
     }
   };
 
-  const prevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (selectedProject?.gallery) {
-      setCurrentImageIndex((prev) => (prev - 1 + selectedProject.gallery.length) % selectedProject.gallery.length);
-      setModalImgError(false);
-    }
+  // Keyboard Navigation Listener
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedProject) return;
+
+      if (e.key === 'ArrowRight') {
+        navigateGallery('next');
+      } else if (e.key === 'ArrowLeft') {
+        navigateGallery('prev');
+      } else if (e.key === 'Escape') {
+        if (isZoomOpen) {
+           setIsZoomOpen(false);
+        } else {
+           handleCloseModal();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedProject, isZoomOpen]);
+
+  const nextImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    navigateGallery('next');
+  };
+
+  const prevImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    navigateGallery('prev');
   };
 
   const toggleLang = () => {
