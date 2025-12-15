@@ -612,12 +612,7 @@ const Portfolio: React.FC = () => {
                   <Download size={16}/> {t.hero.btnResume}
                 </a>
 
-                <a
-                  href="https://www.linkedin.com/in/juanmanuelgarcia-bi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 border border-slate-200 bg-white text-slate-900 text-sm font-bold tracking-wide uppercase hover:border-slate-400 transition-all rounded-sm flex items-center gap-2"
-                >
+                <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" target="_blank" rel="noreferrer" className="px-8 py-4 border border-slate-200 bg-white text-slate-900 text-sm font-bold tracking-wide uppercase hover:border-slate-400 transition-all rounded-sm flex items-center gap-2">
                   <Linkedin size={16} /> LinkedIn
                 </a>
               </div>
@@ -710,11 +705,7 @@ const Portfolio: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             
             <div className="md:col-span-4">
-               {/* REPLACED dangerouslySetInnerHTML with safe JSX split */}
-               <h2 className="font-serif text-3xl text-slate-900 mb-4">
-                 {t.experience.title.split(' ')[0]} <br/> 
-                 {t.experience.title.split(' ').slice(1).join(' ')}
-               </h2>
+               <h2 className="font-serif text-3xl text-slate-900 mb-4" dangerouslySetInnerHTML={{__html: t.experience.title.replace(' ', '<br/>')}}></h2>
                <p className="font-sans text-sm text-slate-500 leading-relaxed mb-8">
                  {t.experience.subtitle}
                </p>
@@ -729,13 +720,245 @@ const Portfolio: React.FC = () => {
                </a>
             </div>
 
-            {/* ... RESTO DEL ARCHIVO SIN CAMBIOS ESTRUCTURALES ... */}
-            {/* (Mantengo tu layout y contenido tal cual) */}
+            <div className="md:col-span-8 space-y-12 border-l border-slate-200 pl-8 md:pl-12 py-2">
+              {t.experienceList.map((exp, i) => (
+                <div key={i} className="relative group">
+                  <div className="absolute -left-[41px] md:-left-[57px] top-1.5 w-3 h-3 bg-slate-200 rounded-full border-2 border-[#FAFAFA] group-hover:bg-slate-900 transition-colors"></div>
+                  
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+                    <h3 className="font-serif text-xl font-bold text-slate-900">{exp.role}</h3>
+                    <span className="font-sans text-xs font-bold text-slate-400 uppercase tracking-wide">{exp.period}</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-2 mb-3">
+                    <Briefcase size={14} className="text-blue-900" />
+                    <span className="font-sans text-sm font-bold text-slate-700">{exp.company}</span>
+                    <span className="text-slate-300">•</span>
+                    <span className="font-sans text-sm text-slate-500">{exp.location}</span>
+                  </div>
+                  
+                  <p className="font-sans text-sm text-slate-600 leading-relaxed font-light">{exp.desc}</p>
+                </div>
+              ))}
+
+              <div className="relative pt-8">
+                 <div className="absolute -left-[41px] md:-left-[57px] top-10 w-3 h-3 bg-slate-200 rounded-full border-2 border-[#FAFAFA]"></div>
+                 <div className="font-serif text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                   {t.experience.educationTitle}
+                 </div>
+                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                   {t.experience.education.map((edu, idx) => (
+                      <div key={idx} className="bg-white p-4 border border-slate-100 shadow-sm">
+                        <div className="font-bold text-slate-900 text-sm mb-1">{edu.title}</div>
+                        <div className="text-xs text-slate-500 uppercase tracking-wide">{edu.school}</div>
+                        <div className="text-[10px] text-slate-400 mt-1">{edu.desc}</div>
+                      </div>
+                   ))}
+                 </div>
+                 
+                 <div className="mt-4 bg-white p-4 border border-slate-100 shadow-sm">
+                     <div className="font-bold text-slate-900 text-sm mb-2">{t.experience.certificationsTitle}</div>
+                     <div className="flex flex-wrap gap-2">
+                        {t.experience.certs.map((cert, idx) => (
+                          <span key={idx} className="px-2 py-1 bg-slate-50 text-slate-600 text-[10px] font-bold uppercase tracking-wider border border-slate-100">
+                            {cert.name} / {cert.status}
+                          </span>
+                        ))}
+                     </div>
+                 </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
+
+      {/* FOOTER */}
+      <footer className="bg-slate-900 text-white py-12">
+        <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="text-center md:text-left">
+            <h3 className="font-serif text-2xl mb-2">Juan M. Garcia</h3>
+            <p className="font-sans text-slate-400 text-sm font-light">{t.footer.tagline}</p>
+          </div>
+          
+          <div className="flex gap-8 items-center">
+            <a href="mailto:jgnogues99@gmail.com" className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors">
+               <Mail size={16} /> Email
+            </a>
+            <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors">
+               <Linkedin size={16} /> LinkedIn
+            </a>
+          </div>
+        </div>
+        <div className="container mx-auto px-6 md:px-12 mt-8 text-center md:text-left">
+           <p className="text-xs text-slate-500">© {new Date().getFullYear()} Juan Manuel Garcia — {t.footer.built}</p>
+        </div>
+      </footer>
+
+      {/* FULL SCREEN ZOOM MODAL (NEW) */}
+      {selectedProject && isZoomOpen && (
+        <div className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md flex items-center justify-center animate-fade-in">
+          <button 
+            onClick={() => setIsZoomOpen(false)}
+            className="absolute top-4 right-4 p-2 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-colors z-50"
+          >
+            <X size={24} />
+          </button>
+
+          {/* Navigation in Zoom Mode */}
+          {selectedProject.gallery && selectedProject.gallery.length > 1 && (
+            <>
+              <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white transition-colors z-50">
+                <ChevronLeft size={32}/>
+              </button>
+              <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white transition-colors z-50">
+                <ChevronRight size={32}/>
+              </button>
+            </>
+          )}
+
+          <div className="w-full h-full p-4 flex items-center justify-center">
+             <img 
+               src={selectedProject.gallery[currentImageIndex]} 
+               className="max-w-full max-h-full object-contain shadow-2xl" 
+               alt="Full screen view"
+             />
+          </div>
+          
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm font-bold uppercase tracking-widest">
+             {currentImageIndex + 1} / {selectedProject.gallery.length}
+          </div>
+        </div>
+      )}
+
+      {/* PROJECT MODAL */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-slate-900/80 backdrop-blur-sm">
+          <div className="bg-white w-full max-w-6xl h-full md:h-auto md:max-h-[95vh] overflow-y-auto shadow-2xl flex flex-col lg:flex-row relative animate-fade-in rounded-none md:rounded-sm">
+            
+            <button 
+              onClick={handleCloseModal}
+              aria-label="Close modal"
+              className="fixed top-4 right-4 md:absolute md:top-4 md:right-4 z-50 p-2 bg-white/90 md:bg-white/80 hover:bg-slate-100 rounded-full transition-colors text-slate-900 shadow-lg md:shadow-none border md:border-transparent border-slate-200"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Gallery Column */}
+            <div className="lg:w-3/5 bg-[#F0F2F5] relative h-[40vh] md:h-auto md:min-h-[400px] flex-shrink-0 flex items-center justify-center p-8">
+               <div 
+                 className="w-full h-full flex items-center justify-center relative shadow-2xl bg-white rounded-sm overflow-hidden border border-slate-200 group cursor-zoom-in"
+                 onClick={() => setIsZoomOpen(true)}
+               >
+                  {/* Overlay on hover to indicate zoom */}
+                  <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors z-10 flex items-center justify-center pointer-events-none">
+                     <div className="opacity-0 group-hover:opacity-100 transition-all transform scale-90 group-hover:scale-100 bg-white/90 p-3 rounded-full text-slate-900 shadow-lg">
+                        <Maximize2 size={24} />
+                     </div>
+                  </div>
+
+                  {!modalImgError && selectedProject.gallery && selectedProject.gallery.length > 0 ? (
+                    <img 
+                      src={selectedProject.gallery[currentImageIndex]} 
+                      className="w-full h-full object-contain" 
+                      alt="Project detail"
+                      onError={() => setModalImgError(true)} 
+                    />
+                  ) : (
+                    <div className="text-center p-12">
+                      <div className="mb-4 text-slate-300"><Layers size={48} strokeWidth={1}/></div>
+                      <p className="font-serif text-xl text-slate-400 italic">{t.modal.placeholder}</p>
+                      <p className="font-sans text-xs text-slate-400 mt-2 uppercase tracking-widest">{t.modal.upload}</p>
+                    </div>
+                  )}
+
+                  {selectedProject.gallery && selectedProject.gallery.length > 1 && (
+                    <>
+                      <button 
+                        onClick={prevImage} 
+                        aria-label="Previous image" 
+                        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 shadow-sm transition-all z-20"
+                      >
+                        <ChevronLeft size={18}/>
+                      </button>
+                      <button 
+                        onClick={nextImage} 
+                        aria-label="Next image" 
+                        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 shadow-sm transition-all z-20"
+                      >
+                        <ChevronRight size={18}/>
+                      </button>
+                      
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-sm z-20">
+                        {currentImageIndex + 1} / {selectedProject.gallery.length}
+                      </div>
+                    </>
+                  )}
+               </div>
+            </div>
+
+            {/* Report Content */}
+            <div className="lg:w-2/5 p-10 md:p-12 bg-white overflow-y-auto">
+              <div className="mb-6 pb-6 border-b border-slate-100">
+                <div className="text-[10px] font-bold text-blue-900 uppercase tracking-[0.2em] mb-3">{selectedProject.client}</div>
+                <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">{selectedProject.title}</h2>
+                
+                {selectedProject.impactBadges && (
+                   <div className="flex flex-wrap gap-2 mb-4">
+                      {selectedProject.impactBadges.map((badge, idx) => (
+                        <span key={idx} className="text-[10px] bg-blue-50 text-blue-900 px-3 py-1 rounded-sm font-bold uppercase tracking-widest border border-blue-100">
+                          {badge}
+                        </span>
+                      ))}
+                   </div>
+                )}
+                
+                <p className="font-sans text-sm text-slate-500 leading-relaxed font-light">{selectedProject.shortDesc}</p>
+              </div>
+              
+              <div className="space-y-10">
+                 <div>
+                    <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">{t.modal.problem}</h4>
+                    <p className="font-sans text-sm text-slate-600 leading-relaxed bg-slate-50 p-5 border-l-2 border-slate-300">{selectedProject.challenge}</p>
+                 </div>
+                 
+                 <div>
+                    <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">{t.modal.execution}</h4>
+                    <p className="font-sans text-sm text-slate-600 leading-relaxed">{selectedProject.solution}</p>
+                 </div>
+                 
+                 <div>
+                    <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">{t.modal.outcomes}</h4>
+                    <ul className="space-y-3">
+                      {selectedProject.results.map((res, i) => (
+                        <li key={i} className="flex gap-3 text-sm text-slate-700 font-medium">
+                          <CheckCircle2 size={16} className="text-blue-900 flex-shrink-0 mt-0.5" /> 
+                          <span>{res}</span>
+                        </li>
+                      ))}
+                    </ul>
+                 </div>
+                 
+                 <div>
+                   <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">{t.modal.tech}</h4>
+                   <div className="flex flex-wrap gap-2">
+                     {selectedProject.stack.map((s, i) => (
+                       <span key={i} className="text-xs border border-slate-200 px-3 py-1 text-slate-600 bg-white">{s}</span>
+                     ))}
+                   </div>
+                 </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
+};
+
+export default Portfolio;
 };
 
 export default Portfolio;
