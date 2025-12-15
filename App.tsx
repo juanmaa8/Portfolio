@@ -705,7 +705,11 @@ const Portfolio: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             
             <div className="md:col-span-4">
-               <h2 className="font-serif text-3xl text-slate-900 mb-4" dangerouslySetInnerHTML={{__html: t.experience.title.replace(' ', '<br/>')}}></h2>
+               <h2 className="font-serif text-3xl text-slate-900 mb-4">
+  {t.experience.title.split(" ")[0]} <br />
+  {t.experience.title.split(" ").slice(1).join(" ")}
+</h2>
+
                <p className="font-sans text-sm text-slate-500 leading-relaxed mb-8">
                  {t.experience.subtitle}
                </p>
