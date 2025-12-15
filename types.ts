@@ -13,11 +13,3 @@ export interface Project {
   results: string[];
   stack: string[];
 }
-
-export interface Experience {
-  role: string;
-  company: string;
-  location: string;
-  period: string;
-  desc: string;
-}
