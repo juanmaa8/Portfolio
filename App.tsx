@@ -182,11 +182,11 @@ const content = {
     ],
     experienceList: [
       {
-        role: "Business & BI Analyst",
+        role: "Business Intelligence & Business Analyst",
         company: "AMG Global Distribution",
         location: "Miami, FL",
         period: "Sep 2024 - Present",
-        desc: "Leading the development of Power BI Dashboards and connecting SQL to ERP systems. Automated SKU-level profitability tracking (25% accuracy increase). Integrated international and domestic sales data for executive reporting."
+        desc: "Leading Power BI dashboard development and connecting SQL to ERP systems. Automated SKU-level profitability tracking (25% accuracy increase). Integrated international and domestic sales data for executive reporting."
       },
       {
         role: "IT Assistant & SQL Report Writer (Intern)",
@@ -197,33 +197,34 @@ const content = {
       }
     ]
   },
+  // --- SPANISH CONTENT ---
   es: {
     nav: {
       work: "Proyectos",
       trajectory: "Experiencia",
       contact: "Contacto",
-      role: "Analista de BI"
+      role: "Analista BI"
     },
     hero: {
-      available: "Disponible para contratar",
+      available: "Disponible para Contratación",
       titleStart: "Transformando",
       titleHighlight: "Datos",
-      titleEnd: "en Estrategias Rentables.",
-      desc: "Analista de Business Intelligence bilingüe (EN/ES). Construyo soluciones en Power BI y modelos SQL que ayudan a las empresas a medir su rendimiento y optimizar la rentabilidad.",
+      titleEnd: "en Estrategia de Negocio.",
+      desc: "Analista de Inteligencia de Negocios Bilingüe (EN/ES). Construyo soluciones en Power BI y modelos SQL que ayudan a las empresas a medir su rendimiento y optimizar su rentabilidad.",
       btnWork: "Ver Proyectos",
-      btnResume: "Currículum",
+      btnResume: "Curriculum",
       stack: "SQL y Power BI",
       focus: "Estrategia de Datos",
       location: "Miami, FL"
     },
     expertise: {
       title: "Enfoque Técnico",
-      subtitle: "Mi habilidad principal: cerrar la brecha entre datos brutos y decisiones de negocio.",
+      subtitle: "Mis habilidades principales: conectar datos brutos con decisiones de negocio.",
       cards: [
         {
           title: "Modelado de Datos y SQL",
           desc: "Limpieza y estructuración de datos usando SQL (CTEs, Vistas). Conexión de sistemas ERP (Sage) a repositorios centrales para reportes precisos.",
-          tags: ["SQL Server", "Limpieza de Datos", "Modelado de Datos", "Azure"]
+          tags: ["SQL Server", "Limpieza de Datos", "Modelado", "Azure"]
         },
         {
           title: "Desarrollo en Power BI",
@@ -239,13 +240,13 @@ const content = {
     },
     work: {
       title: "Proyectos Relevantes",
-      subtitle: "Aplicaciones prácticas de herramientas de BI para resolver problemas reales de negocio.",
+      subtitle: "Aplicaciones prácticas de herramientas BI para resolver problemas reales.",
       viewReport: "Ver Detalles",
       readAnalysis: "Leer Caso"
     },
     experience: {
       title: "Experiencia Laboral",
-      subtitle: "Mi trayectoria profesional en IT y Business Intelligence.",
+      subtitle: "Mi trayectoria profesional en IT e Inteligencia de Negocios.",
       download: "Descargar CV",
       educationTitle: "Educación",
       education: [
@@ -255,7 +256,7 @@ const content = {
           desc: "Enfoque: IA para Aplicaciones de Negocio"
         },
         {
-          title: "Grado en Sistemas de Info. y Ciencias de la Comp.",
+          title: "Grado en Sistemas de Información y Computación",
           school: "Missouri Valley College (2024)",
           desc: "Minor: Administración de Empresas | GPA: 3.3"
         }
@@ -269,11 +270,11 @@ const content = {
     },
     footer: {
       tagline: "Haciendo los datos intuitivos y rentables.",
-      built: "Creado con React y TailwindCSS"
+      built: "Construido con React y TailwindCSS"
     },
     modal: {
       placeholder: "Vista Previa del Proyecto",
-      upload: "Visuales próximamente",
+      upload: "Imágenes pronto",
       problem: "El Desafío",
       execution: "Lo que hice",
       outcomes: "Resultados",
@@ -296,13 +297,13 @@ const content = {
            "/images/alerts.png",              
            "/images/data-model.png"           
         ],
-        shortDesc: "Desarrollo de un dashboard central en Power BI conectado directamente a SQL para rastrear ventas domésticas vs internacionales en tiempo real.",
-        challenge: "La empresa dependía de reportes manuales en Excel, causando retrasos. No había visibilidad clara sobre la rentabilidad a nivel de SKU ni datos consolidados de ventas internacionales.",
+        shortDesc: "Desarrollo de un dashboard central en Power BI conectado directamente a SQL para rastrear ventas domésticas vs. internacionales en tiempo real.",
+        challenge: "La empresa dependía de reportes manuales en Excel, causando retrasos. No había visibilidad clara de la rentabilidad a nivel de SKU ni datos consolidados de ventas internacionales.",
         solution: "Conecté el ERP Sage a una base de datos SQL para normalizar los datos, luego construí un dashboard en Power BI con actualización automática. Implementé medidas DAX para calcular márgenes reales por SKU.",
         results: [
-          "Habilitó forecasting en tiempo real para segmentos domésticos e internacionales.",
-          "Mejoró la precisión de los datos en más del 25% al eliminar errores manuales.",
-          "Redujo el tiempo de generación de reportes en un 80% mediante automatización."
+          "Habilitó la previsión en tiempo real para segmentos domésticos vs. internacionales.",
+          "Mejoró la precisión de los datos en más del 25% al eliminar errores de entrada manual.",
+          "Redujo el tiempo de generación de reportes en un 80% mediante la automatización."
         ],
         stack: ["SQL Server", "Power BI", "DAX", "Excel"]
       },
@@ -319,36 +320,36 @@ const content = {
              "/images/adopcion-KQL.png",        
              "/images/code-KQL.png"           
         ],
-        shortDesc: "Creación de un sistema de seguimiento usando KQL para medir con qué frecuencia el equipo directivo utilizaba los reportes.",
+        shortDesc: "Creación de un sistema de seguimiento utilizando KQL para medir la frecuencia de uso de los reportes por parte del equipo directivo.",
         challenge: "No sabíamos qué reportes eran realmente útiles. Era difícil justificar el tiempo dedicado a reportes sin saber si estaban siendo adoptados.",
-        solution: "Escribí scripts en KQL (Kusto Query Language) para analizar los Logs de Actividad de Power BI. Esto nos permitió ver quién veía qué reporte y con qué frecuencia.",
+        solution: "Escribí scripts KQL (Kusto Query Language) para analizar los Registros de Actividad de Power BI. Esto nos permitió ver quién veía qué reporte y con qué frecuencia.",
         results: [
-          "Midió el compromiso con los reportes en diferentes departamentos.",
-          "Identificó reportes subutilizados para dejar de mantenerlos.",
-          "Proporcionó datos a la gerencia para apoyar estrategias de adopción de BI."
+          "Medición del compromiso con los reportes en diferentes departamentos.",
+          "Identificación de reportes infrautilizados para dejar de mantenerlos.",
+          "Provisión de datos a la dirección para apoyar estrategias de adopción de BI."
         ],
         stack: ["KQL", "Azure Log Analytics", "Power BI Service"]
       },
       {
         id: 3,
         category: "DOCUMENTACIÓN DE PROCESOS",
-        title: "Log de Operaciones y Solicitudes",
+        title: "Registro de Operaciones y Solicitudes",
         client: "Optimización de Flujo de Trabajo",
         metrics: "Eficiencia de Flujo",
-        impactBadges: ["Seguimiento de Tareas", "SOPs", "Conceptos Agile"],
+        impactBadges: ["Seguimiento de Tareas", "SOPs", "Conceptos Ágiles"],
         tags: ["Notion", "Procesos", "Documentación"],
         gallery: [
              "/images/track-requests.png"           
         ],
         shortDesc: "Implementación de un sistema estructurado para rastrear solicitudes de datos y documentar procedimientos operativos estándar (SOPs).",
         challenge: "Las solicitudes ad-hoc estaban desorganizadas, dificultando priorizar el trabajo o mostrar el valor de la función de BI al liderazgo.",
-        solution: "Implementé un proceso de entrada simple tipo Kanban en Notion. Categoricé las tareas por 'Estratégicas' vs 'Mantenimiento' para visualizar mi carga de trabajo.",
+        solution: "Implementé un proceso de entrada simple estilo Kanban en Notion. Categoricé las tareas como 'Estratégicas' vs 'Mantenimiento' para visualizar mi carga de trabajo.",
         results: [
-          "Creó un historial claro de solicitudes de datos completadas.",
-          "Ayudó a justificar la asignación de tiempo para proyectos estratégicos.",
-          "Construyó una base de conocimiento de SOPs para referencia futura."
+          "Creación de un historial claro de solicitudes de datos completadas.",
+          "Ayuda para justificar la asignación de tiempo a proyectos estratégicos.",
+          "Construcción de una base de conocimientos de SOPs para referencia futura."
         ],
-        stack: ["Notion", "Escritura de SOPs", "Gestión de Tareas"]
+        stack: ["Notion", "Redacción de SOPs", "Gestión de Tareas"]
       }
     ],
     experienceList: [
@@ -381,7 +382,15 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void; t: any }> =
   return (
     <div 
       onClick={onClick}
-      className="group cursor-pointer bg-white border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 flex flex-col h-full relative"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+      className="group cursor-pointer bg-white border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 flex flex-col h-full relative focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2"
     >
       {/* Colored Top Bar */}
       <div className={`h-1 w-full ${project.id === 1 ? 'bg-blue-900' : project.id === 2 ? 'bg-slate-500' : 'bg-slate-300'}`}></div>
@@ -435,7 +444,8 @@ const Portfolio: React.FC = () => {
   const [modalImgError, setModalImgError] = useState(false);
   const [lang, setLang] = useState<'en' | 'es'>('en');
 
-  const t = content[lang];
+  // Asegura que content[lang] siempre exista, fallback a 'en' si algo falla
+  const t = content[lang] || content['en'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -541,10 +551,10 @@ const Portfolio: React.FC = () => {
             <button onClick={() => scrollToSection('experience')} className="hover:text-blue-900 transition-colors">{t.nav.trajectory}</button>
             
             {/* Language Switcher Desktop */}
-            <button onClick={toggleLang} aria-label="Switch language" className="flex items-center gap-2 hover:text-blue-900 transition-colors px-2">
-               <span className={lang === 'en' ? 'text-slate-900' : 'text-slate-400'}>EN</span>
+            <button onClick={toggleLang} aria-label="Switch language" className="flex items-center gap-2 hover:text-blue-900 transition-colors px-2 cursor-pointer">
+               <span className={`transition-colors duration-300 ${lang === 'en' ? 'text-slate-900 font-bold' : 'text-slate-300'}`}>EN</span>
                <span className="text-slate-300">/</span>
-               <span className={lang === 'es' ? 'text-slate-900' : 'text-slate-400'}>ES</span>
+               <span className={`transition-colors duration-300 ${lang === 'es' ? 'text-slate-900 font-bold' : 'text-slate-300'}`}>ES</span>
             </button>
 
             <a href="mailto:jgnogues99@gmail.com" className="px-6 py-3 bg-slate-900 text-white hover:bg-blue-900 transition-all duration-300 rounded-sm">
@@ -612,7 +622,7 @@ const Portfolio: React.FC = () => {
                   <Download size={16}/> {t.hero.btnResume}
                 </a>
 
-                <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" target="_blank" rel="noreferrer" className="px-8 py-4 border border-slate-200 bg-white text-slate-900 text-sm font-bold tracking-wide uppercase hover:border-slate-400 transition-all rounded-sm flex items-center gap-2">
+                <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" target="_blank" rel="noopener noreferrer" className="px-8 py-4 border border-slate-200 bg-white text-slate-900 text-sm font-bold tracking-wide uppercase hover:border-slate-400 transition-all rounded-sm flex items-center gap-2">
                   <Linkedin size={16} /> LinkedIn
                 </a>
               </div>
@@ -705,7 +715,11 @@ const Portfolio: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             
             <div className="md:col-span-4">
-               <h2 className="font-serif text-3xl text-slate-900 mb-4" dangerouslySetInnerHTML={{__html: t.experience.title.replace(' ', '<br/>')}}></h2>
+               {/* REPLACED dangerouslySetInnerHTML with safe JSX split */}
+               <h2 className="font-serif text-3xl text-slate-900 mb-4">
+                 {t.experience.title.split(' ')[0]} <br/> 
+                 {t.experience.title.split(' ').slice(1).join(' ')}
+               </h2>
                <p className="font-sans text-sm text-slate-500 leading-relaxed mb-8">
                  {t.experience.subtitle}
                </p>
@@ -785,7 +799,7 @@ const Portfolio: React.FC = () => {
             <a href="mailto:jgnogues99@gmail.com" className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors">
                <Mail size={16} /> Email
             </a>
-            <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors">
+            <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors">
                <Linkedin size={16} /> LinkedIn
             </a>
           </div>
