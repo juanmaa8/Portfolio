@@ -1,4 +1,5 @@
 {
   "name": "Juan Manuel Garcia Portfolio",
-  "description": "Professional portfolio for a BI Analyst specializing in commercial strategy and automation."
+  "description": "Professional portfolio for a BI Analyst specializing in commercial strategy and automation.",
+  "requestFramePermissions": []
 }
