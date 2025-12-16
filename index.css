@@ -1,7 +1,0 @@
-/* 
-   Los estilos son manejados por Tailwind CDN en index.html.
-   Esto garantiza que el diseño se vea bien sin necesidad de compilar localmente.
-*/
-body {
-  font-family: 'Inter', sans-serif;
-}
