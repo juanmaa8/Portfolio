@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import {
   BarChart3,
   Menu,
@@ -1044,6 +1045,7 @@ const Portfolio: React.FC = () => {
           </div>
         </div>
       )}
+      <Analytics />
     </div>
   );
 };
