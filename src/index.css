@@ -6,7 +6,7 @@ body {
   font-family: "Inter", sans-serif;
   /* Custom cursor active — to disable: remove 'cursor: none' here
      and add 'display: none' to .cursor-dot and .cursor-ring */
-  cursor: none;
+  /*cursor: none;*/
 }
 
 /* ============================================
