@@ -656,8 +656,8 @@ const Portfolio: React.FC = () => {
                   <p className="font-sans text-sm text-slate-600 leading-relaxed font-light">{exp.desc}</p>
                 </div>
               ))}
-              <div className={`reveal relative pt-8 ${xpR.visible?"visible":""}`} style={{transitionDelay:"300ms"}}>
-                <div className="absolute -left-[41px] md:-left-[57px] top-10 w-3 h-3 bg-slate-200 rounded-full border-2 border-[#FAFAFA]"/>
+              <div className={`reveal relative pt-8 group ${xpR.visible?"visible":""}`} style={{transitionDelay:"300ms"}}>
+                <div className="absolute -left-[41px] md:-left-[57px] top-10 w-3 h-3 bg-slate-200 rounded-full border-2 border-[#FAFAFA] group-hover:bg-blue-900 group-hover:scale-125 transition-all duration-300"/>
                 <div className="font-serif text-xl font-bold text-slate-900 mb-4">{t.experience.educationTitle}</div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {t.experience.education.map((edu:any,i:number)=>(
