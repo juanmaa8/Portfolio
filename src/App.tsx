@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   BarChart3,
   Menu,
@@ -20,7 +20,10 @@ import {
   MapPin,
   Sparkles,
   BadgeCheck,
-  Maximize2
+  Maximize2,
+  Send,
+  Clock,
+  Globe
 } from "lucide-react";
 import { Project } from "./types";
 
@@ -44,6 +47,16 @@ const content = {
       stack: "SQL & Power BI",
       focus: "Data Strategy",
       location: "Miami, FL"
+    },
+    metrics: {
+      title: "By the Numbers",
+      subtitle: "Measurable impact from day one.",
+      items: [
+        { value: 80, suffix: "%", label: "Reduction in report generation time through automation" },
+        { value: 25, suffix: "%", label: "Increase in data accuracy by eliminating manual errors" },
+        { value: 3, suffix: "+", label: "Production dashboards deployed and actively used" },
+        { value: 2, suffix: " yrs", label: "STEM OPT authorization remaining (valid through 2027)" }
+      ]
     },
     expertise: {
       title: "Technical Focus",
@@ -95,6 +108,15 @@ const content = {
         { name: "PL-300", status: "In Progress" },
         { name: "BIDA CFI", status: "In Progress" }
       ]
+    },
+    contactSection: {
+      title: "Let's Work Together",
+      subtitle: "Open to full-time BI Analyst roles, contract projects, and freelance engagements in Miami or remote.",
+      emailLabel: "Send me an email",
+      linkedinLabel: "Connect on LinkedIn",
+      availability: "Currently available",
+      responseTime: "Typically responds within 24h",
+      timezone: "Miami, FL (EST)"
     },
     footer: {
       tagline: "Making data intuitive and profitable.",
@@ -219,6 +241,16 @@ const content = {
       focus: "Estrategia de Datos",
       location: "Miami, FL"
     },
+    metrics: {
+      title: "En Números",
+      subtitle: "Impacto medible desde el primer día.",
+      items: [
+        { value: 80, suffix: "%", label: "Reducción en el tiempo de generación de reportes mediante automatización" },
+        { value: 25, suffix: "%", label: "Aumento en la precisión de datos al eliminar errores manuales" },
+        { value: 3, suffix: "+", label: "Dashboards en producción activamente utilizados" },
+        { value: 2, suffix: " años", label: "Autorización STEM OPT restante (válida hasta 2027)" }
+      ]
+    },
     expertise: {
       title: "Enfoque Técnico",
       subtitle: "Mi habilidad principal: cerrar la brecha entre datos brutos y decisiones de negocio.",
@@ -269,6 +301,15 @@ const content = {
         { name: "PL-300", status: "En Progreso" },
         { name: "BIDA CFI", status: "En Progreso" }
       ]
+    },
+    contactSection: {
+      title: "Trabajemos Juntos",
+      subtitle: "Abierto a posiciones full-time de Analista BI, proyectos por contrato y freelance en Miami o remoto.",
+      emailLabel: "Envíame un email",
+      linkedinLabel: "Conecta en LinkedIn",
+      availability: "Actualmente disponible",
+      responseTime: "Responde en menos de 24h",
+      timezone: "Miami, FL (EST)"
     },
     footer: {
       tagline: "Haciendo los datos intuitivos y rentables.",
@@ -376,11 +417,45 @@ const content = {
   }
 };
 
-// Sub-componente para manejar el estado de error de imagen individualmente
+// --- ANIMATED COUNTER HOOK ---
+function useCountUp(target: number, duration = 2000, start = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!start) return;
+    let startTime: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [target, duration, start]);
+  return count;
+}
+
+// --- METRIC CARD ---
+const MetricCard: React.FC<{ value: number; suffix: string; label: string; delay: number; inView: boolean }> = ({
+  value, suffix, label, delay, inView
+}) => {
+  const count = useCountUp(value, 1800, inView);
+  return (
+    <div
+      className="text-center p-8 border border-slate-200 bg-white hover:border-blue-200 hover:shadow-xl transition-all duration-500 group"
+      style={{ animationDelay: `${delay}ms` }}
+    >
+      <div className="font-serif text-5xl md:text-6xl font-bold text-slate-900 mb-3 group-hover:text-blue-900 transition-colors tabular-nums">
+        {count}{suffix}
+      </div>
+      <p className="text-sm text-slate-500 font-light leading-relaxed">{label}</p>
+    </div>
+  );
+};
+
+// --- PROJECT CARD ---
 const ProjectCard: React.FC<{ project: Project; onClick: () => void; t: any }> = ({
-  project,
-  onClick,
-  t
+  project, onClick, t
 }) => {
   const [imgError, setImgError] = useState(false);
 
@@ -389,11 +464,9 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void; t: any }> =
       onClick={onClick}
       className="group cursor-pointer bg-white border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 flex flex-col h-full relative"
     >
-      <div
-        className={`h-1 w-full ${
-          project.id === 1 ? "bg-blue-900" : project.id === 2 ? "bg-slate-500" : "bg-slate-300"
-        }`}
-      ></div>
+      <div className={`h-1 w-full ${
+        project.id === 1 ? "bg-blue-900" : project.id === 2 ? "bg-slate-500" : "bg-slate-300"
+      }`}></div>
 
       <div className="h-52 bg-[#F8F9FB] relative overflow-hidden flex items-center justify-center border-b border-slate-100">
         {!imgError && project.gallery && project.gallery.length > 0 ? (
@@ -419,7 +492,6 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void; t: any }> =
             </span>
           </div>
         )}
-
         <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-900 border border-slate-200 shadow-sm">
           {project.category}
         </div>
@@ -432,7 +504,6 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void; t: any }> =
         <p className="font-sans text-sm text-slate-500 leading-relaxed mb-6 line-clamp-3 font-light">
           {project.shortDesc}
         </p>
-
         <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
           <span className="text-xs font-bold text-slate-900 border-b border-transparent group-hover:border-slate-900 transition-all pb-0.5">
             {t.readAnalysis}
@@ -452,6 +523,8 @@ const Portfolio: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [modalImgError, setModalImgError] = useState(false);
   const [lang, setLang] = useState<"en" | "es">("en");
+  const [metricsInView, setMetricsInView] = useState(false);
+  const metricsRef = useRef<HTMLDivElement>(null);
 
   const t = content[lang];
 
@@ -461,12 +534,20 @@ const Portfolio: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Intersection Observer for metrics section
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setMetricsInView(true); },
+      { threshold: 0.3 }
+    );
+    if (metricsRef.current) observer.observe(metricsRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     if (selectedProject) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "unset";
-    return () => {
-      document.body.style.overflow = "unset";
-    };
+    return () => { document.body.style.overflow = "unset"; };
   }, [selectedProject]);
 
   const scrollToSection = (id: string) => {
@@ -513,26 +594,17 @@ const Portfolio: React.FC = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedProject, isZoomOpen]);
 
-  const nextImage = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    navigateGallery("next");
-  };
-
-  const prevImage = (e?: React.MouseEvent) => {
-    e?.stopPropagation();
-    navigateGallery("prev");
-  };
-
+  const nextImage = (e?: React.MouseEvent) => { e?.stopPropagation(); navigateGallery("next"); };
+  const prevImage = (e?: React.MouseEvent) => { e?.stopPropagation(); navigateGallery("prev"); };
   const toggleLang = () => setLang((prev) => (prev === "en" ? "es" : "en"));
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-slate-900 font-sans selection:bg-slate-200">
+
       {/* NAVBAR */}
-      <nav
-        className={`fixed w-full z-40 transition-all duration-500 ${
-          scrolled ? "bg-white/95 backdrop-blur-md border-b border-slate-200 py-4" : "bg-transparent py-8"
-        }`}
-      >
+      <nav className={`fixed w-full z-40 transition-all duration-500 ${
+        scrolled ? "bg-white/95 backdrop-blur-md border-b border-slate-200 py-4" : "bg-transparent py-8"
+      }`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex flex-col cursor-pointer group" onClick={() => scrollToSection("hero")}>
             <span className="font-serif text-xl font-bold tracking-tight text-slate-900 group-hover:text-blue-900 transition-colors flex items-center gap-2">
@@ -547,37 +619,24 @@ const Portfolio: React.FC = () => {
             <button onClick={() => scrollToSection("work")} className="hover:text-blue-900 transition-colors">
               {t.nav.work}
             </button>
-            <button
-              onClick={() => scrollToSection("experience")}
-              className="hover:text-blue-900 transition-colors"
-            >
+            <button onClick={() => scrollToSection("experience")} className="hover:text-blue-900 transition-colors">
               {t.nav.trajectory}
             </button>
-
-            <button
-              onClick={toggleLang}
-              aria-label="Switch language"
-              className="flex items-center gap-2 hover:text-blue-900 transition-colors px-2"
-            >
+            <button onClick={() => scrollToSection("contact")} className="hover:text-blue-900 transition-colors">
+              {t.nav.contact}
+            </button>
+            <button onClick={toggleLang} aria-label="Switch language" className="flex items-center gap-2 hover:text-blue-900 transition-colors px-2">
               <span className={lang === "en" ? "text-slate-900" : "text-slate-400"}>EN</span>
               <span className="text-slate-300">/</span>
               <span className={lang === "es" ? "text-slate-900" : "text-slate-400"}>ES</span>
             </button>
-
-            <a
-              href="mailto:jgnogues99@gmail.com"
-              className="px-6 py-3 bg-slate-900 text-white hover:bg-blue-900 transition-all duration-300 rounded-sm"
-            >
+            <button onClick={() => scrollToSection("contact")} className="px-6 py-3 bg-slate-900 text-white hover:bg-blue-900 transition-all duration-300 rounded-sm">
               {t.nav.contact}
-            </a>
+            </button>
           </div>
 
           <div className="flex items-center gap-4 md:hidden">
-            <button
-              onClick={toggleLang}
-              aria-label="Switch language mobile"
-              className="text-xs font-bold uppercase tracking-widest"
-            >
+            <button onClick={toggleLang} aria-label="Switch language mobile" className="text-xs font-bold uppercase tracking-widest">
               <span className={lang === "en" ? "text-slate-900" : "text-slate-400"}>EN</span>
               <span className="text-slate-300 mx-1">/</span>
               <span className={lang === "es" ? "text-slate-900" : "text-slate-400"}>ES</span>
@@ -589,27 +648,18 @@ const Portfolio: React.FC = () => {
         </div>
       </nav>
 
-      {/* MOBILE MENU OVERLAY */}
+      {/* MOBILE MENU */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-30 bg-white pt-24 px-6 md:hidden animate-fade-in">
           <div className="flex flex-col gap-8 text-xl font-serif font-bold text-slate-900">
-            <button onClick={() => scrollToSection("work")} className="text-left border-b border-slate-100 pb-4">
-              {t.nav.work}
-            </button>
-            <button
-              onClick={() => scrollToSection("experience")}
-              className="text-left border-b border-slate-100 pb-4"
-            >
-              {t.nav.trajectory}
-            </button>
-            <a href="mailto:jgnogues99@gmail.com" className="text-left text-blue-900">
-              {t.nav.contact}
-            </a>
+            <button onClick={() => scrollToSection("work")} className="text-left border-b border-slate-100 pb-4">{t.nav.work}</button>
+            <button onClick={() => scrollToSection("experience")} className="text-left border-b border-slate-100 pb-4">{t.nav.trajectory}</button>
+            <button onClick={() => scrollToSection("contact")} className="text-left text-blue-900">{t.nav.contact}</button>
           </div>
         </div>
       )}
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section id="hero" className="pt-48 pb-12 px-6 md:px-12 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50 rounded-full blur-[120px] -z-10 opacity-60 mix-blend-multiply"></div>
 
@@ -617,9 +667,7 @@ const Portfolio: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-16 items-start">
             <div className="flex-1 animate-fade-in-up">
               <div className="inline-block border-b border-slate-900 pb-1 mb-8">
-                <span className="text-xs font-bold tracking-widest uppercase text-slate-900">
-                  {t.hero.available}
-                </span>
+                <span className="text-xs font-bold tracking-widest uppercase text-slate-900">{t.hero.available}</span>
               </div>
 
               <h1 className="font-serif text-5xl md:text-7xl leading-[1.1] text-slate-900 mb-8">
@@ -638,7 +686,6 @@ const Portfolio: React.FC = () => {
                 >
                   {t.hero.btnWork}
                 </button>
-
                 <a
                   href="/files/Juan_Manuel_Garcia_Resume.pdf"
                   download
@@ -648,7 +695,6 @@ const Portfolio: React.FC = () => {
                 >
                   <Download size={16} /> {t.hero.btnResume}
                 </a>
-
                 <a
                   href="https://www.linkedin.com/in/juanmanuelgarcia-bi"
                   target="_blank"
@@ -671,28 +717,44 @@ const Portfolio: React.FC = () => {
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">
                     <Database size={14} className="text-blue-900" /> Stack
                   </div>
-                  <div className="font-serif text-2xl text-slate-900 group-hover:text-blue-900 transition-colors">
-                    {t.hero.stack}
-                  </div>
+                  <div className="font-serif text-2xl text-slate-900 group-hover:text-blue-900 transition-colors">{t.hero.stack}</div>
                 </div>
                 <div className="group">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">
                     <Sparkles size={14} className="text-yellow-600" /> Focus
                   </div>
-                  <div className="font-serif text-2xl text-slate-900 group-hover:text-blue-900 transition-colors">
-                    {t.hero.focus}
-                  </div>
+                  <div className="font-serif text-2xl text-slate-900 group-hover:text-blue-900 transition-colors">{t.hero.focus}</div>
                 </div>
                 <div className="group">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">
                     <MapPin size={14} className="text-red-500" /> Location
                   </div>
-                  <div className="font-serif text-2xl text-slate-900 group-hover:text-blue-900 transition-colors">
-                    {t.hero.location}
-                  </div>
+                  <div className="font-serif text-2xl text-slate-900 group-hover:text-blue-900 transition-colors">{t.hero.location}</div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* METRICS SECTION */}
+      <section ref={metricsRef} className="py-16 bg-slate-900 text-white">
+        <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+          <div className="mb-12 text-center">
+            <h2 className="font-serif text-3xl text-white mb-2">{t.metrics.title}</h2>
+            <p className="font-sans text-slate-400 font-light">{t.metrics.subtitle}</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-700">
+            {t.metrics.items.map((item: any, idx: number) => (
+              <MetricCard
+                key={idx}
+                value={item.value}
+                suffix={item.suffix}
+                label={item.label}
+                delay={idx * 150}
+                inView={metricsInView}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -704,30 +766,17 @@ const Portfolio: React.FC = () => {
             <h2 className="font-serif text-3xl text-slate-900 mb-2">{t.expertise.title}</h2>
             <p className="font-sans text-slate-500 font-light max-w-2xl">{t.expertise.subtitle}</p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {t.expertise.cards.map((card: any, idx: number) => (
-              <div
-                key={idx}
-                className="bg-[#FAFAFA] p-8 border border-slate-100 hover:border-slate-200 hover:shadow-lg transition-all duration-300 group"
-              >
+              <div key={idx} className="bg-[#FAFAFA] p-8 border border-slate-100 hover:border-slate-200 hover:shadow-lg transition-all duration-300 group">
                 <div className="mb-6 w-12 h-12 bg-white border border-slate-200 flex items-center justify-center text-slate-900 group-hover:bg-slate-900 group-hover:text-white transition-colors">
-                  {idx === 0 ? (
-                    <Database size={20} strokeWidth={1.5} />
-                  ) : idx === 1 ? (
-                    <TrendingUp size={20} strokeWidth={1.5} />
-                  ) : (
-                    <Lightbulb size={20} strokeWidth={1.5} />
-                  )}
+                  {idx === 0 ? <Database size={20} strokeWidth={1.5} /> : idx === 1 ? <TrendingUp size={20} strokeWidth={1.5} /> : <Lightbulb size={20} strokeWidth={1.5} />}
                 </div>
                 <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
                 <p className="text-sm text-slate-500 leading-relaxed mb-6 font-light">{card.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {card.tags.map((tag: string, i: number) => (
-                    <span
-                      key={i}
-                      className="text-[10px] uppercase font-bold tracking-wider text-slate-400 border border-slate-200 px-2 py-1 bg-white"
-                    >
+                    <span key={i} className="text-[10px] uppercase font-bold tracking-wider text-slate-400 border border-slate-200 px-2 py-1 bg-white">
                       {tag}
                     </span>
                   ))}
@@ -747,7 +796,6 @@ const Portfolio: React.FC = () => {
               <p className="font-sans text-slate-500 font-light">{t.work.subtitle}</p>
             </div>
           </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {t.projects.map((project: Project) => (
               <ProjectCard key={project.id} project={project} onClick={() => handleOpenProject(project)} t={t.work} />
@@ -765,14 +813,10 @@ const Portfolio: React.FC = () => {
                 {t.experience.title.split(" ")[0]} <br />
                 {t.experience.title.split(" ").slice(1).join(" ")}
               </h2>
-
               <p className="font-sans text-sm text-slate-500 leading-relaxed mb-8">{t.experience.subtitle}</p>
-
               <a
                 href="/files/Juan_Manuel_Garcia_Resume.pdf"
-                download
-                target="_blank"
-                rel="noopener noreferrer"
+                download target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-200 pb-1 hover:border-slate-900 transition-all"
               >
                 <Download size={14} /> {t.experience.download}
@@ -783,30 +827,23 @@ const Portfolio: React.FC = () => {
               {t.experienceList.map((exp: any, i: number) => (
                 <div key={i} className="relative group">
                   <div className="absolute -left-[41px] md:-left-[57px] top-1.5 w-3 h-3 bg-slate-200 rounded-full border-2 border-[#FAFAFA] group-hover:bg-slate-900 transition-colors"></div>
-
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
                     <h3 className="font-serif text-xl font-bold text-slate-900">{exp.role}</h3>
                     <span className="font-sans text-xs font-bold text-slate-400 uppercase tracking-wide">{exp.period}</span>
                   </div>
-
                   <div className="flex items-center gap-2 mb-3">
                     <Briefcase size={14} className="text-blue-900" />
                     <span className="font-sans text-sm font-bold text-slate-700">{exp.company}</span>
                     <span className="text-slate-300">•</span>
                     <span className="font-sans text-sm text-slate-500">{exp.location}</span>
                   </div>
-
                   <p className="font-sans text-sm text-slate-600 leading-relaxed font-light">{exp.desc}</p>
                 </div>
               ))}
 
               <div className="relative pt-8">
                 <div className="absolute -left-[41px] md:-left-[57px] top-10 w-3 h-3 bg-slate-200 rounded-full border-2 border-[#FAFAFA]"></div>
-
-                <div className="font-serif text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                  {t.experience.educationTitle}
-                </div>
-
+                <div className="font-serif text-xl font-bold text-slate-900 mb-4">{t.experience.educationTitle}</div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {t.experience.education.map((edu: any, idx: number) => (
                     <div key={idx} className="bg-white p-4 border border-slate-100 shadow-sm">
@@ -816,21 +853,93 @@ const Portfolio: React.FC = () => {
                     </div>
                   ))}
                 </div>
-
                 <div className="mt-4 bg-white p-4 border border-slate-100 shadow-sm">
                   <div className="font-bold text-slate-900 text-sm mb-2">{t.experience.certificationsTitle}</div>
                   <div className="flex flex-wrap gap-2">
                     {t.experience.certs.map((cert: any, idx: number) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-1 bg-slate-50 text-slate-600 text-[10px] font-bold uppercase tracking-wider border border-slate-100"
-                      >
+                      <span key={idx} className="px-2 py-1 bg-slate-50 text-slate-600 text-[10px] font-bold uppercase tracking-wider border border-slate-100">
                         {cert.name} / {cert.status}
                       </span>
                     ))}
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT SECTION */}
+      <section id="contact" className="py-24 bg-white border-t border-slate-100">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-block border-b border-slate-900 pb-1 mb-8">
+                <span className="text-xs font-bold tracking-widest uppercase text-slate-500">{t.contactSection.availability}</span>
+              </div>
+              <h2 className="font-serif text-4xl md:text-5xl text-slate-900 mb-6 leading-tight">
+                {t.contactSection.title}
+              </h2>
+              <p className="font-sans text-slate-500 leading-relaxed font-light mb-8">
+                {t.contactSection.subtitle}
+              </p>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-3 text-sm text-slate-500">
+                  <Clock size={14} className="text-blue-900" />
+                  <span>{t.contactSection.responseTime}</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-slate-500">
+                  <Globe size={14} className="text-blue-900" />
+                  <span>{t.contactSection.timezone}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <a
+                href="mailto:jgnogues99@gmail.com"
+                className="group flex items-center justify-between px-8 py-6 bg-slate-900 text-white hover:bg-blue-900 transition-all duration-300 rounded-sm"
+              >
+                <div className="flex items-center gap-4">
+                  <Mail size={20} />
+                  <div>
+                    <div className="font-bold text-sm uppercase tracking-widest">{t.contactSection.emailLabel}</div>
+                    <div className="text-slate-400 text-xs mt-1 font-light">jgnogues99@gmail.com</div>
+                  </div>
+                </div>
+                <Send size={18} className="text-slate-400 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/juanmanuelgarcia-bi"
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center justify-between px-8 py-6 border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition-all duration-300 rounded-sm"
+              >
+                <div className="flex items-center gap-4">
+                  <Linkedin size={20} />
+                  <div>
+                    <div className="font-bold text-sm uppercase tracking-widest">{t.contactSection.linkedinLabel}</div>
+                    <div className="text-slate-400 text-xs mt-1 font-light">linkedin.com/in/juanmanuelgarcia-bi</div>
+                  </div>
+                </div>
+                <ArrowUpRight size={18} className="text-slate-400 group-hover:text-white transition-colors" />
+              </a>
+
+              <a
+                href="/files/Juan_Manuel_Garcia_Resume.pdf"
+                download target="_blank" rel="noopener noreferrer"
+                className="group flex items-center justify-between px-8 py-6 border border-slate-200 text-slate-700 hover:border-slate-400 bg-[#FAFAFA] transition-all duration-300 rounded-sm"
+              >
+                <div className="flex items-center gap-4">
+                  <Download size={20} />
+                  <div>
+                    <div className="font-bold text-sm uppercase tracking-widest">{t.experience.download}</div>
+                    <div className="text-slate-400 text-xs mt-1 font-light">PDF · Updated 2025</div>
+                  </div>
+                </div>
+                <ArrowUpRight size={18} className="text-slate-400 group-hover:text-slate-700 transition-colors" />
+              </a>
             </div>
           </div>
         </div>
@@ -843,65 +952,35 @@ const Portfolio: React.FC = () => {
             <h3 className="font-serif text-2xl mb-2">Juan M. Garcia</h3>
             <p className="font-sans text-slate-400 text-sm font-light">{t.footer.tagline}</p>
           </div>
-
           <div className="flex gap-8 items-center">
-            <a
-              href="mailto:jgnogues99@gmail.com"
-              className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors"
-            >
+            <a href="mailto:jgnogues99@gmail.com" className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors">
               <Mail size={16} /> Email
             </a>
-            <a
-              href="https://www.linkedin.com/in/juanmanuelgarcia-bi"
-              className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors"
-            >
+            <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors">
               <Linkedin size={16} /> LinkedIn
             </a>
           </div>
         </div>
-
         <div className="container mx-auto px-6 md:px-12 mt-8 text-center md:text-left">
-          <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} Juan Manuel Garcia — {t.footer.built}
-          </p>
+          <p className="text-xs text-slate-500">© {new Date().getFullYear()} Juan Manuel Garcia — {t.footer.built}</p>
         </div>
       </footer>
 
-      {/* FULL SCREEN ZOOM MODAL */}
+      {/* ZOOM MODAL */}
       {selectedProject && isZoomOpen && (
         <div className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md flex items-center justify-center animate-fade-in">
-          <button
-            onClick={() => setIsZoomOpen(false)}
-            className="absolute top-4 right-4 p-2 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-colors z-50"
-          >
+          <button onClick={() => setIsZoomOpen(false)} className="absolute top-4 right-4 p-2 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-colors z-50">
             <X size={24} />
           </button>
-
           {selectedProject.gallery && selectedProject.gallery.length > 1 && (
             <>
-              <button
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white transition-colors z-50"
-              >
-                <ChevronLeft size={32} />
-              </button>
-              <button
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white transition-colors z-50"
-              >
-                <ChevronRight size={32} />
-              </button>
+              <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white transition-colors z-50"><ChevronLeft size={32} /></button>
+              <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white transition-colors z-50"><ChevronRight size={32} /></button>
             </>
           )}
-
           <div className="w-full h-full p-4 flex items-center justify-center">
-            <img
-              src={selectedProject.gallery?.[currentImageIndex]}
-              className="max-w-full max-h-full object-contain shadow-2xl"
-              alt="Full screen view"
-            />
+            <img src={selectedProject.gallery?.[currentImageIndex]} className="max-w-full max-h-full object-contain shadow-2xl" alt="Full screen view" />
           </div>
-
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm font-bold uppercase tracking-widest">
             {currentImageIndex + 1} / {selectedProject.gallery?.length ?? 0}
           </div>
@@ -912,11 +991,7 @@ const Portfolio: React.FC = () => {
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-slate-900/80 backdrop-blur-sm">
           <div className="bg-white w-full max-w-6xl h-full md:h-auto md:max-h-[95vh] overflow-y-auto shadow-2xl flex flex-col lg:flex-row relative animate-fade-in rounded-none md:rounded-sm">
-            <button
-              onClick={handleCloseModal}
-              aria-label="Close modal"
-              className="fixed top-4 right-4 md:absolute md:top-4 md:right-4 z-50 p-2 bg-white/90 md:bg-white/80 hover:bg-slate-100 rounded-full transition-colors text-slate-900 shadow-lg md:shadow-none border md:border-transparent border-slate-200"
-            >
+            <button onClick={handleCloseModal} aria-label="Close modal" className="fixed top-4 right-4 md:absolute md:top-4 md:right-4 z-50 p-2 bg-white/90 md:bg-white/80 hover:bg-slate-100 rounded-full transition-colors text-slate-900 shadow-lg md:shadow-none border md:border-transparent border-slate-200">
               <X size={20} />
             </button>
 
@@ -930,41 +1005,19 @@ const Portfolio: React.FC = () => {
                     <Maximize2 size={24} />
                   </div>
                 </div>
-
                 {!modalImgError && selectedProject.gallery && selectedProject.gallery.length > 0 ? (
-                  <img
-                    src={selectedProject.gallery[currentImageIndex]}
-                    className="w-full h-full object-contain"
-                    alt="Project detail"
-                    onError={() => setModalImgError(true)}
-                  />
+                  <img src={selectedProject.gallery[currentImageIndex]} className="w-full h-full object-contain" alt="Project detail" onError={() => setModalImgError(true)} />
                 ) : (
                   <div className="text-center p-12">
-                    <div className="mb-4 text-slate-300">
-                      <Layers size={48} strokeWidth={1} />
-                    </div>
+                    <div className="mb-4 text-slate-300"><Layers size={48} strokeWidth={1} /></div>
                     <p className="font-serif text-xl text-slate-400 italic">{t.modal.placeholder}</p>
                     <p className="font-sans text-xs text-slate-400 mt-2 uppercase tracking-widest">{t.modal.upload}</p>
                   </div>
                 )}
-
                 {selectedProject.gallery && selectedProject.gallery.length > 1 && (
                   <>
-                    <button
-                      onClick={prevImage}
-                      aria-label="Previous image"
-                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 shadow-sm transition-all z-20"
-                    >
-                      <ChevronLeft size={18} />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      aria-label="Next image"
-                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 shadow-sm transition-all z-20"
-                    >
-                      <ChevronRight size={18} />
-                    </button>
-
+                    <button onClick={prevImage} aria-label="Previous image" className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 shadow-sm transition-all z-20"><ChevronLeft size={18} /></button>
+                    <button onClick={nextImage} aria-label="Next image" className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 shadow-sm transition-all z-20"><ChevronRight size={18} /></button>
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-sm z-20">
                       {currentImageIndex + 1} / {selectedProject.gallery.length}
                     </div>
@@ -975,48 +1028,29 @@ const Portfolio: React.FC = () => {
 
             <div className="lg:w-2/5 p-10 md:p-12 bg-white overflow-y-auto">
               <div className="mb-6 pb-6 border-b border-slate-100">
-                <div className="text-[10px] font-bold text-blue-900 uppercase tracking-[0.2em] mb-3">
-                  {selectedProject.client}
-                </div>
+                <div className="text-[10px] font-bold text-blue-900 uppercase tracking-[0.2em] mb-3">{selectedProject.client}</div>
                 <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">{selectedProject.title}</h2>
-
                 {selectedProject.impactBadges && (
                   <div className="flex flex-wrap gap-2 mb-4">
                     {selectedProject.impactBadges.map((badge, idx) => (
-                      <span
-                        key={idx}
-                        className="text-[10px] bg-blue-50 text-blue-900 px-3 py-1 rounded-sm font-bold uppercase tracking-widest border border-blue-100"
-                      >
-                        {badge}
-                      </span>
+                      <span key={idx} className="text-[10px] bg-blue-50 text-blue-900 px-3 py-1 rounded-sm font-bold uppercase tracking-widest border border-blue-100">{badge}</span>
                     ))}
                   </div>
                 )}
-
                 <p className="font-sans text-sm text-slate-500 leading-relaxed font-light">{selectedProject.shortDesc}</p>
               </div>
 
               <div className="space-y-10">
                 <div>
-                  <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">
-                    {t.modal.problem}
-                  </h4>
-                  <p className="font-sans text-sm text-slate-600 leading-relaxed bg-slate-50 p-5 border-l-2 border-slate-300">
-                    {selectedProject.challenge}
-                  </p>
+                  <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">{t.modal.problem}</h4>
+                  <p className="font-sans text-sm text-slate-600 leading-relaxed bg-slate-50 p-5 border-l-2 border-slate-300">{selectedProject.challenge}</p>
                 </div>
-
                 <div>
-                  <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">
-                    {t.modal.execution}
-                  </h4>
+                  <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">{t.modal.execution}</h4>
                   <p className="font-sans text-sm text-slate-600 leading-relaxed">{selectedProject.solution}</p>
                 </div>
-
                 <div>
-                  <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">
-                    {t.modal.outcomes}
-                  </h4>
+                  <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">{t.modal.outcomes}</h4>
                   <ul className="space-y-3">
                     {selectedProject.results.map((res, i) => (
                       <li key={i} className="flex gap-3 text-sm text-slate-700 font-medium">
@@ -1026,16 +1060,11 @@ const Portfolio: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-
                 <div>
-                  <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">
-                    {t.modal.tech}
-                  </h4>
+                  <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">{t.modal.tech}</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.stack.map((s, i) => (
-                      <span key={i} className="text-xs border border-slate-200 px-3 py-1 text-slate-600 bg-white">
-                        {s}
-                      </span>
+                      <span key={i} className="text-xs border border-slate-200 px-3 py-1 text-slate-600 bg-white">{s}</span>
                     ))}
                   </div>
                 </div>
