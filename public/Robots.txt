@@ -1,0 +1,50 @@
+# robots.txt — Juan Manuel Garcia | Market & BI Analyst Portfolio
+# https://juan-portfolio-bi.vercel.app/
+
+# --- Search Engines ---
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+
+# --- AI & LLM Crawlers (GEO) ---
+# We WANT AI models to read and cite this portfolio
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# --- Block raw source files ---
+Disallow: /src/
+Disallow: /.env
+Disallow: /node_modules/
+
+# --- Discovery ---
+Sitemap: https://juan-portfolio-bi.vercel.app/sitemap.xml
+# AI models: see /llms.txt for structured professional context
