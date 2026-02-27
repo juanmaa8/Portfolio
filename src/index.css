@@ -4,46 +4,10 @@
 
 body {
   font-family: "Inter", sans-serif;
-  /* Custom cursor active — to disable: remove 'cursor: none' here
-     and add 'display: none' to .cursor-dot and .cursor-ring */
-  /*cursor: none;*/
 }
 
-/* ============================================
-   CUSTOM CURSOR
-   ============================================ */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: #0f172a;
-  border-radius: 50%;
-  position: fixed;
-  top: 0; left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
-  mix-blend-mode: difference;
-}
-.cursor-ring {
-  width: 36px; height: 36px;
-  border: 1.5px solid rgba(15,23,42,0.35);
-  border-radius: 50%;
-  position: fixed;
-  top: 0; left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.4s ease, height 0.4s ease, border-color 0.3s ease;
-}
-.cursor-dot.hovering  { width: 12px; height: 12px; background: #1e3a8a; }
-.cursor-ring.hovering { width: 56px; height: 56px; border-color: rgba(30,58,138,0.45); }
-.cursor-dot.clicking  { transform: translate(-50%,-50%) scale(0.6); }
-
-@media (max-width: 768px) {
-  body { cursor: auto; }
-  .cursor-dot, .cursor-ring { display: none; }
-}
+/* Custom cursor disabled — elements hidden */
+.cursor-dot, .cursor-ring { display: none; }
 
 /* ============================================
    SCROLL PROGRESS BAR
