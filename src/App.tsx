@@ -14,7 +14,7 @@ const content = {
   en: {
     nav: { work: "Projects", trajectory: "Experience", contact: "Contact", role: "BI Analyst" },
     hero: {
-      available: "Available for Hire",
+      available: "Available to Talk",
       titleStart: "Transforming",
       titleHighlight: "Data",
       titleEnd: "into Strategic Insights.",
@@ -55,7 +55,7 @@ const content = {
       title: "Let's Work Together",
       subtitle: "Open to full-time BI Analyst roles, contract projects, and freelance engagements in Miami or remote.",
       emailLabel: "Send me an email", linkedinLabel: "Connect on LinkedIn",
-      availability: "Currently available", responseTime: "Typically responds within 24h", timezone: "Miami, FL (EST)"
+      availability: "Currently Available to Talk", responseTime: "Typically responds within 24h", timezone: "Miami, FL (EST)"
     },
     footer: { tagline: "Making data intuitive and profitable.", built: "Built with React & TailwindCSS" },
     modal: { placeholder: "Project Preview", upload: "Visuals coming soon", problem: "The Challenge", execution: "What I Did", outcomes: "Results", tech: "Tools Used" },
@@ -94,7 +94,7 @@ const content = {
   es: {
     nav: { work:"Proyectos", trajectory:"Experiencia", contact:"Contacto", role:"Analista de BI" },
     hero: {
-      available: "Disponible para contratar",
+      available: "Disponible para Conversar",
       titleStart: "Transformando", titleHighlight: "Datos", titleEnd: "en Estrategias Rentables.",
       desc: "Analista de Business Intelligence bilingüe (EN/ES). Construyo soluciones en Power BI y modelos SQL que ayudan a las empresas a medir su rendimiento y optimizar la rentabilidad.",
       btnWork:"Ver Proyectos", btnResume:"Currículum",
@@ -132,7 +132,7 @@ const content = {
       title:"Trabajemos Juntos",
       subtitle:"Abierto a posiciones full-time de Analista BI, proyectos por contrato y freelance en Miami o remoto.",
       emailLabel:"Envíame un email", linkedinLabel:"Conecta en LinkedIn",
-      availability:"Actualmente disponible", responseTime:"Responde en menos de 24h", timezone:"Miami, FL (EST)"
+      availability:"Actualmente Disponible para Conversar", responseTime:"Responde en menos de 24h", timezone:"Miami, FL (EST)"
     },
     footer:{ tagline:"Haciendo los datos intuitivos y rentables.", built:"Creado con React y TailwindCSS" },
     modal:{ placeholder:"Vista Previa del Proyecto", upload:"Visuales próximamente", problem:"El Desafío", execution:"Lo que hice", outcomes:"Resultados", tech:"Herramientas" },
@@ -719,7 +719,7 @@ const Portfolio: React.FC = () => {
               <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer" download="Juan_Manuel_Garcia_Resume.pdf"
                 className="group card-lift flex items-center justify-between px-8 py-6 border border-slate-200 text-slate-700 hover:border-slate-400 bg-[#FAFAFA] transition-all duration-300 rounded-sm">
                 <div className="flex items-center gap-4"><Download size={20}/>
-                  <div><div className="font-bold text-sm uppercase tracking-widest">{t.experience.download}</div><div className="text-slate-400 text-xs mt-1 font-light">PDF · Updated 2025</div></div>
+                  <div><div className="font-bold text-sm uppercase tracking-widest">{t.experience.download}</div><div className="text-slate-400 text-xs mt-1 font-light">PDF · Updated 2026</div></div>
                 </div>
                 <ArrowUpRight size={18} className="text-slate-400 group-hover:text-slate-700 transition-colors"/>
               </a>
