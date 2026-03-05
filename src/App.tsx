@@ -64,17 +64,17 @@ const content = {
         impactBadges:["Automated Reporting","Margin Analysis","SQL Integration"], tags:["Power BI","SQL Server","Sage ERP","DAX"],
         gallery:["/images/dashboard-main.png","/images/regional-map.png","/images/product-analysis.png","/images/customer-trends.png","/images/alerts.png","/images/data-model.png"],
         shortDesc:"Built a central Power BI dashboard connected directly to SQL to track domestic vs. international sales in real time. First time the company had visibility into real per-product margins.",
-        challenge:"The company was running entirely on manual Excel reports. No visibility into SKU-level profitability, no consolidated view of international vs domestic sales — everything was slow and error-prone.",
+        challenge:"The company was running entirely on manual Excel reports. No visibility into SKU-level profitability, no consolidated view of international vs domestic sales. Everything was slow and error-prone.",
         solution:"Connected the Sage ERP to a SQL database to normalize the data, then built a Power BI dashboard with automated refresh. Used DAX measures to calculate real margins per SKU and set up alerts for key thresholds.",
-        results:["Cut manual reporting time by 80% through full automation.","Improved data accuracy by 25%+ by eliminating manual entry errors.","Gave the team real-time visibility into margins — directly used for pricing and purchasing decisions."],
+        results:["Cut manual reporting time by 80% through full automation.","Improved data accuracy by 25%+ by eliminating manual entry errors.","Gave the team real-time visibility into margins. Directly used for pricing and purchasing decisions."],
         stack:["SQL Server","Power BI","DAX","Sage ERP"],
         disclaimer:"Visuals shown use anonymized data and representative mock figures to protect business confidentiality." },
       { id:2, category:"DATA GOVERNANCE", title:"BI Usage Tracking System", client:"Internal Initiative", metrics:"Adoption Metrics",
         impactBadges:["Usage Analysis","Report Optimization","KQL"], tags:["KQL","Azure Logs","Power BI Service"],
         gallery:["/images/engagement-KQL.png","/images/adopcion-KQL.png","/images/code-KQL.png"],
-        shortDesc:"Built an internal tracking system using KQL to measure how often reports were actually being used — and by whom.",
+        shortDesc:"Built an internal tracking system using KQL to measure how often reports were actually being used, and by whom.",
         challenge:"We had no idea which reports were useful and which weren't. Hard to justify time spent on analytics without knowing if anyone was using them.",
-        solution:"Wrote KQL scripts to analyze Power BI Activity Logs in Azure. Built a view that showed report usage by user, frequency, and department — treated the analytics function itself as a product.",
+        solution:"Wrote KQL scripts to analyze Power BI Activity Logs in Azure. Built a view that showed report usage by user, frequency, and department. Treated the analytics function itself as a product.",
         results:["Measured report engagement across all departments.","Identified underutilized reports and dropped maintenance on them.","Gave leadership data to support BI investment decisions."],
         stack:["KQL","Azure Log Analytics","Power BI Service"] },
       { id:3, category:"PROCESS DOCUMENTATION", title:"Operations & Request Management", client:"Workflow Optimization", metrics:"Workflow Efficiency",
@@ -87,7 +87,7 @@ const content = {
         stack:["Notion","SOP Writing","Task Management"] }
     ],
     experienceList: [
-      { role:"Business & BI Analyst", company:"AMG Global Distribution", location:"Miami, FL", period:"Sep 2024 – Present", desc:"Built the company's BI infrastructure from scratch — replaced manual Excel workflows with an automated SQL + Power BI system that cut reporting time by 80%. Created a profitability model to track margin at the SKU level, improving data accuracy by 25%. Worked closely with Sales and IT to define KPIs for inventory and revenue tracking." },
+      { role:"Business & BI Analyst", company:"AMG Global Distribution", location:"Miami, FL", period:"Sep 2024 – Present", desc:"Built the company's BI infrastructure from scratch. Replaced manual Excel workflows with an automated SQL + Power BI system that cut reporting time by 80%. Created a profitability model to track margin at the SKU level, improving data accuracy by 25%. Worked closely with Sales and IT to define KPIs for inventory and revenue tracking." },
       { role:"IT Assistant & SQL Report Writer — Intern", company:"Missouri Valley College", location:"Marshall, MO", period:"Jan 2024 – May 2024", desc:"Wrote and optimized SQL queries for the Argos BI system, improving data accuracy and report speed by 15%. Documented IT support workflows and troubleshooting guides, reducing resolution time for 100+ users." }
     ]
   },
@@ -141,15 +141,15 @@ const content = {
         impactBadges:["Reportes Automatizados","Análisis de Margen","Integración SQL"], tags:["Power BI","SQL Server","Sage ERP","DAX"],
         gallery:["/images/dashboard-main.png","/images/regional-map.png","/images/product-analysis.png","/images/customer-trends.png","/images/alerts.png","/images/data-model.png"],
         shortDesc:"Construí un dashboard central en Power BI conectado directamente a SQL para rastrear ventas domésticas e internacionales en tiempo real. Primera vez que la empresa tuvo visibilidad real sobre márgenes por producto.",
-        challenge:"La empresa funcionaba con reportes manuales en Excel. Sin visibilidad sobre rentabilidad por SKU, sin vista consolidada de ventas internacionales — todo era lento y propenso a errores.",
+        challenge:"La empresa funcionaba con reportes manuales en Excel. Sin visibilidad sobre rentabilidad por SKU, sin vista consolidada de ventas internacionales. Todo era lento y propenso a errores.",
         solution:"Conecté el ERP Sage a una base de datos SQL para normalizar los datos, luego construí un dashboard en Power BI con actualización automática. Usé medidas DAX para calcular márgenes reales por SKU y configuré alertas para umbrales clave.",
-        results:["Reduje el tiempo de reporte manual en un 80% mediante automatización completa.","Mejoré la precisión de los datos en más del 25% al eliminar errores manuales.","Di al equipo visibilidad en tiempo real sobre márgenes — usado directamente para decisiones de precios y compras."],
+        results:["Reduje el tiempo de reporte manual en un 80% mediante automatización completa.","Mejoré la precisión de los datos en más del 25% al eliminar errores manuales.","Di al equipo visibilidad en tiempo real sobre márgenes. Usado directamente para decisiones de precios y compras."],
         stack:["SQL Server","Power BI","DAX","Sage ERP"],
         disclaimer:"Los visuales mostrados usan datos anonimizados y cifras representativas para proteger la confidencialidad del negocio." },
       { id:2, category:"GOBERNANZA DE DATOS", title:"Sistema de Rastreo de Uso de BI", client:"Iniciativa Interna", metrics:"Métricas de Adopción",
         impactBadges:["Análisis de Uso","Optimización de Reportes","KQL"], tags:["KQL","Azure Logs","Power BI Service"],
         gallery:["/images/engagement-KQL.png","/images/adopcion-KQL.png","/images/code-KQL.png"],
-        shortDesc:"Construí un sistema de seguimiento interno usando KQL para medir con qué frecuencia se usaban los reportes — y quién los usaba.",
+        shortDesc:"Construí un sistema de seguimiento interno usando KQL para medir con qué frecuencia se usaban los reportes y quién los usaba.",
         challenge:"No teníamos idea de qué reportes eran útiles y cuáles no. Era difícil justificar el tiempo dedicado a analytics sin saber si alguien los usaba.",
         solution:"Escribí scripts KQL para analizar los Logs de Actividad de Power BI en Azure. Construí una vista que mostraba el uso de reportes por usuario, frecuencia y departamento.",
         results:["Medí el uso de reportes en todos los departamentos.","Identifiqué reportes sin uso y dejé de mantenerlos.","Di a liderazgo datos para apoyar decisiones de inversión en BI."],
@@ -164,7 +164,7 @@ const content = {
         stack:["Notion","Escritura de SOPs","Gestión de Tareas"] }
     ],
     experienceList:[
-      { role:"Business & BI Analyst", company:"AMG Global Distribution", location:"Miami, FL", period:"Sep 2024 – Actualidad", desc:"Construí la infraestructura de BI de la empresa desde cero — reemplacé flujos manuales de Excel con un sistema automatizado SQL + Power BI que redujo el tiempo de reporte en un 80%. Creé un modelo de rentabilidad para rastrear márgenes por SKU, mejorando la precisión de datos en un 25%. Trabajé con Sales e IT para definir KPIs de inventario y seguimiento de ingresos." },
+      { role:"Business & BI Analyst", company:"AMG Global Distribution", location:"Miami, FL", period:"Sep 2024 – Actualidad", desc:"Construí la infraestructura de BI de la empresa desde cero. Reemplacé flujos manuales de Excel con un sistema automatizado SQL + Power BI que redujo el tiempo de reporte en un 80%. Creé un modelo de rentabilidad para rastrear márgenes por SKU, mejorando la precisión de datos en un 25%. Trabajé con Sales e IT para definir KPIs de inventario y seguimiento de ingresos." },
       { role:"Asistente IT y Escritor de Reportes SQL — Pasante", company:"Missouri Valley College", location:"Marshall, MO", period:"Ene 2024 – May 2024", desc:"Escribí y optimicé queries SQL para el sistema Argos BI, mejorando la precisión y velocidad de reportes en un 15%. Documenté flujos de soporte IT y guías de resolución de problemas, reduciendo el tiempo de respuesta para más de 100 usuarios." }
     ]
   }
@@ -328,11 +328,11 @@ const MagBtn: React.FC<{ children: React.ReactNode; className?: string; onClick?
 const MetricCard: React.FC<{ value:number; suffix:string; label:string; delay:number; inView:boolean }> = ({ value,suffix,label,delay,inView }) => {
   const c = useCountUp(value, 1800, inView);
   return (
-    <div className={`reveal text-center p-8 border border-slate-700 bg-white/5
+    <div className={`reveal text-center p-5 md:p-8 border border-slate-700 bg-white/5
         hover:bg-white/10 hover:border-blue-400/30 transition-all duration-500 group
         ${inView?"visible":""}`}
       style={{ transitionDelay:`${delay}ms` }}>
-      <div className="font-serif text-5xl md:text-6xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors tabular-nums">
+      <div className="font-serif text-4xl md:text-6xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors tabular-nums">
         {c}{suffix}
       </div>
       <p className="text-sm text-slate-400 font-light leading-relaxed">{label}</p>
@@ -501,7 +501,7 @@ const Portfolio: React.FC = () => {
       )}
 
       {/* HERO */}
-      <section id="hero" className="pt-48 pb-12 px-6 md:px-12 relative overflow-hidden">
+      <section id="hero" className="pt-28 md:pt-48 pb-12 px-6 md:px-12 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50 rounded-full blur-[120px] -z-10 opacity-60 mix-blend-multiply" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-slate-100 rounded-full blur-[80px] -z-10 opacity-40" />
 
@@ -519,17 +519,17 @@ const Portfolio: React.FC = () => {
                 {t.hero.desc}
               </p>
 
-              <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in" style={{animationDelay:"1100ms",animationFillMode:"forwards"}}>
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 opacity-0 animate-fade-in" style={{animationDelay:"1100ms",animationFillMode:"forwards"}}>
                 <MagBtn onClick={()=>go("work")}
-                  className="px-8 py-4 bg-slate-900 text-white text-sm font-bold tracking-wide uppercase hover:bg-blue-900 transition-all rounded-sm shadow-xl shadow-slate-200">
+                  className="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white text-sm font-bold tracking-wide uppercase hover:bg-blue-900 transition-all rounded-sm shadow-xl shadow-slate-200 text-center justify-center">
                   {t.hero.btnWork}
                 </MagBtn>
-                <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer"
-                  className="magnetic px-8 py-4 border border-slate-900 text-slate-900 text-sm font-bold tracking-wide uppercase hover:bg-slate-900 hover:text-white transition-all rounded-sm flex items-center gap-2">
+                <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer" download="Juan_Manuel_Garcia_Resume.pdf"
+                  className="magnetic w-full sm:w-auto px-8 py-4 border border-slate-900 text-slate-900 text-sm font-bold tracking-wide uppercase hover:bg-slate-900 hover:text-white transition-all rounded-sm flex items-center justify-center gap-2">
                   <Download size={16}/> {t.hero.btnResume}
                 </a>
                 <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" target="_blank" rel="noreferrer"
-                  className="magnetic px-8 py-4 border border-slate-200 bg-white text-slate-900 text-sm font-bold tracking-wide uppercase hover:border-slate-400 transition-all rounded-sm flex items-center gap-2">
+                  className="magnetic w-full sm:w-auto px-8 py-4 border border-slate-200 bg-white text-slate-900 text-sm font-bold tracking-wide uppercase hover:border-slate-400 transition-all rounded-sm flex items-center justify-center gap-2">
                   <Linkedin size={16}/> LinkedIn
                 </a>
               </div>
@@ -632,7 +632,7 @@ const Portfolio: React.FC = () => {
                 {t.experience.title.split(" ")[0]}<br/>{t.experience.title.split(" ").slice(1).join(" ")}
               </h2>
               <p className={`reveal-left font-sans text-sm text-slate-500 leading-relaxed mb-8 ${xpR.visible?"visible":""}`} style={{transitionDelay:"100ms"}}>{t.experience.subtitle}</p>
-              <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer"
+              <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer" download="Juan_Manuel_Garcia_Resume.pdf"
                 className={`reveal-left inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-200 pb-1 hover:border-slate-900 transition-all ${xpR.visible?"visible":""}`}
                 style={{transitionDelay:"200ms"}}>
                 <Download size={14}/> {t.experience.download}
@@ -716,7 +716,7 @@ const Portfolio: React.FC = () => {
                 </div>
                 <ArrowUpRight size={18} className="text-slate-400 group-hover:text-white transition-colors"/>
               </a>
-              <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer"
+              <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer" download="Juan_Manuel_Garcia_Resume.pdf"
                 className="group card-lift flex items-center justify-between px-8 py-6 border border-slate-200 text-slate-700 hover:border-slate-400 bg-[#FAFAFA] transition-all duration-300 rounded-sm">
                 <div className="flex items-center gap-4"><Download size={20}/>
                   <div><div className="font-bold text-sm uppercase tracking-widest">{t.experience.download}</div><div className="text-slate-400 text-xs mt-1 font-light">PDF · Updated 2025</div></div>
@@ -772,7 +772,7 @@ const Portfolio: React.FC = () => {
           <div className="bg-white w-full max-w-6xl h-full md:h-auto md:max-h-[95vh] overflow-y-auto shadow-2xl flex flex-col lg:flex-row relative animate-fade-in rounded-none md:rounded-sm">
             <button onClick={closeModal} className="fixed top-4 right-4 md:absolute md:top-4 md:right-4 z-50 p-2 bg-white/90 hover:bg-slate-100 rounded-full transition-colors text-slate-900 shadow-lg border border-slate-200 md:border-transparent"><X size={20}/></button>
 
-            <div className="lg:w-3/5 bg-[#F0F2F5] relative h-[40vh] md:h-auto md:min-h-[400px] flex-shrink-0 flex items-center justify-center p-8">
+            <div className="lg:w-3/5 bg-[#F0F2F5] relative h-[32vh] md:h-[45vh] lg:h-auto lg:min-h-[400px] flex-shrink-0 flex items-center justify-center p-4 md:p-8">
               <div className="w-full h-full flex items-center justify-center relative shadow-2xl bg-white rounded-sm overflow-hidden border border-slate-200 group cursor-zoom-in"
                 onClick={()=>setZoom(true)}>
                 <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors z-10 flex items-center justify-center pointer-events-none">
@@ -799,7 +799,7 @@ const Portfolio: React.FC = () => {
               </div>
             </div>
 
-            <div className="lg:w-2/5 p-10 md:p-12 bg-white overflow-y-auto">
+            <div className="lg:w-2/5 p-6 md:p-10 lg:p-12 bg-white overflow-y-auto">
               <div className="mb-6 pb-6 border-b border-slate-100">
                 <div className="text-[10px] font-bold text-blue-900 uppercase tracking-[0.2em] mb-3">{project.client}</div>
                 <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">{project.title}</h2>
