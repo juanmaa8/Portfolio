@@ -524,7 +524,7 @@ const Portfolio: React.FC = () => {
                   className="px-8 py-4 bg-slate-900 text-white text-sm font-bold tracking-wide uppercase hover:bg-blue-900 transition-all rounded-sm shadow-xl shadow-slate-200">
                   {t.hero.btnWork}
                 </MagBtn>
-                <a href="/files/Juan_Manuel_Garcia_Resume.pdf" download target="_blank" rel="noopener noreferrer"
+                <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer"
                   className="magnetic px-8 py-4 border border-slate-900 text-slate-900 text-sm font-bold tracking-wide uppercase hover:bg-slate-900 hover:text-white transition-all rounded-sm flex items-center gap-2">
                   <Download size={16}/> {t.hero.btnResume}
                 </a>
@@ -632,7 +632,7 @@ const Portfolio: React.FC = () => {
                 {t.experience.title.split(" ")[0]}<br/>{t.experience.title.split(" ").slice(1).join(" ")}
               </h2>
               <p className={`reveal-left font-sans text-sm text-slate-500 leading-relaxed mb-8 ${xpR.visible?"visible":""}`} style={{transitionDelay:"100ms"}}>{t.experience.subtitle}</p>
-              <a href="/files/Juan_Manuel_Garcia_Resume.pdf" download target="_blank" rel="noopener noreferrer"
+              <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer"
                 className={`reveal-left inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-200 pb-1 hover:border-slate-900 transition-all ${xpR.visible?"visible":""}`}
                 style={{transitionDelay:"200ms"}}>
                 <Download size={14}/> {t.experience.download}
@@ -716,7 +716,7 @@ const Portfolio: React.FC = () => {
                 </div>
                 <ArrowUpRight size={18} className="text-slate-400 group-hover:text-white transition-colors"/>
               </a>
-              <a href="/files/Juan_Manuel_Garcia_Resume.pdf" download target="_blank" rel="noopener noreferrer"
+              <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer"
                 className="group card-lift flex items-center justify-between px-8 py-6 border border-slate-200 text-slate-700 hover:border-slate-400 bg-[#FAFAFA] transition-all duration-300 rounded-sm">
                 <div className="flex items-center gap-4"><Download size={20}/>
                   <div><div className="font-bold text-sm uppercase tracking-widest">{t.experience.download}</div><div className="text-slate-400 text-xs mt-1 font-light">PDF · Updated 2025</div></div>
