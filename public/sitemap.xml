@@ -7,37 +7,37 @@
   <!-- Main portfolio page -->
   <url>
     <loc>https://juan-portfolio-bi.vercel.app/</loc>
-    <lastmod>2025-02-27</lastmod>
+    <lastmod>2025-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Direct anchors — helps Google understand page structure -->
+  <!-- Direct anchors -->
   <url>
     <loc>https://juan-portfolio-bi.vercel.app/#work</loc>
-    <lastmod>2025-02-27</lastmod>
+    <lastmod>2025-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://juan-portfolio-bi.vercel.app/#experience</loc>
-    <lastmod>2025-02-27</lastmod>
+    <lastmod>2025-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://juan-portfolio-bi.vercel.app/#contact</loc>
-    <lastmod>2025-02-27</lastmod>
+    <lastmod>2025-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Resume PDF — indexable asset -->
+  <!-- Resume PDF -->
   <url>
     <loc>https://juan-portfolio-bi.vercel.app/files/Juan_Manuel_Garcia_Resume.pdf</loc>
-    <lastmod>2025-02-27</lastmod>
+    <lastmod>2025-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -45,7 +45,7 @@
   <!-- GEO discovery file -->
   <url>
     <loc>https://juan-portfolio-bi.vercel.app/llms.txt</loc>
-    <lastmod>2025-02-27</lastmod>
+    <lastmod>2025-03-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
