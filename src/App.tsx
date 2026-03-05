@@ -63,31 +63,32 @@ const content = {
       { id:1, category:"DASHBOARDING & AUTOMATION", title:"Sales & Profitability Dashboard", client:"AMG Global Distribution", metrics:"Real-time Forecasting",
         impactBadges:["Automated Reporting","Margin Analysis","SQL Integration"], tags:["Power BI","SQL Server","Sage ERP","DAX"],
         gallery:["/images/dashboard-main.png","/images/regional-map.png","/images/product-analysis.png","/images/customer-trends.png","/images/alerts.png","/images/data-model.png"],
-        shortDesc:"Development of a central Power BI dashboard connecting directly to SQL to track domestic vs. international sales in real-time.",
-        challenge:"The company relied on manual Excel reports, causing delays. There was no clear visibility into SKU-level profitability or consolidated international sales data.",
-        solution:"I connected the Sage ERP to a SQL database to normalize the data, then built a Power BI dashboard with automated refresh. I implemented DAX measures to calculate real margins per SKU.",
-        results:["Enabled real-time forecasting for domestic vs. international segments.","Improved data accuracy by 25%+ by removing manual entry errors.","Reduced report generation time by 80% through automation."],
-        stack:["SQL Server","Power BI","DAX","Excel"] },
+        shortDesc:"Built a central Power BI dashboard connected directly to SQL to track domestic vs. international sales in real time. First time the company had visibility into real per-product margins.",
+        challenge:"The company was running entirely on manual Excel reports. No visibility into SKU-level profitability, no consolidated view of international vs domestic sales — everything was slow and error-prone.",
+        solution:"Connected the Sage ERP to a SQL database to normalize the data, then built a Power BI dashboard with automated refresh. Used DAX measures to calculate real margins per SKU and set up alerts for key thresholds.",
+        results:["Cut manual reporting time by 80% through full automation.","Improved data accuracy by 25%+ by eliminating manual entry errors.","Gave the team real-time visibility into margins — directly used for pricing and purchasing decisions."],
+        stack:["SQL Server","Power BI","DAX","Sage ERP"],
+        disclaimer:"Visuals shown use anonymized data and representative mock figures to protect business confidentiality." },
       { id:2, category:"DATA GOVERNANCE", title:"BI Usage Tracking System", client:"Internal Initiative", metrics:"Adoption Metrics",
         impactBadges:["Usage Analysis","Report Optimization","KQL"], tags:["KQL","Azure Logs","Power BI Service"],
         gallery:["/images/engagement-KQL.png","/images/adopcion-KQL.png","/images/code-KQL.png"],
-        shortDesc:"Created a tracking system using KQL to measure how often reports were being used by the management team.",
-        challenge:"We didn't know which reports were actually useful. It was hard to justify spending time on reports without knowing if they were being adopted.",
-        solution:"I wrote KQL (Kusto Query Language) scripts to analyze Power BI Activity Logs. This allowed us to see who was viewing which report and how frequently.",
-        results:["Measured report engagement across different departments.","Identified underutilized reports to stop maintaining them.","Provided data to management to support BI adoption strategies."],
+        shortDesc:"Built an internal tracking system using KQL to measure how often reports were actually being used — and by whom.",
+        challenge:"We had no idea which reports were useful and which weren't. Hard to justify time spent on analytics without knowing if anyone was using them.",
+        solution:"Wrote KQL scripts to analyze Power BI Activity Logs in Azure. Built a view that showed report usage by user, frequency, and department — treated the analytics function itself as a product.",
+        results:["Measured report engagement across all departments.","Identified underutilized reports and dropped maintenance on them.","Gave leadership data to support BI investment decisions."],
         stack:["KQL","Azure Log Analytics","Power BI Service"] },
-      { id:3, category:"PROCESS DOCUMENTATION", title:"Operations & Request Log", client:"Workflow Optimization", metrics:"Workflow Efficiency",
+      { id:3, category:"PROCESS DOCUMENTATION", title:"Operations & Request Management", client:"Workflow Optimization", metrics:"Workflow Efficiency",
         impactBadges:["Task Tracking","SOPs","Agile Basics"], tags:["Notion","Process","Documentation"],
         gallery:["/images/track-requests.png"],
-        shortDesc:"Set up a structured system to track data requests and document standard operating procedures (SOPs).",
-        challenge:"Ad-hoc requests were disorganized, making it hard to prioritize work or show the value of the BI function to leadership.",
-        solution:"Implemented a simple Kanban-style intake process in Notion. I categorized tasks by 'Strategic' vs 'Maintenance' to visualize my workload.",
-        results:["Created a clear history of completed data requests.","Helped justify time allocation for strategic projects.","Built a knowledge base of SOPs for future reference."],
+        shortDesc:"Set up a Kanban-style system in Notion to centralize data requests and replace a disorganized email-based process.",
+        challenge:"Ad-hoc data requests came in from everywhere with no structure. Hard to prioritize, hard to show leadership what the BI function was actually delivering.",
+        solution:"Built a simple intake system in Notion categorizing tasks as Strategic vs Maintenance. Added SOPs for recurring requests so nothing fell through the cracks.",
+        results:["Created a clear audit trail of completed data projects.","Made it easy to justify time allocation on strategic work.","Built a knowledge base of SOPs for onboarding and reference."],
         stack:["Notion","SOP Writing","Task Management"] }
     ],
     experienceList: [
-      { role:"Business & BI Analyst", company:"AMG Global Distribution", location:"Miami, FL", period:"Sep 2024 - Present", desc:"Leading the development of Power BI Dashboards and connecting SQL to ERP systems. Automated SKU-level profitability tracking (25% accuracy increase). Integrated international and domestic sales data for executive reporting." },
-      { role:"IT Assistant & SQL Report Writer (Intern)", company:"Missouri Valley College", location:"Missouri, MO", period:"Jan 2024 - May 2024", desc:"Developed SQL-based reports for the Argos BI system. Improved data accuracy by 15% and optimized IT documentation, reducing troubleshooting time for users." }
+      { role:"Business & BI Analyst", company:"AMG Global Distribution", location:"Miami, FL", period:"Sep 2024 – Present", desc:"Built the company's BI infrastructure from scratch — replaced manual Excel workflows with an automated SQL + Power BI system that cut reporting time by 80%. Created a profitability model to track margin at the SKU level, improving data accuracy by 25%. Worked closely with Sales and IT to define KPIs for inventory and revenue tracking." },
+      { role:"IT Assistant & SQL Report Writer — Intern", company:"Missouri Valley College", location:"Marshall, MO", period:"Jan 2024 – May 2024", desc:"Wrote and optimized SQL queries for the Argos BI system, improving data accuracy and report speed by 15%. Documented IT support workflows and troubleshooting guides, reducing resolution time for 100+ users." }
     ]
   },
   es: {
@@ -139,31 +140,32 @@ const content = {
       { id:1, category:"DASHBOARDING Y AUTOMATIZACIÓN", title:"Dashboard de Ventas y Rentabilidad", client:"AMG Global Distribution", metrics:"Forecasting en Tiempo Real",
         impactBadges:["Reportes Automatizados","Análisis de Margen","Integración SQL"], tags:["Power BI","SQL Server","Sage ERP","DAX"],
         gallery:["/images/dashboard-main.png","/images/regional-map.png","/images/product-analysis.png","/images/customer-trends.png","/images/alerts.png","/images/data-model.png"],
-        shortDesc:"Desarrollo de un dashboard central en Power BI conectado directamente a SQL para rastrear ventas domésticas vs internacionales en tiempo real.",
-        challenge:"La empresa dependía de reportes manuales en Excel, causando retrasos. No había visibilidad clara sobre la rentabilidad a nivel de SKU ni datos consolidados de ventas internacionales.",
-        solution:"Conecté el ERP Sage a una base de datos SQL para normalizar los datos, luego construí un dashboard en Power BI con actualización automática. Implementé medidas DAX para calcular márgenes reales por SKU.",
-        results:["Habilitó forecasting en tiempo real para segmentos domésticos e internacionales.","Mejoró la precisión de los datos en más del 25% al eliminar errores manuales.","Redujo el tiempo de generación de reportes en un 80% mediante automatización."],
-        stack:["SQL Server","Power BI","DAX","Excel"] },
+        shortDesc:"Construí un dashboard central en Power BI conectado directamente a SQL para rastrear ventas domésticas e internacionales en tiempo real. Primera vez que la empresa tuvo visibilidad real sobre márgenes por producto.",
+        challenge:"La empresa funcionaba con reportes manuales en Excel. Sin visibilidad sobre rentabilidad por SKU, sin vista consolidada de ventas internacionales — todo era lento y propenso a errores.",
+        solution:"Conecté el ERP Sage a una base de datos SQL para normalizar los datos, luego construí un dashboard en Power BI con actualización automática. Usé medidas DAX para calcular márgenes reales por SKU y configuré alertas para umbrales clave.",
+        results:["Reduje el tiempo de reporte manual en un 80% mediante automatización completa.","Mejoré la precisión de los datos en más del 25% al eliminar errores manuales.","Di al equipo visibilidad en tiempo real sobre márgenes — usado directamente para decisiones de precios y compras."],
+        stack:["SQL Server","Power BI","DAX","Sage ERP"],
+        disclaimer:"Los visuales mostrados usan datos anonimizados y cifras representativas para proteger la confidencialidad del negocio." },
       { id:2, category:"GOBERNANZA DE DATOS", title:"Sistema de Rastreo de Uso de BI", client:"Iniciativa Interna", metrics:"Métricas de Adopción",
         impactBadges:["Análisis de Uso","Optimización de Reportes","KQL"], tags:["KQL","Azure Logs","Power BI Service"],
         gallery:["/images/engagement-KQL.png","/images/adopcion-KQL.png","/images/code-KQL.png"],
-        shortDesc:"Creación de un sistema de seguimiento usando KQL para medir con qué frecuencia el equipo directivo utilizaba los reportes.",
-        challenge:"No sabíamos qué reportes eran realmente útiles. Era difícil justificar el tiempo dedicado a reportes sin saber si estaban siendo adoptados.",
-        solution:"Escribí scripts en KQL (Kusto Query Language) para analizar los Logs de Actividad de Power BI. Esto nos permitió ver quién veía qué reporte y con qué frecuencia.",
-        results:["Midió el compromiso con los reportes en diferentes departamentos.","Identificó reportes subutilizados para dejar de mantenerlos.","Proporcionó datos a la gerencia para apoyar estrategias de adopción de BI."],
+        shortDesc:"Construí un sistema de seguimiento interno usando KQL para medir con qué frecuencia se usaban los reportes — y quién los usaba.",
+        challenge:"No teníamos idea de qué reportes eran útiles y cuáles no. Era difícil justificar el tiempo dedicado a analytics sin saber si alguien los usaba.",
+        solution:"Escribí scripts KQL para analizar los Logs de Actividad de Power BI en Azure. Construí una vista que mostraba el uso de reportes por usuario, frecuencia y departamento.",
+        results:["Medí el uso de reportes en todos los departamentos.","Identifiqué reportes sin uso y dejé de mantenerlos.","Di a liderazgo datos para apoyar decisiones de inversión en BI."],
         stack:["KQL","Azure Log Analytics","Power BI Service"] },
-      { id:3, category:"DOCUMENTACIÓN DE PROCESOS", title:"Log de Operaciones y Solicitudes", client:"Optimización de Flujo de Trabajo", metrics:"Eficiencia de Flujo",
+      { id:3, category:"DOCUMENTACIÓN DE PROCESOS", title:"Sistema de Gestión de Operaciones", client:"Optimización de Flujo de Trabajo", metrics:"Eficiencia de Flujo",
         impactBadges:["Seguimiento de Tareas","SOPs","Conceptos Agile"], tags:["Notion","Procesos","Documentación"],
         gallery:["/images/track-requests.png"],
-        shortDesc:"Implementación de un sistema estructurado para rastrear solicitudes de datos y documentar procedimientos operativos estándar (SOPs).",
-        challenge:"Las solicitudes ad-hoc estaban desorganizadas, dificultando priorizar el trabajo o mostrar el valor de la función de BI al liderazgo.",
-        solution:"Implementé un proceso de entrada simple tipo Kanban en Notion. Categoricé las tareas por 'Estratégicas' vs 'Mantenimiento' para visualizar mi carga de trabajo.",
-        results:["Creó un historial claro de solicitudes de datos completadas.","Ayudó a justificar la asignación de tiempo para proyectos estratégicos.","Construyó una base de conocimiento de SOPs para referencia futura."],
+        shortDesc:"Monté un sistema Kanban en Notion para centralizar solicitudes de datos y reemplazar un proceso desorganizado por email.",
+        challenge:"Las solicitudes ad-hoc llegaban de todos lados sin estructura. Difícil priorizar, difícil mostrar a liderazgo lo que la función de BI estaba entregando.",
+        solution:"Construí un sistema de intake simple en Notion categorizando tareas como Estratégicas vs Mantenimiento. Añadí SOPs para solicitudes recurrentes.",
+        results:["Creé un historial claro de proyectos de datos completados.","Facilité la justificación de tiempo en trabajo estratégico.","Construí una base de conocimiento de SOPs para referencia y onboarding."],
         stack:["Notion","Escritura de SOPs","Gestión de Tareas"] }
     ],
     experienceList:[
-      { role:"Analista de Negocio y BI", company:"AMG Global Distribution", location:"Miami, FL", period:"Sep 2024 - Actualidad", desc:"Liderando el desarrollo de Dashboards en Power BI y conectando SQL a sistemas ERP. Automaticé el seguimiento de rentabilidad a nivel de SKU (aumento de precisión del 25%). Integré datos de ventas internacionales y domésticas para reportes ejecutivos." },
-      { role:"Asistente de IT y Escritor de Reportes SQL (Pasante)", company:"Missouri Valley College", location:"Missouri, MO", period:"Ene 2024 - May 2024", desc:"Desarrollé reportes basados en SQL para el sistema Argos BI. Mejoré la precisión de los datos en un 15% y optimicé la documentación de IT, reduciendo el tiempo de resolución de problemas para los usuarios." }
+      { role:"Business & BI Analyst", company:"AMG Global Distribution", location:"Miami, FL", period:"Sep 2024 – Actualidad", desc:"Construí la infraestructura de BI de la empresa desde cero — reemplacé flujos manuales de Excel con un sistema automatizado SQL + Power BI que redujo el tiempo de reporte en un 80%. Creé un modelo de rentabilidad para rastrear márgenes por SKU, mejorando la precisión de datos en un 25%. Trabajé con Sales e IT para definir KPIs de inventario y seguimiento de ingresos." },
+      { role:"Asistente IT y Escritor de Reportes SQL — Pasante", company:"Missouri Valley College", location:"Marshall, MO", period:"Ene 2024 – May 2024", desc:"Escribí y optimicé queries SQL para el sistema Argos BI, mejorando la precisión y velocidad de reportes en un 15%. Documenté flujos de soporte IT y guías de resolución de problemas, reduciendo el tiempo de respuesta para más de 100 usuarios." }
     ]
   }
 };
@@ -837,6 +839,11 @@ const Portfolio: React.FC = () => {
                     ))}
                   </div>
                 </div>
+                {project.disclaimer && (
+                  <p className="text-xs text-slate-400 italic border-t border-slate-100 pt-4 leading-relaxed">
+                    🔒 {project.disclaimer}
+                  </p>
+                )}
               </div>
             </div>
           </div>
