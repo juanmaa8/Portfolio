@@ -49,7 +49,7 @@ const content = {
         { title: "B.S Computer Info Systems & Comp Sci",  school: "Missouri Valley College (2024)", desc: "Minor: Business Admin | GPA: 3.3" }
       ],
       certificationsTitle: "Certifications",
-      certs: [{ name: "SQL (Coursera)", status: "Completed" },{ name: "PL-300", status: "In Progress" },{ name: "BIDA CFI", status: "In Progress" }]
+      certs: [{ name: "BIDA — Business Intelligence & Data Analyst (CFI)", status: "In Progress" }]
     },
     contactSection: {
       title: "Let's Work Together",
@@ -126,7 +126,7 @@ const content = {
         { title:"Grado en Sistemas de Info. y Ciencias de la Comp.", school:"Missouri Valley College (2024)", desc:"Minor: Administración de Empresas | GPA: 3.3" }
       ],
       certificationsTitle:"Certificaciones",
-      certs:[{ name:"SQL (Coursera)", status:"Completado" },{ name:"PL-300", status:"En Progreso" },{ name:"BIDA CFI", status:"En Progreso" }]
+      certs:[{ name:"BIDA — Business Intelligence & Data Analyst (CFI)", status:"En Progreso" }]
     },
     contactSection:{
       title:"Trabajemos Juntos",
