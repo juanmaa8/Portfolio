@@ -4,7 +4,7 @@ export interface Project {
   title: string;
   client: string;
   metrics: string;
-  impactBadges?: string[];
+  impactBadges: string[];
   tags: string[];
   gallery?: string[];
   shortDesc: string;
@@ -12,4 +12,5 @@ export interface Project {
   solution: string;
   results: string[];
   stack: string[];
+  disclaimer?: string;
 }
