@@ -312,28 +312,19 @@ const ResumeLink: React.FC<{ lang: "en"|"es"; className: string; children: React
     ? "Juan_Manuel_Garcia_Resume_ES.pdf"
     : "Juan_Manuel_Garcia_Resume.pdf";
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
-    if (isIOS) {
-      e.preventDefault();
-      fetch(resumeFile)
-        .then(res => res.blob())
-        .then(blob => {
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = url;
-          a.download = resumeName;
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-        })
-        .catch(() => { window.open(resumeFile, "_blank"); });
-    }
-  };
+  // On mobile (especially iOS Safari), the <a download> attribute is often ignored.
+  // The most reliable fix: open in new tab — the server sends Content-Disposition: attachment
+  // so the browser triggers a native download/share sheet instead of opening the PDF inline.
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   return (
-    <a href={resumeFile} download={resumeName} target="_blank" rel="noopener noreferrer" onClick={handleClick} className={className}>
+    <a
+      href={resumeFile}
+      download={!isMobile ? resumeName : undefined}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+    >
       {children}
     </a>
   );
