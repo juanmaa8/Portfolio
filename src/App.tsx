@@ -312,17 +312,40 @@ const ResumeLink: React.FC<{ lang: "en"|"es"; className: string; children: React
     ? "Juan_Manuel_Garcia_Resume_ES.pdf"
     : "Juan_Manuel_Garcia_Resume.pdf";
 
-  // On mobile (especially iOS Safari), the <a download> attribute is often ignored.
-  // The most reliable fix: open in new tab — the server sends Content-Disposition: attachment
-  // so the browser triggers a native download/share sheet instead of opening the PDF inline.
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const isMobile = /iPad|iPhone|iPod|Android|Mobile|Tablet/i.test(navigator.userAgent);
+    if (!isMobile) return; // desktop: let the normal <a download> handle it
+
+    e.preventDefault();
+
+    try {
+      // Fetch the PDF as a blob
+      const response = await fetch(resumeFile);
+      const blob = await response.blob();
+      const file = new File([blob], resumeName, { type: "application/pdf" });
+
+      // Use Web Share API (iOS native share sheet → "Save to Files")
+      if (navigator.share && navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], title: resumeName });
+      } else {
+        // Fallback: create object URL and open — user can long-press to save
+        const url = URL.createObjectURL(blob);
+        window.open(url, "_blank");
+        setTimeout(() => URL.revokeObjectURL(url), 10000);
+      }
+    } catch (err) {
+      // Last resort fallback
+      window.open(resumeFile, "_blank");
+    }
+  };
 
   return (
     <a
       href={resumeFile}
-      download={!isMobile ? resumeName : undefined}
+      download={resumeName}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
       className={className}
     >
       {children}
