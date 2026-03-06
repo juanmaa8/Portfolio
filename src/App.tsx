@@ -7,17 +7,12 @@ import {
 } from "lucide-react";
 import { Project } from "./types";
 
-// ============================================================
-// DATA
-// ============================================================
 const content = {
   en: {
     nav: { work: "Projects", trajectory: "Experience", contact: "Contact", role: "BI Analyst" },
     hero: {
       available: "Available to Talk",
-      titleStart: "Transforming",
-      titleHighlight: "Data",
-      titleEnd: "into Strategic Insights.",
+      titleStart: "Transforming", titleHighlight: "Data", titleEnd: "into Strategic Insights.",
       desc: "Bilingual (EN/ES) Business Intelligence Analyst. I build Power BI solutions and SQL models that help companies measure performance and optimize profitability.",
       btnWork: "View Projects", btnResume: "Resume",
       stack: "SQL & Power BI", focus: "Data Strategy", location: "Miami, FL"
@@ -35,9 +30,9 @@ const content = {
       title: "Technical Focus",
       subtitle: "My core skillset: bridging the gap between raw data and business decisions.",
       cards: [
-        { title: "Data Modeling & SQL",    desc: "Cleaning and structuring data using SQL (CTEs, Views). Connecting ERP systems (Sage) to central repositories for accurate reporting.", tags: ["SQL Server","Data Cleaning","Data Modeling","Azure"] },
-        { title: "Power BI Development",   desc: "Designing intuitive dashboards. Using DAX for complex calculations and ensuring reports are automated and easy to read.", tags: ["Power BI","DAX","Dashboard Design","Automation"] },
-        { title: "Business Analysis",      desc: "Understanding what the business needs to measure. Defining KPIs for profitability, sales forecasting, and margin tracking.", tags: ["KPI Definition","Sales Analysis","Forecasting","Reporting"] }
+        { title: "Data Modeling & SQL",   desc: "Cleaning and structuring data using SQL (CTEs, Views). Connecting ERP systems (Sage) to central repositories for accurate reporting.", tags: ["SQL Server","Data Cleaning","Data Modeling","Azure"] },
+        { title: "Power BI Development",  desc: "Designing intuitive dashboards. Using DAX for complex calculations and ensuring reports are automated and easy to read.", tags: ["Power BI","DAX","Dashboard Design","Automation"] },
+        { title: "Business Analysis",     desc: "Understanding what the business needs to measure. Defining KPIs for profitability, sales forecasting, and margin tracking.", tags: ["KPI Definition","Sales Analysis","Forecasting","Reporting"] }
       ]
     },
     work: { title: "Relevant Projects", subtitle: "Practical applications of BI tools to solve real business problems.", viewReport: "View Details", readAnalysis: "Read Case" },
@@ -103,18 +98,18 @@ const content = {
     metrics: {
       title:"En Números", subtitle:"Impacto medible desde el primer día.",
       items:[
-        { value:80, suffix:"%",      label:"Reducción en el tiempo de generación de reportes mediante automatización" },
-        { value:25, suffix:"%",      label:"Aumento en la precisión de datos al eliminar errores manuales" },
-        { value:3,  suffix:"+",      label:"Dashboards en producción activamente utilizados" },
-        { value:2,  suffix:" años",  label:"Autorización STEM OPT restante (válida hasta 2027)" }
+        { value:80, suffix:"%",     label:"Reducción en el tiempo de generación de reportes mediante automatización" },
+        { value:25, suffix:"%",     label:"Aumento en la precisión de datos al eliminar errores manuales" },
+        { value:3,  suffix:"+",     label:"Dashboards en producción activamente utilizados" },
+        { value:2,  suffix:" años", label:"Autorización STEM OPT restante (válida hasta 2027)" }
       ]
     },
     expertise: {
       title:"Enfoque Técnico", subtitle:"Mi habilidad principal: cerrar la brecha entre datos brutos y decisiones de negocio.",
       cards:[
-        { title:"Modelado de Datos y SQL",   desc:"Limpieza y estructuración de datos usando SQL (CTEs, Vistas). Conexión de sistemas ERP (Sage) a repositorios centrales para reportes precisos.", tags:["SQL Server","Limpieza de Datos","Modelado de Datos","Azure"] },
-        { title:"Desarrollo en Power BI",    desc:"Diseño de dashboards intuitivos. Uso de DAX para cálculos complejos y aseguramiento de reportes automatizados y fáciles de leer.", tags:["Power BI","DAX","Diseño de Dashboards","Automatización"] },
-        { title:"Análisis de Negocio",       desc:"Entender qué necesita medir el negocio. Definición de KPIs para rentabilidad, previsión de ventas y seguimiento de márgenes.", tags:["Definición de KPIs","Análisis de Ventas","Forecasting","Reportes"] }
+        { title:"Modelado de Datos y SQL",  desc:"Limpieza y estructuración de datos usando SQL (CTEs, Vistas). Conexión de sistemas ERP (Sage) a repositorios centrales para reportes precisos.", tags:["SQL Server","Limpieza de Datos","Modelado de Datos","Azure"] },
+        { title:"Desarrollo en Power BI",   desc:"Diseño de dashboards intuitivos. Uso de DAX para cálculos complejos y aseguramiento de reportes automatizados y fáciles de leer.", tags:["Power BI","DAX","Diseño de Dashboards","Automatización"] },
+        { title:"Análisis de Negocio",      desc:"Entender qué necesita medir el negocio. Definición de KPIs para rentabilidad, previsión de ventas y seguimiento de márgenes.", tags:["Definición de KPIs","Análisis de Ventas","Forecasting","Reportes"] }
       ]
     },
     work:{ title:"Proyectos Relevantes", subtitle:"Aplicaciones prácticas de herramientas de BI para resolver problemas reales de negocio.", viewReport:"Ver Detalles", readAnalysis:"Leer Caso" },
@@ -170,9 +165,6 @@ const content = {
   }
 };
 
-// ============================================================
-// HOOKS
-// ============================================================
 function useCountUp(target: number, duration = 1800, start = false) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -203,159 +195,90 @@ function useReveal(threshold = 0.15) {
   return { ref, visible };
 }
 
-// ============================================================
-// CUSTOM CURSOR
-// ============================================================
 const CustomCursor: React.FC = () => {
   const dotRef  = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const mouse   = useRef({ x: 0, y: 0 });
   const ring    = useRef({ x: 0, y: 0 });
   const raf     = useRef<number>(0);
-
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
-      if (dotRef.current) {
-        dotRef.current.style.left = `${e.clientX}px`;
-        dotRef.current.style.top  = `${e.clientY}px`;
-      }
+      if (dotRef.current) { dotRef.current.style.left = `${e.clientX}px`; dotRef.current.style.top = `${e.clientY}px`; }
     };
     const loop = () => {
       ring.current.x += (mouse.current.x - ring.current.x) * 0.1;
       ring.current.y += (mouse.current.y - ring.current.y) * 0.1;
-      if (ringRef.current) {
-        ringRef.current.style.left = `${ring.current.x}px`;
-        ringRef.current.style.top  = `${ring.current.y}px`;
-      }
+      if (ringRef.current) { ringRef.current.style.left = `${ring.current.x}px`; ringRef.current.style.top = `${ring.current.y}px`; }
       raf.current = requestAnimationFrame(loop);
     };
-    const hover  = () => { dotRef.current?.classList.add("hovering");    ringRef.current?.classList.add("hovering"); };
-    const unhover= () => { dotRef.current?.classList.remove("hovering"); ringRef.current?.classList.remove("hovering"); };
-    const down   = () => dotRef.current?.classList.add("clicking");
-    const up     = () => dotRef.current?.classList.remove("clicking");
-
+    const hover   = () => { dotRef.current?.classList.add("hovering");    ringRef.current?.classList.add("hovering"); };
+    const unhover = () => { dotRef.current?.classList.remove("hovering"); ringRef.current?.classList.remove("hovering"); };
+    const down    = () => dotRef.current?.classList.add("clicking");
+    const up      = () => dotRef.current?.classList.remove("clicking");
     document.addEventListener("mousemove", onMove);
     document.addEventListener("mousedown", down);
-    document.addEventListener("mouseup",   up);
+    document.addEventListener("mouseup", up);
     document.querySelectorAll("a,button,[data-cursor]").forEach(el => {
       el.addEventListener("mouseenter", hover);
       el.addEventListener("mouseleave", unhover);
     });
     raf.current = requestAnimationFrame(loop);
-    return () => {
-      document.removeEventListener("mousemove", onMove);
-      document.removeEventListener("mousedown", down);
-      document.removeEventListener("mouseup",   up);
-      cancelAnimationFrame(raf.current);
-    };
+    return () => { document.removeEventListener("mousemove", onMove); document.removeEventListener("mousedown", down); document.removeEventListener("mouseup", up); cancelAnimationFrame(raf.current); };
   }, []);
-
-  return (
-    <>
-      <div ref={dotRef}  className="cursor-dot" />
-      <div ref={ringRef} className="cursor-ring" />
-    </>
-  );
+  return (<><div ref={dotRef} className="cursor-dot" /><div ref={ringRef} className="cursor-ring" /></>);
 };
 
-// ============================================================
-// SCROLL PROGRESS
-// ============================================================
 const ScrollProgress: React.FC = () => {
   const [w, setW] = useState(0);
   useEffect(() => {
-    const fn = () => {
-      const d = document.documentElement;
-      setW((d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100);
-    };
+    const fn = () => { const d = document.documentElement; setW((d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100); };
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
   return <div className="scroll-progress" style={{ width: `${w}%` }} />;
 };
 
-// ============================================================
-// HERO TITLE — word by word reveal
-// ============================================================
 const HeroTitle: React.FC<{ s: string; h: string; e: string }> = ({ s, h, e }) => {
   const [on, setOn] = useState(false);
   useEffect(() => { const t = setTimeout(() => setOn(true), 150); return () => clearTimeout(t); }, []);
   const w1 = s.split(" "); const w3 = e.split(" ");
   return (
     <h1 className="font-serif text-5xl md:text-7xl leading-[1.1] text-slate-900 mb-8">
-      {w1.map((w, i) => (
-        <span key={i} className={`hero-word${on ? " revealed" : ""}`}
-          style={{ transitionDelay:`${i*80}ms`, marginRight:"0.25em" }}>
-          <span>{w}</span>
-        </span>
-      ))}
+      {w1.map((w, i) => (<span key={i} className={`hero-word${on ? " revealed" : ""}`} style={{ transitionDelay:`${i*80}ms`, marginRight:"0.25em" }}><span>{w}</span></span>))}
       <br />
-      <span className={`hero-word italic text-slate-600${on ? " revealed" : ""}`}
-        style={{ transitionDelay:`${w1.length*80}ms`, marginRight:"0.25em" }}>
-        <span>{h}</span>
-      </span>
+      <span className={`hero-word italic text-slate-600${on ? " revealed" : ""}`} style={{ transitionDelay:`${w1.length*80}ms`, marginRight:"0.25em" }}><span>{h}</span></span>
       {" "}
-      {w3.map((w, i) => (
-        <span key={i} className={`hero-word${on ? " revealed" : ""}`}
-          style={{ transitionDelay:`${(w1.length+1+i)*80}ms`, marginRight:"0.25em" }}>
-          <span>{w}</span>
-        </span>
-      ))}
+      {w3.map((w, i) => (<span key={i} className={`hero-word${on ? " revealed" : ""}`} style={{ transitionDelay:`${(w1.length+1+i)*80}ms`, marginRight:"0.25em" }}><span>{w}</span></span>))}
     </h1>
   );
 };
 
-// ============================================================
-// MAGNETIC BUTTON
-// ============================================================
 const MagBtn: React.FC<{ children: React.ReactNode; className?: string; onClick?: () => void }> = ({ children, className="", onClick }) => {
   const ref = useRef<HTMLButtonElement>(null);
-  const mv  = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const r = ref.current.getBoundingClientRect();
-    const dx = (e.clientX - r.left - r.width/2)  * 0.22;
-    const dy = (e.clientY - r.top  - r.height/2) * 0.22;
-    ref.current.style.transform = `translate(${dx}px,${dy}px)`;
-  };
+  const mv  = (e: React.MouseEvent) => { if (!ref.current) return; const r = ref.current.getBoundingClientRect(); ref.current.style.transform = `translate(${(e.clientX-r.left-r.width/2)*0.22}px,${(e.clientY-r.top-r.height/2)*0.22}px)`; };
   const lv  = () => { if (ref.current) ref.current.style.transform = "translate(0,0)"; };
   return <button ref={ref} className={`magnetic ${className}`} onMouseMove={mv} onMouseLeave={lv} onClick={onClick}>{children}</button>;
 };
 
-// ============================================================
-// METRIC CARD
-// ============================================================
 const MetricCard: React.FC<{ value:number; suffix:string; label:string; delay:number; inView:boolean }> = ({ value,suffix,label,delay,inView }) => {
   const c = useCountUp(value, 1800, inView);
   return (
-    <div className={`reveal text-center p-5 md:p-8 border border-slate-700 bg-white/5
-        hover:bg-white/10 hover:border-blue-400/30 transition-all duration-500 group
-        ${inView?"visible":""}`}
-      style={{ transitionDelay:`${delay}ms` }}>
-      <div className="font-serif text-4xl md:text-6xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors tabular-nums">
-        {c}{suffix}
-      </div>
+    <div className={`reveal text-center p-5 md:p-8 border border-slate-700 bg-white/5 hover:bg-white/10 hover:border-blue-400/30 transition-all duration-500 group ${inView?"visible":""}`} style={{ transitionDelay:`${delay}ms` }}>
+      <div className="font-serif text-4xl md:text-6xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors tabular-nums">{c}{suffix}</div>
       <p className="text-sm text-slate-400 font-light leading-relaxed">{label}</p>
     </div>
   );
 };
 
-// ============================================================
-// PROJECT CARD
-// ============================================================
 const ProjectCard: React.FC<{ project:Project; onClick:()=>void; t:any; delay:number; inView:boolean }> = ({ project,onClick,t,delay,inView }) => {
   const [err, setErr] = useState(false);
   return (
-    <div onClick={onClick} data-cursor
-      className={`reveal card-lift group cursor-pointer bg-white border border-slate-200
-        hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/60
-        transition-all duration-500 flex flex-col h-full relative ${inView?"visible":""}`}
-      style={{ transitionDelay:`${delay}ms` }}>
+    <div onClick={onClick} data-cursor className={`reveal card-lift group cursor-pointer bg-white border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/60 transition-all duration-500 flex flex-col h-full relative ${inView?"visible":""}`} style={{ transitionDelay:`${delay}ms` }}>
       <div className={`h-1 w-full ${project.id===1?"bg-blue-900":project.id===2?"bg-slate-500":"bg-slate-300"}`} />
       <div className="h-52 bg-[#F8F9FB] relative overflow-hidden flex items-center justify-center border-b border-slate-100">
         {!err && project.gallery?.length ? (
-          <img src={project.gallery[0]} alt={project.title} onError={()=>setErr(true)}
-            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-90 group-hover:opacity-100 group-hover:scale-105" />
+          <img src={project.gallery[0]} alt={project.title} onError={()=>setErr(true)} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-90 group-hover:opacity-100 group-hover:scale-105" />
         ) : (
           <div className="text-center p-6 transition-transform duration-500 group-hover:-translate-y-1">
             <div className="w-12 h-12 border border-slate-200 bg-white flex items-center justify-center rounded-sm mx-auto mb-4">
@@ -364,9 +287,7 @@ const ProjectCard: React.FC<{ project:Project; onClick:()=>void; t:any; delay:nu
             <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{t.viewReport}</span>
           </div>
         )}
-        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-900 border border-slate-200 shadow-sm">
-          {project.category}
-        </div>
+        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-900 border border-slate-200 shadow-sm">{project.category}</div>
       </div>
       <div className="p-8 flex-1 flex flex-col">
         <h3 className="font-serif text-2xl text-slate-900 mb-3 leading-tight group-hover:text-blue-900 transition-colors">{project.title}</h3>
@@ -381,17 +302,52 @@ const ProjectCard: React.FC<{ project:Project; onClick:()=>void; t:any; delay:nu
 };
 
 // ============================================================
-// PORTFOLIO
+// RESUME LINK — ES/EN switching + iOS download fix
 // ============================================================
+const ResumeLink: React.FC<{ lang: "en"|"es"; className: string; children: React.ReactNode }> = ({ lang, className, children }) => {
+  const resumeFile = lang === "es"
+    ? "/files/Juan_Manuel_Garcia_Resume_ES.pdf"
+    : "/files/Juan_Manuel_Garcia_Resume.pdf";
+  const resumeName = lang === "es"
+    ? "Juan_Manuel_Garcia_Resume_ES.pdf"
+    : "Juan_Manuel_Garcia_Resume.pdf";
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+    if (isIOS) {
+      e.preventDefault();
+      fetch(resumeFile)
+        .then(res => res.blob())
+        .then(blob => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = resumeName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        })
+        .catch(() => { window.open(resumeFile, "_blank"); });
+    }
+  };
+
+  return (
+    <a href={resumeFile} download={resumeName} target="_blank" rel="noopener noreferrer" onClick={handleClick} className={className}>
+      {children}
+    </a>
+  );
+};
+
 const Portfolio: React.FC = () => {
-  const [menuOpen,    setMenuOpen]    = useState(false);
-  const [project,     setProject]     = useState<Project|null>(null);
-  const [imgIdx,      setImgIdx]      = useState(0);
-  const [zoom,        setZoom]        = useState(false);
-  const [scrolled,    setScrolled]    = useState(false);
-  const [modalErr,    setModalErr]    = useState(false);
-  const [lang,        setLang]        = useState<"en"|"es">("en");
-  const [metVis,      setMetVis]      = useState(false);
+  const [menuOpen,  setMenuOpen]  = useState(false);
+  const [project,   setProject]   = useState<Project|null>(null);
+  const [imgIdx,    setImgIdx]    = useState(0);
+  const [zoom,      setZoom]      = useState(false);
+  const [scrolled,  setScrolled]  = useState(false);
+  const [modalErr,  setModalErr]  = useState(false);
+  const [lang,      setLang]      = useState<"en"|"es">("en");
+  const [metVis,    setMetVis]    = useState(false);
   const metRef = useRef<HTMLDivElement>(null);
 
   const heroR    = useReveal(0.05);
@@ -402,25 +358,11 @@ const Portfolio: React.FC = () => {
 
   const t = content[lang];
 
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", fn, { passive:true });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e])=>{ if(e.isIntersecting) setMetVis(true); },{ threshold:0.2 });
-    if (metRef.current) obs.observe(metRef.current);
-    return () => obs.disconnect();
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = project ? "hidden" : "unset";
-    return () => { document.body.style.overflow = "unset"; };
-  }, [project]);
+  useEffect(() => { const fn = () => setScrolled(window.scrollY > 20); window.addEventListener("scroll", fn, { passive:true }); return () => window.removeEventListener("scroll", fn); }, []);
+  useEffect(() => { const obs = new IntersectionObserver(([e])=>{ if(e.isIntersecting) setMetVis(true); },{ threshold:0.2 }); if (metRef.current) obs.observe(metRef.current); return () => obs.disconnect(); }, []);
+  useEffect(() => { document.body.style.overflow = project ? "hidden" : "unset"; return () => { document.body.style.overflow = "unset"; }; }, [project]);
 
   const go = (id:string) => { document.getElementById(id)?.scrollIntoView({behavior:"smooth"}); setMenuOpen(false); };
-
   const openProject = (p:Project) => { setProject(p); setImgIdx(0); setZoom(false); setModalErr(false); };
   const closeModal  = () => { setProject(null); setZoom(false); };
 
@@ -454,30 +396,20 @@ const Portfolio: React.FC = () => {
       <nav className={`fixed w-full z-40 transition-all duration-500 ${scrolled?"bg-white/95 backdrop-blur-md border-b border-slate-200 py-4":"bg-transparent py-8"}`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex flex-col cursor-pointer group" onClick={()=>go("hero")}>
-            <span className="font-serif text-xl font-bold tracking-tight text-slate-900 group-hover:text-blue-900 transition-colors flex items-center gap-2">
-              Juan M. Garcia <BadgeCheck size={18} className="text-blue-900" />
-            </span>
+            <span className="font-serif text-xl font-bold tracking-tight text-slate-900 group-hover:text-blue-900 transition-colors flex items-center gap-2">Juan M. Garcia <BadgeCheck size={18} className="text-blue-900" /></span>
             <span className="text-[10px] font-sans font-medium tracking-[0.2em] text-slate-500 uppercase">{t.nav.role}</span>
           </div>
-
           <div className="hidden md:flex gap-10 items-center text-xs font-bold tracking-widest uppercase text-slate-500">
             {(["work","experience","contact"] as const).map((id,i)=>(
-              <button key={id} onClick={()=>go(id)}
-                className="nav-link hover:text-blue-900 transition-colors">
-                {[t.nav.work,t.nav.trajectory,t.nav.contact][i]}
-              </button>
+              <button key={id} onClick={()=>go(id)} className="nav-link hover:text-blue-900 transition-colors">{[t.nav.work,t.nav.trajectory,t.nav.contact][i]}</button>
             ))}
             <button onClick={()=>setLang(p=>p==="en"?"es":"en")} className="flex items-center gap-2 hover:text-blue-900 transition-colors px-2">
               <span className={lang==="en"?"text-slate-900":"text-slate-400"}>EN</span>
               <span className="text-slate-300">/</span>
               <span className={lang==="es"?"text-slate-900":"text-slate-400"}>ES</span>
             </button>
-            <MagBtn onClick={()=>go("contact")}
-              className="px-6 py-3 bg-slate-900 text-white hover:bg-blue-900 transition-all duration-300 rounded-sm text-xs font-bold tracking-widest uppercase">
-              {t.nav.contact}
-            </MagBtn>
+            <MagBtn onClick={()=>go("contact")} className="px-6 py-3 bg-slate-900 text-white hover:bg-blue-900 transition-all duration-300 rounded-sm text-xs font-bold tracking-widest uppercase">{t.nav.contact}</MagBtn>
           </div>
-
           <div className="flex items-center gap-4 md:hidden">
             <button onClick={()=>setLang(p=>p==="en"?"es":"en")} className="text-xs font-bold uppercase tracking-widest">
               <span className={lang==="en"?"text-slate-900":"text-slate-400"}>EN</span>
@@ -504,43 +436,28 @@ const Portfolio: React.FC = () => {
       <section id="hero" className="pt-28 md:pt-48 pb-12 px-6 md:px-12 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50 rounded-full blur-[120px] -z-10 opacity-60 mix-blend-multiply" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-slate-100 rounded-full blur-[80px] -z-10 opacity-40" />
-
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col md:flex-row gap-16 items-start">
             <div className="flex-1">
               <div className="inline-block border-b border-slate-900 pb-1 mb-8 opacity-0 animate-fade-in" style={{animationDelay:"100ms",animationFillMode:"forwards"}}>
                 <span className="text-xs font-bold tracking-widest uppercase text-slate-900">{t.hero.available}</span>
               </div>
-
               <HeroTitle s={t.hero.titleStart} h={t.hero.titleHighlight} e={t.hero.titleEnd} />
-
-              <p className="font-sans text-lg text-slate-600 leading-relaxed max-w-xl mb-10 font-light opacity-0 animate-fade-in"
-                style={{animationDelay:"900ms",animationFillMode:"forwards"}}>
-                {t.hero.desc}
-              </p>
-
+              <p className="font-sans text-lg text-slate-600 leading-relaxed max-w-xl mb-10 font-light opacity-0 animate-fade-in" style={{animationDelay:"900ms",animationFillMode:"forwards"}}>{t.hero.desc}</p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 opacity-0 animate-fade-in" style={{animationDelay:"1100ms",animationFillMode:"forwards"}}>
-                <MagBtn onClick={()=>go("work")}
-                  className="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white text-sm font-bold tracking-wide uppercase hover:bg-blue-900 transition-all rounded-sm shadow-xl shadow-slate-200 text-center justify-center">
-                  {t.hero.btnWork}
-                </MagBtn>
-                <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer" download="Juan_Manuel_Garcia_Resume.pdf"
-                  className="magnetic w-full sm:w-auto px-8 py-4 border border-slate-900 text-slate-900 text-sm font-bold tracking-wide uppercase hover:bg-slate-900 hover:text-white transition-all rounded-sm flex items-center justify-center gap-2">
+                <MagBtn onClick={()=>go("work")} className="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white text-sm font-bold tracking-wide uppercase hover:bg-blue-900 transition-all rounded-sm shadow-xl shadow-slate-200 text-center justify-center">{t.hero.btnWork}</MagBtn>
+                <ResumeLink lang={lang} className="magnetic w-full sm:w-auto px-8 py-4 border border-slate-900 text-slate-900 text-sm font-bold tracking-wide uppercase hover:bg-slate-900 hover:text-white transition-all rounded-sm flex items-center justify-center gap-2">
                   <Download size={16}/> {t.hero.btnResume}
-                </a>
-                <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" target="_blank" rel="noreferrer"
-                  className="magnetic w-full sm:w-auto px-8 py-4 border border-slate-200 bg-white text-slate-900 text-sm font-bold tracking-wide uppercase hover:border-slate-400 transition-all rounded-sm flex items-center justify-center gap-2">
+                </ResumeLink>
+                <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" target="_blank" rel="noreferrer" className="magnetic w-full sm:w-auto px-8 py-4 border border-slate-200 bg-white text-slate-900 text-sm font-bold tracking-wide uppercase hover:border-slate-400 transition-all rounded-sm flex items-center justify-center gap-2">
                   <Linkedin size={16}/> LinkedIn
                 </a>
               </div>
-
-              <div className="mt-8 inline-flex items-center gap-3 bg-green-50 text-green-800 px-4 py-2 rounded-full border border-green-200 shadow-sm opacity-0 animate-fade-in"
-                style={{animationDelay:"1300ms",animationFillMode:"forwards"}}>
+              <div className="mt-8 inline-flex items-center gap-3 bg-green-50 text-green-800 px-4 py-2 rounded-full border border-green-200 shadow-sm opacity-0 animate-fade-in" style={{animationDelay:"1300ms",animationFillMode:"forwards"}}>
                 <span className="w-2 h-2 rounded-full bg-green-600 animate-pulse"/>
                 <span className="text-xs font-bold uppercase tracking-widest">STEM OPT Valid until 2027</span>
               </div>
             </div>
-
             <div className="hidden md:block w-72 pt-12 opacity-0 animate-fade-in" style={{animationDelay:"1400ms",animationFillMode:"forwards"}}>
               <div className="border-l border-slate-200 pl-8 space-y-8">
                 {[
@@ -561,17 +478,14 @@ const Portfolio: React.FC = () => {
 
       {/* METRICS */}
       <section ref={metRef} className="py-16 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04]"
-          style={{backgroundImage:"linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px)",backgroundSize:"60px 60px"}} />
+        <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage:"linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px)",backgroundSize:"60px 60px"}} />
         <div className="container mx-auto px-6 md:px-12 max-w-6xl relative">
           <div className="mb-12 text-center">
             <h2 className={`reveal font-serif text-3xl text-white mb-2 ${metVis?"visible":""}`}>{t.metrics.title}</h2>
             <p  className={`reveal font-sans text-slate-400 font-light ${metVis?"visible":""}`} style={{transitionDelay:"100ms"}}>{t.metrics.subtitle}</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-700/50">
-            {t.metrics.items.map((item:any,i:number)=>(
-              <MetricCard key={i} value={item.value} suffix={item.suffix} label={item.label} delay={i*150} inView={metVis} />
-            ))}
+            {t.metrics.items.map((item:any,i:number)=>(<MetricCard key={i} value={item.value} suffix={item.suffix} label={item.label} delay={i*150} inView={metVis} />))}
           </div>
         </div>
       </section>
@@ -585,20 +499,14 @@ const Portfolio: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {t.expertise.cards.map((card:any,i:number)=>(
-              <div key={i}
-                className={`reveal card-lift bg-[#FAFAFA] p-8 border border-slate-100 hover:border-slate-200 hover:shadow-xl transition-all duration-500 group ${expR.visible?"visible":""}`}
-                style={{transitionDelay:`${i*120}ms`}}>
+              <div key={i} className={`reveal card-lift bg-[#FAFAFA] p-8 border border-slate-100 hover:border-slate-200 hover:shadow-xl transition-all duration-500 group ${expR.visible?"visible":""}`} style={{transitionDelay:`${i*120}ms`}}>
                 <div className="mb-6 w-12 h-12 bg-white border border-slate-200 flex items-center justify-center text-slate-900 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300">
                   {i===0?<Database size={20} strokeWidth={1.5}/>:i===1?<TrendingUp size={20} strokeWidth={1.5}/>:<Lightbulb size={20} strokeWidth={1.5}/>}
                 </div>
                 <h3 className="font-serif text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
                 <p className="text-sm text-slate-500 leading-relaxed mb-6 font-light">{card.desc}</p>
                 <div className="flex flex-wrap gap-2">
-                  {card.tags.map((tag:string,j:number)=>(
-                    <span key={j} className="text-[10px] uppercase font-bold tracking-wider text-slate-400 border border-slate-200 px-2 py-1 bg-white hover:border-blue-900 hover:text-blue-900 transition-colors">
-                      {tag}
-                    </span>
-                  ))}
+                  {card.tags.map((tag:string,j:number)=>(<span key={j} className="text-[10px] uppercase font-bold tracking-wider text-slate-400 border border-slate-200 px-2 py-1 bg-white hover:border-blue-900 hover:text-blue-900 transition-colors">{tag}</span>))}
                 </div>
               </div>
             ))}
@@ -616,9 +524,7 @@ const Portfolio: React.FC = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {t.projects.map((p:Project,i:number)=>(
-              <ProjectCard key={p.id} project={p} onClick={()=>openProject(p)} t={t.work} delay={i*150} inView={workR.visible} />
-            ))}
+            {t.projects.map((p:Project,i:number)=>(<ProjectCard key={p.id} project={p} onClick={()=>openProject(p)} t={t.work} delay={i*150} inView={workR.visible} />))}
           </div>
         </div>
       </section>
@@ -628,22 +534,15 @@ const Portfolio: React.FC = () => {
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-4">
-              <h2 className={`reveal-left font-serif text-3xl text-slate-900 mb-4 ${xpR.visible?"visible":""}`}>
-                {t.experience.title.split(" ")[0]}<br/>{t.experience.title.split(" ").slice(1).join(" ")}
-              </h2>
+              <h2 className={`reveal-left font-serif text-3xl text-slate-900 mb-4 ${xpR.visible?"visible":""}`}>{t.experience.title.split(" ")[0]}<br/>{t.experience.title.split(" ").slice(1).join(" ")}</h2>
               <p className={`reveal-left font-sans text-sm text-slate-500 leading-relaxed mb-8 ${xpR.visible?"visible":""}`} style={{transitionDelay:"100ms"}}>{t.experience.subtitle}</p>
-              <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer" download="Juan_Manuel_Garcia_Resume.pdf"
-                className={`reveal-left inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-200 pb-1 hover:border-slate-900 transition-all ${xpR.visible?"visible":""}`}
-                style={{transitionDelay:"200ms"}}>
+              <ResumeLink lang={lang} className={`reveal-left inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-200 pb-1 hover:border-slate-900 transition-all ${xpR.visible?"visible":""}`}>
                 <Download size={14}/> {t.experience.download}
-              </a>
+              </ResumeLink>
             </div>
-
             <div className="md:col-span-8 space-y-12 border-l border-slate-200 pl-8 md:pl-12 py-2">
               {t.experienceList.map((exp:any,i:number)=>(
-                <div key={i}
-                  className={`reveal relative group ${xpR.visible?"visible":""}`}
-                  style={{transitionDelay:`${i*150}ms`}}>
+                <div key={i} className={`reveal relative group ${xpR.visible?"visible":""}`} style={{transitionDelay:`${i*150}ms`}}>
                   <div className="absolute -left-[41px] md:-left-[57px] top-1.5 w-3 h-3 bg-slate-200 rounded-full border-2 border-[#FAFAFA] group-hover:bg-blue-900 group-hover:scale-125 transition-all duration-300"/>
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
                     <h3 className="font-serif text-xl font-bold text-slate-900">{exp.role}</h3>
@@ -673,11 +572,7 @@ const Portfolio: React.FC = () => {
                 <div className="mt-4 card-lift bg-white p-4 border border-slate-100 shadow-sm hover:shadow-md transition-all">
                   <div className="font-bold text-slate-900 text-sm mb-2">{t.experience.certificationsTitle}</div>
                   <div className="flex flex-wrap gap-2">
-                    {t.experience.certs.map((c:any,i:number)=>(
-                      <span key={i} className="px-2 py-1 bg-slate-50 text-slate-600 text-[10px] font-bold uppercase tracking-wider border border-slate-100 hover:border-blue-200 hover:text-blue-900 transition-colors">
-                        {c.name} / {c.status}
-                      </span>
-                    ))}
+                    {t.experience.certs.map((c:any,i:number)=>(<span key={i} className="px-2 py-1 bg-slate-50 text-slate-600 text-[10px] font-bold uppercase tracking-wider border border-slate-100 hover:border-blue-200 hover:text-blue-900 transition-colors">{c.name} / {c.status}</span>))}
                   </div>
                 </div>
               </div>
@@ -697,32 +592,29 @@ const Portfolio: React.FC = () => {
               <h2 className={`reveal font-serif text-4xl md:text-5xl text-slate-900 mb-6 leading-tight ${contactR.visible?"visible":""}`} style={{transitionDelay:"100ms"}}>{t.contactSection.title}</h2>
               <p  className={`reveal font-sans text-slate-500 leading-relaxed font-light mb-8 ${contactR.visible?"visible":""}`} style={{transitionDelay:"200ms"}}>{t.contactSection.subtitle}</p>
               <div className={`reveal flex flex-col gap-3 ${contactR.visible?"visible":""}`} style={{transitionDelay:"300ms"}}>
-                <div className="flex items-center gap-3 text-sm text-slate-500"><Clock  size={14} className="text-blue-900"/><span>{t.contactSection.responseTime}</span></div>
-                <div className="flex items-center gap-3 text-sm text-slate-500"><Globe  size={14} className="text-blue-900"/><span>{t.contactSection.timezone}</span></div>
+                <div className="flex items-center gap-3 text-sm text-slate-500"><Clock size={14} className="text-blue-900"/><span>{t.contactSection.responseTime}</span></div>
+                <div className="flex items-center gap-3 text-sm text-slate-500"><Globe size={14} className="text-blue-900"/><span>{t.contactSection.timezone}</span></div>
               </div>
             </div>
             <div className={`reveal flex flex-col gap-4 ${contactR.visible?"visible":""}`} style={{transitionDelay:"200ms"}}>
-              <a href="mailto:jgnogues99@gmail.com"
-                className="group card-lift flex items-center justify-between px-8 py-6 bg-slate-900 text-white hover:bg-blue-900 transition-all duration-300 rounded-sm">
+              <a href="mailto:jgnogues99@gmail.com" className="group card-lift flex items-center justify-between px-8 py-6 bg-slate-900 text-white hover:bg-blue-900 transition-all duration-300 rounded-sm">
                 <div className="flex items-center gap-4"><Mail size={20}/>
                   <div><div className="font-bold text-sm uppercase tracking-widest">{t.contactSection.emailLabel}</div><div className="text-slate-400 text-xs mt-1 font-light">jgnogues99@gmail.com</div></div>
                 </div>
                 <Send size={18} className="text-slate-400 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"/>
               </a>
-              <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" target="_blank" rel="noreferrer"
-                className="group card-lift flex items-center justify-between px-8 py-6 border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition-all duration-300 rounded-sm">
+              <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" target="_blank" rel="noreferrer" className="group card-lift flex items-center justify-between px-8 py-6 border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition-all duration-300 rounded-sm">
                 <div className="flex items-center gap-4"><Linkedin size={20}/>
                   <div><div className="font-bold text-sm uppercase tracking-widest">{t.contactSection.linkedinLabel}</div><div className="text-slate-400 text-xs mt-1 font-light">linkedin.com/in/juanmanuelgarcia-bi</div></div>
                 </div>
                 <ArrowUpRight size={18} className="text-slate-400 group-hover:text-white transition-colors"/>
               </a>
-              <a href="/files/Juan_Manuel_Garcia_Resume.pdf" target="_blank" rel="noopener noreferrer" download="Juan_Manuel_Garcia_Resume.pdf"
-                className="group card-lift flex items-center justify-between px-8 py-6 border border-slate-200 text-slate-700 hover:border-slate-400 bg-[#FAFAFA] transition-all duration-300 rounded-sm">
+              <ResumeLink lang={lang} className="group card-lift flex items-center justify-between px-8 py-6 border border-slate-200 text-slate-700 hover:border-slate-400 bg-[#FAFAFA] transition-all duration-300 rounded-sm">
                 <div className="flex items-center gap-4"><Download size={20}/>
                   <div><div className="font-bold text-sm uppercase tracking-widest">{t.experience.download}</div><div className="text-slate-400 text-xs mt-1 font-light">PDF · Updated 2026</div></div>
                 </div>
                 <ArrowUpRight size={18} className="text-slate-400 group-hover:text-slate-700 transition-colors"/>
-              </a>
+              </ResumeLink>
             </div>
           </div>
         </div>
@@ -736,12 +628,8 @@ const Portfolio: React.FC = () => {
             <p className="font-sans text-slate-400 text-sm font-light">{t.footer.tagline}</p>
           </div>
           <div className="flex gap-8 items-center">
-            <a href="mailto:jgnogues99@gmail.com" className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors group">
-              <Mail size={16} className="group-hover:scale-110 transition-transform"/> Email
-            </a>
-            <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors group">
-              <Linkedin size={16} className="group-hover:scale-110 transition-transform"/> LinkedIn
-            </a>
+            <a href="mailto:jgnogues99@gmail.com" className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors group"><Mail size={16} className="group-hover:scale-110 transition-transform"/> Email</a>
+            <a href="https://www.linkedin.com/in/juanmanuelgarcia-bi" className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase hover:text-blue-400 transition-colors group"><Linkedin size={16} className="group-hover:scale-110 transition-transform"/> LinkedIn</a>
           </div>
         </div>
         <div className="container mx-auto px-6 md:px-12 mt-8 text-center md:text-left">
@@ -760,9 +648,7 @@ const Portfolio: React.FC = () => {
           <div className="w-full h-full p-4 flex items-center justify-center">
             <img src={project.gallery?.[imgIdx]} className="max-w-full max-h-full object-contain shadow-2xl" alt="Full screen"/>
           </div>
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm font-bold uppercase tracking-widest">
-            {imgIdx+1} / {project.gallery?.length??0}
-          </div>
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm font-bold uppercase tracking-widest">{imgIdx+1} / {project.gallery?.length??0}</div>
         </div>
       )}
 
@@ -771,10 +657,8 @@ const Portfolio: React.FC = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-slate-900/80 backdrop-blur-sm">
           <div className="bg-white w-full max-w-6xl h-full md:h-auto md:max-h-[95vh] overflow-y-auto shadow-2xl flex flex-col lg:flex-row relative animate-fade-in rounded-none md:rounded-sm">
             <button onClick={closeModal} className="fixed top-4 right-4 md:absolute md:top-4 md:right-4 z-50 p-2 bg-white/90 hover:bg-slate-100 rounded-full transition-colors text-slate-900 shadow-lg border border-slate-200 md:border-transparent"><X size={20}/></button>
-
             <div className="lg:w-3/5 bg-[#F0F2F5] relative h-[32vh] md:h-[45vh] lg:h-auto lg:min-h-[400px] flex-shrink-0 flex items-center justify-center p-4 md:p-8">
-              <div className="w-full h-full flex items-center justify-center relative shadow-2xl bg-white rounded-sm overflow-hidden border border-slate-200 group cursor-zoom-in"
-                onClick={()=>setZoom(true)}>
+              <div className="w-full h-full flex items-center justify-center relative shadow-2xl bg-white rounded-sm overflow-hidden border border-slate-200 group cursor-zoom-in" onClick={()=>setZoom(true)}>
                 <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors z-10 flex items-center justify-center pointer-events-none">
                   <div className="opacity-0 group-hover:opacity-100 transition-all scale-90 group-hover:scale-100 bg-white/90 p-3 rounded-full shadow-lg"><Maximize2 size={24}/></div>
                 </div>
@@ -791,23 +675,18 @@ const Portfolio: React.FC = () => {
                   <>
                     <button onClick={prevImg} className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm transition-all z-20"><ChevronLeft size={18}/></button>
                     <button onClick={nextImg} className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm transition-all z-20"><ChevronRight size={18}/></button>
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-sm z-20">
-                      {imgIdx+1} / {project.gallery.length}
-                    </div>
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-sm z-20">{imgIdx+1} / {project.gallery.length}</div>
                   </>
                 )}
               </div>
             </div>
-
             <div className="lg:w-2/5 p-6 md:p-10 lg:p-12 bg-white overflow-y-auto">
               <div className="mb-6 pb-6 border-b border-slate-100">
                 <div className="text-[10px] font-bold text-blue-900 uppercase tracking-[0.2em] mb-3">{project.client}</div>
                 <h2 className="font-serif text-3xl md:text-4xl text-slate-900 mb-4">{project.title}</h2>
                 {project.impactBadges && (
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.impactBadges.map((b,i)=>(
-                      <span key={i} className="text-[10px] bg-blue-50 text-blue-900 px-3 py-1 rounded-sm font-bold uppercase tracking-widest border border-blue-100">{b}</span>
-                    ))}
+                    {project.impactBadges.map((b,i)=>(<span key={i} className="text-[10px] bg-blue-50 text-blue-900 px-3 py-1 rounded-sm font-bold uppercase tracking-widest border border-blue-100">{b}</span>))}
                   </div>
                 )}
                 <p className="font-sans text-sm text-slate-500 leading-relaxed font-light">{project.shortDesc}</p>
@@ -824,26 +703,16 @@ const Portfolio: React.FC = () => {
                 <div>
                   <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">{t.modal.outcomes}</h4>
                   <ul className="space-y-3">
-                    {project.results.map((r,i)=>(
-                      <li key={i} className="flex gap-3 text-sm text-slate-700 font-medium">
-                        <CheckCircle2 size={16} className="text-blue-900 flex-shrink-0 mt-0.5"/><span>{r}</span>
-                      </li>
-                    ))}
+                    {project.results.map((r,i)=>(<li key={i} className="flex gap-3 text-sm text-slate-700 font-medium"><CheckCircle2 size={16} className="text-blue-900 flex-shrink-0 mt-0.5"/><span>{r}</span></li>))}
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-sans text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">{t.modal.tech}</h4>
                   <div className="flex flex-wrap gap-2">
-                    {project.stack.map((s,i)=>(
-                      <span key={i} className="text-xs border border-slate-200 px-3 py-1 text-slate-600 bg-white hover:border-blue-900 hover:text-blue-900 transition-colors">{s}</span>
-                    ))}
+                    {project.stack.map((s,i)=>(<span key={i} className="text-xs border border-slate-200 px-3 py-1 text-slate-600 bg-white hover:border-blue-900 hover:text-blue-900 transition-colors">{s}</span>))}
                   </div>
                 </div>
-                {project.disclaimer && (
-                  <p className="text-xs text-slate-400 italic border-t border-slate-100 pt-4 leading-relaxed">
-                    🔒 {project.disclaimer}
-                  </p>
-                )}
+                {project.disclaimer && (<p className="text-xs text-slate-400 italic border-t border-slate-100 pt-4 leading-relaxed">🔒 {project.disclaimer}</p>)}
               </div>
             </div>
           </div>
