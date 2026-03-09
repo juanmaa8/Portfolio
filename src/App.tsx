@@ -265,7 +265,11 @@ const MetricCard: React.FC<{ value:number; suffix:string; label:string; delay:nu
   const c = useCountUp(value, 1800, inView);
   return (
     <div className={`reveal text-center p-5 md:p-8 border border-slate-700 bg-white/5 hover:bg-white/10 hover:border-blue-400/30 transition-all duration-500 group ${inView?"visible":""}`} style={{ transitionDelay:`${delay}ms` }}>
-      <div className="font-serif text-4xl md:text-6xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors tabular-nums">{c}{suffix}</div>
+      {/* Real value always in DOM for SEO bots — visually hidden, overridden by animated span */}
+      <div className="font-serif text-4xl md:text-6xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors tabular-nums" aria-label={`${value}${suffix}`}>
+        <span aria-hidden="true">{c}{suffix}</span>
+        <span className="sr-only">{value}{suffix}</span>
+      </div>
       <p className="text-sm text-slate-400 font-light leading-relaxed">{label}</p>
     </div>
   );
