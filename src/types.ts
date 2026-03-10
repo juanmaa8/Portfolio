@@ -13,4 +13,5 @@ export interface Project {
   results: string[];
   stack: string[];
   disclaimer?: string;
+  isInteractive?: boolean;
 }
