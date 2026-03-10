@@ -79,7 +79,16 @@ const content = {
         challenge:"Ad-hoc data requests came in from everywhere with no structure. Hard to prioritize, hard to show leadership what the BI function was actually delivering.",
         solution:"Built a simple intake system in Notion categorizing tasks as Strategic vs Maintenance. Added SOPs for recurring requests so nothing fell through the cracks.",
         results:["Created a clear audit trail of completed data projects.","Made it easy to justify time allocation on strategic work.","Built a knowledge base of SOPs for onboarding and reference."],
-        stack:["Notion","SOP Writing","Task Management"] }
+        stack:["Notion","SOP Writing","Task Management"] },
+      { id:4, category:"AI TOOLS & METHODOLOGY", title:"Evaluating AI Tools for Knowledge Work", client:"Personal Research", metrics:"Structured Framework",
+        impactBadges:["Tool Evaluation","BI Workflow","Decision Framework"], tags:["Claude","ChatGPT","NotebookLM","Methodology"],
+        gallery:[],
+        shortDesc:"A structured scoring framework for evaluating AI tools across BI analysis, writing, research, and automation — benchmarked for a knowledge-worker profile.",
+        challenge:"Most AI tool comparisons are either generic (not tailored to BI workflows) or sponsored. There was no honest, task-by-task evaluation from the perspective of someone actually using these tools for data analysis, reporting, and workflow automation.",
+        solution:"Built a 20-task evaluation framework covering 6 categories: BI & Data Analysis, Writing, Research, Automation, Documents, and Career. Each tool rated 1–5 per task with analyst notes distinguishing feature-based claims from observed real-world usage.",
+        results:["Identified clear winner by task category — not a single winner overall.","Found free stack (Claude Pro + ChatGPT Free + NotebookLM) covers most BI analyst needs at $20/mo.","Framework published as an interactive tool — filterable by winner, category, and view mode."],
+        stack:["Claude Pro","ChatGPT","NotebookLM","Research Methodology"],
+        isInteractive: true }
     ],
     experienceList: [
       { role:"Business & BI Analyst", company:"AMG Global Distribution", location:"Miami, FL", period:"Sep 2024 – Present", desc:"Built the company's BI infrastructure from scratch. Replaced manual Excel workflows with an automated SQL + Power BI system that cut reporting time by 80%. Created a profitability model to track margin at the SKU level, improving data accuracy by 25%. Worked closely with Sales and IT to define KPIs for inventory and revenue tracking." },
@@ -156,7 +165,16 @@ const content = {
         challenge:"Las solicitudes ad-hoc llegaban de todos lados sin estructura. Difícil priorizar, difícil mostrar a liderazgo lo que la función de BI estaba entregando.",
         solution:"Construí un sistema de intake simple en Notion categorizando tareas como Estratégicas vs Mantenimiento. Añadí SOPs para solicitudes recurrentes.",
         results:["Creé un historial claro de proyectos de datos completados.","Facilité la justificación de tiempo en trabajo estratégico.","Construí una base de conocimiento de SOPs para referencia y onboarding."],
-        stack:["Notion","Escritura de SOPs","Gestión de Tareas"] }
+        stack:["Notion","Escritura de SOPs","Gestión de Tareas"] },
+      { id:4, category:"HERRAMIENTAS IA & METODOLOGÍA", title:"Evaluando Herramientas de IA para el Trabajo del Conocimiento", client:"Investigación Personal", metrics:"Framework Estructurado",
+        impactBadges:["Evaluación de Herramientas","Flujo de Trabajo BI","Framework de Decisión"], tags:["Claude","ChatGPT","NotebookLM","Metodología"],
+        gallery:[],
+        shortDesc:"Un framework de puntuación estructurado para evaluar herramientas de IA en análisis BI, escritura, investigación y automatización — benchmarked para un perfil de knowledge worker.",
+        challenge:"La mayoría de comparativas de herramientas IA son genéricas o patrocinadas. No existía una evaluación honesta, tarea por tarea, desde la perspectiva de alguien que usa estas herramientas para análisis de datos, reporting y automatización de flujos.",
+        solution:"Construí un framework de evaluación de 20 tareas en 6 categorías: Análisis BI, Escritura, Investigación, Automatización, Documentos y Carrera. Cada herramienta puntuada 1–5 por tarea con notas de analista que distinguen claims documentados de uso real observado.",
+        results:["Identificado ganador claro por categoría de tarea — no un único ganador global.","Stack gratuito (Claude Pro + ChatGPT Free + NotebookLM) cubre la mayoría de necesidades BI a $20/mes.","Framework publicado como herramienta interactiva — filtrable por ganador, categoría y modo de vista."],
+        stack:["Claude Pro","ChatGPT","NotebookLM","Metodología de Investigación"],
+        isInteractive: true }
     ],
     experienceList:[
       { role:"Business & BI Analyst", company:"AMG Global Distribution", location:"Miami, FL", period:"Sep 2024 – Actualidad", desc:"Construí la infraestructura de BI de la empresa desde cero. Reemplacé flujos manuales de Excel con un sistema automatizado SQL + Power BI que redujo el tiempo de reporte en un 80%. Creé un modelo de rentabilidad para rastrear márgenes por SKU, mejorando la precisión de datos en un 25%. Trabajé con Sales e IT para definir KPIs de inventario y seguimiento de ingresos." },
@@ -277,18 +295,22 @@ const MetricCard: React.FC<{ value:number; suffix:string; label:string; delay:nu
 
 const ProjectCard: React.FC<{ project:Project; onClick:()=>void; t:any; delay:number; inView:boolean }> = ({ project,onClick,t,delay,inView }) => {
   const [err, setErr] = useState(false);
+  const accentColor = project.id===1?"bg-blue-900":project.id===2?"bg-slate-500":project.id===4?"bg-blue-600":"bg-slate-300";
   return (
     <div onClick={onClick} data-cursor className={`reveal card-lift group cursor-pointer bg-white border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-200/60 transition-all duration-500 flex flex-col h-full relative ${inView?"visible":""}`} style={{ transitionDelay:`${delay}ms` }}>
-      <div className={`h-1 w-full ${project.id===1?"bg-blue-900":project.id===2?"bg-slate-500":"bg-slate-300"}`} />
+      <div className={`h-1 w-full ${accentColor}`} />
       <div className="h-52 bg-[#F8F9FB] relative overflow-hidden flex items-center justify-center border-b border-slate-100">
         {!err && project.gallery?.length ? (
           <img src={project.gallery[0]} alt={project.title} onError={()=>setErr(true)} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-90 group-hover:opacity-100 group-hover:scale-105" />
         ) : (
           <div className="text-center p-6 transition-transform duration-500 group-hover:-translate-y-1">
             <div className="w-12 h-12 border border-slate-200 bg-white flex items-center justify-center rounded-sm mx-auto mb-4">
-              {project.id===1?<BarChart3 className="text-slate-900"/>:project.id===2?<Code2 className="text-slate-900"/>:<FileText className="text-slate-900"/>}
+              {project.id===1?<BarChart3 className="text-slate-900"/>:project.id===2?<Code2 className="text-slate-900"/>:project.id===4?<Sparkles className="text-blue-600"/>:<FileText className="text-slate-900"/>}
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{t.viewReport}</span>
+            {project.isInteractive
+              ? <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600 border border-blue-100 bg-blue-50 px-2 py-1 rounded-sm">Interactive Tool</span>
+              : <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{t.viewReport}</span>
+            }
           </div>
         )}
         <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-900 border border-slate-200 shadow-sm">{project.category}</div>
@@ -541,7 +563,7 @@ const Portfolio: React.FC = () => {
               <p  className={`reveal font-sans text-slate-500 font-light ${workR.visible?"visible":""}`} style={{transitionDelay:"100ms"}}>{t.work.subtitle}</p>
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {t.projects.map((p:Project,i:number)=>(<ProjectCard key={p.id} project={p} onClick={()=>openProject(p)} t={t.work} delay={i*150} inView={workR.visible} />))}
           </div>
         </div>
@@ -731,6 +753,20 @@ const Portfolio: React.FC = () => {
                   </div>
                 </div>
                 {project.disclaimer && (<p className="text-xs text-slate-400 italic border-t border-slate-100 pt-4 leading-relaxed">🔒 {project.disclaimer}</p>)}
+                {project.isInteractive && (
+                  <div className="border-t border-slate-100 pt-6 mt-2">
+                    <a
+                      href="/ai-tools"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={e => e.stopPropagation()}
+                      className="inline-flex items-center gap-3 px-6 py-3 bg-slate-900 text-white text-xs font-bold tracking-widest uppercase hover:bg-blue-900 transition-all duration-300 rounded-sm"
+                    >
+                      <Sparkles size={14}/> Open Interactive Tool
+                    </a>
+                    <p className="text-[10px] text-slate-400 mt-3 font-light">Filterable by task, tool, and evidence type.</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
