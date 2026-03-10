@@ -325,8 +325,14 @@ const ProjectCard: React.FC<{ project:Project; onClick:()=>void; t:any; delay:nu
                   ))}
                 </div>
               ))}
-              <div className="mt-3 text-center">
-                <span className="text-[9px] font-bold uppercase tracking-widest text-blue-400 border border-blue-800 bg-blue-950/50 px-2 py-1 rounded-sm">Interactive Tool</span>
+              <div className="mt-4 flex flex-col items-center gap-3">
+                <div className="relative flex items-center justify-center">
+                  <span className="absolute inline-flex h-3 w-3 rounded-full bg-blue-500 opacity-60 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-400" />
+                </div>
+                <span className="text-[9px] font-bold uppercase tracking-widest text-blue-400 border border-blue-800 bg-blue-950/50 px-2 py-1 rounded-sm opacity-60 group-hover:opacity-100 group-hover:text-blue-300 group-hover:border-blue-600 transition-all duration-300">
+                  Open Interactive Tool →
+                </span>
               </div>
             </div>
           </div>
