@@ -384,10 +384,10 @@ export default function AIToolsPage() {
             <span className="text-xs font-bold tracking-widest uppercase text-slate-500">Personal Research · {LAST_UPDATED}</span>
           </div>
           <h1 className="font-serif text-4xl md:text-6xl leading-[1.1] text-slate-900 mb-6 max-w-3xl">
-            Evaluating AI Tools<br/><span className="italic text-slate-500">for Knowledge Work</span>
+            AI Stack for BI:<br/><span className="italic text-slate-500">An Honest Comparison</span>
           </h1>
           <p className="font-sans text-lg text-slate-500 leading-relaxed max-w-2xl mb-10 font-light">
-            A structured scoring framework for BI, research, writing, and automation. Benchmarked for a BI analyst / knowledge-worker profile — not a universal benchmark.
+            1+ year with ChatGPT, 2 months with Claude. I ran both through 20 real tasks I do as a BI analyst — SQL, reporting, writing, automation, research. Not a benchmark from a lab. Just what actually works when you use these tools daily.
           </p>
 
           {/* Insights strip */}
@@ -427,9 +427,9 @@ export default function AIToolsPage() {
               label: "Methodology", show: showMethodology, toggle: () => setShowMethodology(s => !s),
               content: [
                 { label: "Scope", value: "Individual plans only ($0–$20/mo). No Business or Enterprise tiers." },
-                { label: "Profile", value: "BI analyst / knowledge worker. Not full-time software engineering." },
-                { label: "Evidence", value: "Feature-based (documented), Workflow-based (tested), Observed in use (personal)." },
-                { label: "Updated", value: `${LAST_UPDATED}. AI features change frequently — treat as a snapshot.` },
+                { label: "Profile", value: "BI analyst using these tools daily for SQL, PowerBI, reporting, writing, and workflow automation. Not a software engineer." },
+                { label: "Evidence", value: "Feature-based (documented), Workflow-based (I tested it), Observed in use (I use it regularly and noticed this)." },
+                { label: "Updated", value: `${LAST_UPDATED}. AI moves fast — treat this as a snapshot, not gospel.` },
               ]
             },
             {
