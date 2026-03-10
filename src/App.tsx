@@ -80,14 +80,14 @@ const content = {
         solution:"Built a simple intake system in Notion categorizing tasks as Strategic vs Maintenance. Added SOPs for recurring requests so nothing fell through the cracks.",
         results:["Created a clear audit trail of completed data projects.","Made it easy to justify time allocation on strategic work.","Built a knowledge base of SOPs for onboarding and reference."],
         stack:["Notion","SOP Writing","Task Management"] },
-      { id:4, category:"AI TOOLS & METHODOLOGY", title:"Evaluating AI Tools for Knowledge Work", client:"Personal Research", metrics:"Structured Framework",
-        impactBadges:["Tool Evaluation","BI Workflow","Decision Framework"], tags:["Claude","ChatGPT","NotebookLM","Methodology"],
+      { id:4, category:"AI TOOLS & METHODOLOGY", title:"AI Stack for BI: An Honest Comparison", client:"Personal Research · 1yr GPT + 2mo Claude", metrics:"20 Tasks · 4 Tools · 6 Categories",
+        impactBadges:["Hands-on Evaluation","BI Workflow","Personal Opinion"], tags:["Claude Pro","ChatGPT","NotebookLM","Real Usage"],
         gallery:[],
-        shortDesc:"A structured scoring framework for evaluating AI tools across BI analysis, writing, research, and automation — benchmarked for a knowledge-worker profile.",
-        challenge:"Most AI tool comparisons are either generic (not tailored to BI workflows) or sponsored. There was no honest, task-by-task evaluation from the perspective of someone actually using these tools for data analysis, reporting, and workflow automation.",
-        solution:"Built a 20-task evaluation framework covering 6 categories: BI & Data Analysis, Writing, Research, Automation, Documents, and Career. Each tool rated 1–5 per task with analyst notes distinguishing feature-based claims from observed real-world usage.",
-        results:["Identified clear winner by task category — not a single winner overall.","Found free stack (Claude Pro + ChatGPT Free + NotebookLM) covers most BI analyst needs at $20/mo.","Framework published as an interactive tool — filterable by winner, category, and view mode."],
-        stack:["Claude Pro","ChatGPT","NotebookLM","Research Methodology"],
+        shortDesc:"After 1+ year with ChatGPT and 2 months with Claude, I ran both through 20 real BI tasks. Not a sponsored comparison — just what actually works for someone doing data analysis and reporting daily.",
+        challenge:"Every AI tool comparison online is either generic, outdated, or quietly sponsored. I wanted to know which tool wins for my specific workflow: SQL, Power BI, reporting, writing, and workflow automation. No benchmarks from labs — just what happens when you actually use them.",
+        solution:"Built a 20-task scoring framework across 6 categories. Each tool rated 1–5 per task with two layers: a general verdict and a personal analyst note based on real usage. The honest answer: Claude wins more categories than I expected — especially context, writing voice, and integrations. ChatGPT still leads on Code Interpreter and image generation.",
+        results:["Claude outperforms on SQL, writing, Notion MCP, and career context — especially with Projects loaded.","ChatGPT Plus wins on file execution (Code Interpreter) and Deep Research.","Full stack at $20/mo: Claude Pro + ChatGPT Free + NotebookLM covers 90% of BI analyst needs."],
+        stack:["Claude Pro","ChatGPT Plus","ChatGPT Free","NotebookLM"],
         isInteractive: true }
     ],
     experienceList: [
@@ -166,14 +166,14 @@ const content = {
         solution:"Construí un sistema de intake simple en Notion categorizando tareas como Estratégicas vs Mantenimiento. Añadí SOPs para solicitudes recurrentes.",
         results:["Creé un historial claro de proyectos de datos completados.","Facilité la justificación de tiempo en trabajo estratégico.","Construí una base de conocimiento de SOPs para referencia y onboarding."],
         stack:["Notion","Escritura de SOPs","Gestión de Tareas"] },
-      { id:4, category:"HERRAMIENTAS IA & METODOLOGÍA", title:"Evaluando Herramientas de IA para el Trabajo del Conocimiento", client:"Investigación Personal", metrics:"Framework Estructurado",
-        impactBadges:["Evaluación de Herramientas","Flujo de Trabajo BI","Framework de Decisión"], tags:["Claude","ChatGPT","NotebookLM","Metodología"],
+      { id:4, category:"HERRAMIENTAS IA & METODOLOGÍA", title:"Stack de IA para BI: Una Comparativa Honesta", client:"Investigación Personal · 1 año GPT + 2 meses Claude", metrics:"20 Tareas · 4 Herramientas · 6 Categorías",
+        impactBadges:["Evaluación Real","Flujo de Trabajo BI","Opinión Personal"], tags:["Claude Pro","ChatGPT","NotebookLM","Uso Real"],
         gallery:[],
-        shortDesc:"Un framework de puntuación estructurado para evaluar herramientas de IA en análisis BI, escritura, investigación y automatización — benchmarked para un perfil de knowledge worker.",
-        challenge:"La mayoría de comparativas de herramientas IA son genéricas o patrocinadas. No existía una evaluación honesta, tarea por tarea, desde la perspectiva de alguien que usa estas herramientas para análisis de datos, reporting y automatización de flujos.",
-        solution:"Construí un framework de evaluación de 20 tareas en 6 categorías: Análisis BI, Escritura, Investigación, Automatización, Documentos y Carrera. Cada herramienta puntuada 1–5 por tarea con notas de analista que distinguen claims documentados de uso real observado.",
-        results:["Identificado ganador claro por categoría de tarea — no un único ganador global.","Stack gratuito (Claude Pro + ChatGPT Free + NotebookLM) cubre la mayoría de necesidades BI a $20/mes.","Framework publicado como herramienta interactiva — filtrable por ganador, categoría y modo de vista."],
-        stack:["Claude Pro","ChatGPT","NotebookLM","Metodología de Investigación"],
+        shortDesc:"Tras más de 1 año con ChatGPT y 2 meses con Claude, comparé ambas herramientas en 20 tareas reales de BI. No es una comparativa patrocinada — es lo que funciona de verdad para alguien que hace análisis de datos y reporting a diario.",
+        challenge:"Todas las comparativas de herramientas IA online son genéricas, desactualizadas o patrocinadas. Quería saber qué herramienta gana para mi flujo concreto: SQL, Power BI, reporting, escritura y automatización. Sin benchmarks de laboratorio — solo lo que pasa cuando las usas de verdad.",
+        solution:"Construí un framework de puntuación de 20 tareas en 6 categorías. Cada herramienta puntuada 1–5 con dos capas: veredicto general y nota personal basada en uso real. La conclusión honesta: Claude gana más categorías de las esperadas — especialmente contexto, voz en escritura e integraciones. ChatGPT sigue liderando en Code Interpreter y generación de imágenes.",
+        results:["Claude supera en SQL, escritura, Notion MCP y contexto de carrera — especialmente con Proyectos cargados.","ChatGPT Plus gana en ejecución de archivos (Code Interpreter) y Deep Research.","Stack completo a $20/mes: Claude Pro + ChatGPT Free + NotebookLM cubre el 90% de las necesidades de un analista BI."],
+        stack:["Claude Pro","ChatGPT Plus","ChatGPT Free","NotebookLM"],
         isInteractive: true }
     ],
     experienceList:[
@@ -302,15 +302,40 @@ const ProjectCard: React.FC<{ project:Project; onClick:()=>void; t:any; delay:nu
       <div className="h-52 bg-[#F8F9FB] relative overflow-hidden flex items-center justify-center border-b border-slate-100">
         {!err && project.gallery?.length ? (
           <img src={project.gallery[0]} alt={project.title} onError={()=>setErr(true)} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-90 group-hover:opacity-100 group-hover:scale-105" />
+        ) : project.id === 4 ? (
+          <div className="w-full h-full bg-slate-900 flex flex-col items-center justify-center p-6 transition-transform duration-500 group-hover:-translate-y-1">
+            <div className="w-full max-w-[220px]">
+              <div className="grid grid-cols-5 gap-1 mb-2">
+                <div className="col-span-2" />
+                {["CLAU","GPT+","FREE","NBLM"].map(t=>(
+                  <div key={t} className="text-[8px] font-bold text-slate-400 text-center uppercase tracking-wide">{t}</div>
+                ))}
+              </div>
+              {[
+                {cat:"Writing", scores:[5,4,3,2], winner:0},
+                {cat:"SQL", scores:[5,4,4,1], winner:0},
+                {cat:"Files", scores:[3,5,3,1], winner:1},
+                {cat:"Research", scores:[4,5,4,5], winner:1},
+                {cat:"Integrations", scores:[5,3,2,2], winner:0},
+              ].map(({cat,scores,winner})=>(
+                <div key={cat} className="grid grid-cols-5 gap-1 mb-1 items-center">
+                  <div className="col-span-2 text-[9px] text-slate-400 font-medium truncate pr-1">{cat}</div>
+                  {scores.map((s,i)=>(
+                    <div key={i} className={`text-center text-[11px] font-bold rounded-sm py-0.5 ${i===winner?"bg-blue-600 text-white":"bg-slate-800 text-slate-400"}`}>{s}</div>
+                  ))}
+                </div>
+              ))}
+              <div className="mt-3 text-center">
+                <span className="text-[9px] font-bold uppercase tracking-widest text-blue-400 border border-blue-800 bg-blue-950/50 px-2 py-1 rounded-sm">Interactive Tool</span>
+              </div>
+            </div>
+          </div>
         ) : (
           <div className="text-center p-6 transition-transform duration-500 group-hover:-translate-y-1">
             <div className="w-12 h-12 border border-slate-200 bg-white flex items-center justify-center rounded-sm mx-auto mb-4">
-              {project.id===1?<BarChart3 className="text-slate-900"/>:project.id===2?<Code2 className="text-slate-900"/>:project.id===4?<Sparkles className="text-blue-600"/>:<FileText className="text-slate-900"/>}
+              {project.id===1?<BarChart3 className="text-slate-900"/>:project.id===2?<Code2 className="text-slate-900"/>:<FileText className="text-slate-900"/>}
             </div>
-            {project.isInteractive
-              ? <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600 border border-blue-100 bg-blue-50 px-2 py-1 rounded-sm">Interactive Tool</span>
-              : <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{t.viewReport}</span>
-            }
+            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{t.viewReport}</span>
           </div>
         )}
         <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-900 border border-slate-200 shadow-sm">{project.category}</div>
