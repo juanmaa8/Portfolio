@@ -1,4 +1,7 @@
 {
+  "rewrites": [
+    { "source": "/((?!files|images|llms.txt|robots.txt|sitemap.xml).*)", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/files/(.*\\.pdf)",
